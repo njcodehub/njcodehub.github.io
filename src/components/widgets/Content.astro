@@ -39,19 +39,19 @@ const {
       subtitle={subtitle}
       tagline={tagline}
       classes={{
-        container: 'max-w-xl sm:mx-auto lg:max-w-2xl',
-        title: 'text-4xl md:text-5xl font-bold tracking-tighter mb-4 font-heading',
-        subtitle: 'max-w-3xl mx-auto sm:text-center text-xl text-muted dark:text-slate-400',
+        container: 'max-w-xl sm:mx-auto lg:max-w-2xl fade-in-element fade-in-delay-1',
+        title: 'text-4xl md:text-5xl font-bold tracking-tighter mb-4 font-heading text-reveal fade-in-delay-2',
+        subtitle: 'max-w-3xl mx-auto sm:text-center text-xl text-muted dark:text-slate-400 fade-in-element fade-in-delay-3',
       }}
     />
     <div class="mx-auto max-w-7xl p-4 md:px-8">
       <div class={`md:flex ${isReversed ? 'md:flex-row-reverse' : ''} md:gap-16`}>
-        <div class="md:basis-1/2 self-center">
-          {content && <div class="mb-12 text-lg dark:text-slate-400" set:html={content} />}
+        <div class="md:basis-1/2 self-center slide-in-left fade-in-delay-4">
+          {content && <div class="mb-12 text-lg dark:text-slate-400 fade-in-element" set:html={content} />}
 
           {
             callToAction && (
-              <div class="mt-[-40px] mb-8 text-primary">
+              <div class="mt-[-40px] mb-8 text-primary fade-in-element fade-in-delay-5">
                 <Button variant="link" {...callToAction} />
               </div>
             )
@@ -63,7 +63,7 @@ const {
             defaultIcon="tabler:check"
             classes={{
               container: `gap-y-4 md:gap-y-8`,
-              panel: 'max-w-none',
+              panel: 'max-w-none fade-in-element',
               title: 'text-lg font-medium leading-6 dark:text-white ml-2 rtl:ml-0 rtl:mr-2',
               description: 'text-muted dark:text-slate-400 ml-2 rtl:ml-0 rtl:mr-2',
               icon: 'flex h-7 w-7 items-center justify-center rounded-full bg-green-600 dark:bg-green-700 text-gray-50 p-1',
@@ -71,10 +71,10 @@ const {
             }}
           />
         </div>
-        <div aria-hidden="true" class="mt-10 md:mt-0 md:basis-1/2">
+        <div aria-hidden="true" class="mt-10 md:mt-0 md:basis-1/2 slide-in-right fade-in-delay-4">
           {
             image && (
-              <div class="relative m-auto max-w-4xl">
+              <div class="relative m-auto max-w-4xl zoom-in">
                 {typeof image === 'string' ? (
                   <Fragment set:html={image} />
                 ) : (

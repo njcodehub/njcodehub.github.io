@@ -29,7 +29,7 @@ const {
       {
         tagline && (
           <p
-            class="hero-tagline text-base text-secondary dark:text-blue-200 font-bold tracking-wide uppercase intersect-once intersect-quarter motion-safe:md:opacity-0 motion-safe:md:intersect:animate-fade"
+            class="hero-tagline text-base text-secondary dark:text-blue-200 font-bold tracking-wide uppercase fade-in-element fade-in-delay-1"
             set:html={tagline}
           />
         )
@@ -37,7 +37,7 @@ const {
       {
         title && (
           <h1
-            class="hero-title text-5xl md:text-6xl font-bold leading-tighter tracking-tighter mb-4 font-heading dark:text-gray-200 intersect-once intersect-quarter motion-safe:md:opacity-0 motion-safe:md:intersect:animate-fade"
+            class="hero-title text-5xl md:text-6xl font-bold leading-tighter tracking-tighter mb-4 font-heading dark:text-gray-200 text-reveal fade-in-delay-2"
             set:html={title}
           />
         )
@@ -46,14 +46,14 @@ const {
         {
           subtitle && (
             <p
-              class="text-xl text-muted mb-6 dark:text-slate-300 intersect-once intersect-quarter motion-safe:md:opacity-0 motion-safe:md:intersect:animate-fade"
+              class="text-xl text-muted mb-6 dark:text-slate-300 fade-in-element fade-in-delay-3"
               set:html={subtitle}
             />
           )
         }
         {
           actions && (
-            <div class="max-w-xs sm:max-w-md m-auto flex flex-nowrap flex-col sm:flex-row sm:justify-center gap-4 intersect-once intersect-quarter motion-safe:md:opacity-0 motion-safe:md:intersect:animate-fade">
+            <div class="max-w-xs sm:max-w-md m-auto flex flex-nowrap flex-col sm:flex-row sm:justify-center gap-4 fade-in-element fade-in-delay-6">
               {Array.isArray(actions) ? (
                 actions.map((action) => (
                   <div class="flex w-full sm:w-auto">
@@ -146,5 +146,25 @@ const {
     display: flex;
     align-items: center;
     justify-content: center;
+  }
+  
+  /* Animation de texte qui se déroule pour le titre */
+  .hero-title.text-reveal {
+    overflow: visible;
+  }
+  
+  .hero-title.text-reveal.visible {
+    animation: slideInFromBottom 1.2s ease forwards;
+  }
+  
+  @keyframes slideInFromBottom {
+    from {
+      transform: translateY(50px);
+      opacity: 0;
+    }
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
   }
 </style>

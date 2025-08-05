@@ -1,7 +1,6 @@
 ---
 import Layout from '~/layouts/PageLayout.astro';
 
-import Header from '~/components/widgets/Header.astro';
 import Hero from '~/components/widgets/Hero.astro';
 import Content from '~/components/widgets/Content.astro';
 import { getPermalink } from '~/utils/permalinks';
@@ -12,258 +11,205 @@ const metadata = {
 ---
 
 <Layout metadata={metadata}>
-  <Fragment slot="announcement"></Fragment>
-  <Fragment slot="header">
-    <Header
-      links={[
-        { text: 'Home', href: '#home' },
-        { text: 'Services', href: '#services' },
-        { text: 'About', href: '#about' },
-      ]}
-      actions={[
-        {
-          text: 'Contact',
-          href: getPermalink('/contact#form'),
-        },
-      ]}
-      isSticky
-      showToggleTheme
-    />
-  </Fragment>
-
-  <!-- Hero2 Widget ******************* -->
-
-  <Hero
-    id="home"
-    title="<span class='text-large'>Embedded software</span> that <span class='highlight-primary'>talks to hardware</span>, <span class='highlight-secondary'>runs on time</span>, and <span class='highlight-accent'>scales</span> with your process."
-    tagline="<span class='highlight'>Startup</span>, <span class='highlight'>SME</span>, or <span class='highlight'>industrial group</span> : if you need extra embedded expertise, I'm here to help."
-    actions={[{ variant: 'primary', text: 'Contact', href: getPermalink('/contact#form') }]}
-  >
-  </Hero>
-  <!-- Content Widget **************** -->
-
- <Content
-   id="services"
-   title="World is waiting for our product"
-   subtitle="Some previous product build here"
-   isReversed
-   image={{
-     src: '~/assets/images/station_air_quality.jpg',
-     alt: 'Tech Design Image',
-   }}
- >
-   <Fragment slot="content">
-     <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">
-       Air quality monitoring
-     </h3>
-     <p>
-       Real time air quality station for our home
-     </p>
-   </Fragment>
- 
-   <Fragment slot="bg">
-     <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
-   </Fragment>
- </Content>
-
- <Content
-   id="about"
-   columns={3}
-   image={{
-     src: '~/assets/images/me.jpg',
-     alt: 'Colorful Image',
-     loading: 'eager',
-     class: 'object-contain h-64 w-64 mx-auto rounded-full mt-8',
-   }}
- >
-   <Fragment slot="content">
-     <h2 class="text-2xl font-bold mb-2">About me</h2>
-     <p>
-       After years in several companies in embedded systems, I'm here at your service.<br />
-       Easy-going girl with a strong sense of doing great work.<br />
-       <br />
-       3 fun facts :<br />
-     </p>
-     <ul class="list-disc pl-6 mt-2 space-y-1">
-       <li>I started my career in a big company, but I prefer small teams where I can make a difference.</li>
-       <li>First time I became team leader, the next 3 months I handled 10 project managers. I prefer delivering good code now.</li>
-       <li>I keep pushing in tech even if I'm almost always the only tech girl in the company. So believe me, I love my job.</li>
-     </ul>
-   </Fragment>
- </Content>
+  <div data-scroll-container>
+    <section data-scroll-section id="home" class="min-h-screen flex items-center justify-center">
+      <Hero
+        title="<span class='text-large'>Embedded software</span> that <span class='highlight-primary'>talks to hardware</span>, <span class='highlight-secondary'>runs on time</span>, and <span class='highlight-accent'>scales</span> with your process."
+        tagline="<span class='highlight'>Startup</span>, <span class='highlight'>SME</span>, or <span class='highlight'>industrial group</span> : if you need extra embedded expertise, I'm here to help."
+        actions={[{ variant: 'primary', text: 'Contact', href: getPermalink('/contact#form') }]}
+      >
+      </Hero>
+    </section>
+    
+    <section data-scroll-section id="services" class="min-h-screen flex items-center justify-center">
+      <Content
+        title="Services"
+        subtitle="What I can do for you"
+        tagline=""
+        content={`<Fragment>
+          <h2 class="text-2xl font-bold mb-2">Embedded Software Development</h2>
+          <p>
+            From concept to production, I develop embedded software that runs on microcontrollers, DSPs, and custom hardware.<br />
+            <br />
+            <strong>Key areas:</strong><br />
+          </p>
+          <ul class="list-disc pl-6 mt-2 space-y-1">
+            <li>Real-time systems and RTOS integration</li>
+            <li>Device drivers and hardware abstraction layers</li>
+            <li>Communication protocols (I2C, SPI, UART, CAN, Ethernet)</li>
+            <li>Sensor integration and signal processing</li>
+            <li>Power management and low-power design</li>
+            <li>Bootloader and firmware update systems</li>
+          </ul>
+        </Fragment>`}
+      >
+      </Content>
+    </section>
+    
+    <section data-scroll-section id="about" class="min-h-screen flex items-center justify-center">
+      <Content
+        title="About"
+        subtitle="Who I am"
+        tagline=""
+        content={`<Fragment>
+          <h2 class="text-2xl font-bold mb-2">About me</h2>
+          <p>
+            After years in several companies in embedded systems, I'm here at your service.<br />
+            Easy-going girl with a strong sense of doing great work.<br />
+            <br />
+            3 fun facts :<br />
+          </p>
+          <ul class="list-disc pl-6 mt-2 space-y-1">
+            <li>I started my career in a big company, but I prefer small teams where I can make a difference.</li>
+            <li>First time I became team leader, the next 3 months I handled 10 project managers. I prefer delivering good code now.</li>
+            <li>I keep pushing in tech even if I'm almost always the only tech girl in the company. So believe me, I love my job.</li>
+          </ul>
+        </Fragment>`}
+      >
+      </Content>
+    </section>
+  </div>
 </Layout>
 
 <script>
-  // Gestion du scroll fluide pour les liens de navigation
+  import LocomotiveScroll from 'locomotive-scroll';
+  import 'locomotive-scroll/dist/locomotive-scroll.css';
+
   document.addEventListener('DOMContentLoaded', function() {
-    console.log('Script loaded - Full page sections');
+    console.log('🚀 Locomotive Scroll loaded');
     
-    // S'assurer que les sections Services et About sont masquées au chargement
-    setTimeout(() => {
-      const servicesSection = document.getElementById('services');
-      const aboutSection = document.getElementById('about');
+    // Configuration simple
+    const scroll = new LocomotiveScroll({
+      el: document.querySelector('[data-scroll-container]'),
+      smooth: true,
+      lerp: 0.1,
+      multiplier: 1
+    });
+    
+    // Fonction pour réinitialiser toutes les animations
+    function resetAllAnimations() {
+      const sections = ['home', 'services', 'about'];
+      sections.forEach(sectionId => {
+        const section = document.getElementById(sectionId);
+        if (section) {
+          const elements = section.querySelectorAll('h1, h2, h3, p, li, .text-large, .highlight-primary, .highlight-secondary, .highlight-accent, .highlight');
+          elements.forEach(el => {
+            const element = el as HTMLElement;
+            element.style.transition = 'none';
+            element.style.opacity = '0';
+            element.style.transform = 'translateY(20px)';
+          });
+        }
+      });
+    }
+    
+    // Fonction simple pour animer
+    function animateSection(sectionId) {
+      const section = document.getElementById(sectionId);
+      if (!section) return;
       
-      if (servicesSection) {
-        servicesSection.classList.remove('visible');
-        console.log('Services section hidden');
-      }
-      if (aboutSection) {
-        aboutSection.classList.remove('visible');
-        console.log('About section hidden');
-      }
-    }, 200);
+      // Trouver tous les éléments à animer
+      const elements = section.querySelectorAll('h1, h2, h3, p, li, .text-large, .highlight-primary, .highlight-secondary, .highlight-accent, .highlight');
+      
+      // Réinitialiser tous les éléments
+      elements.forEach(el => {
+        const element = el as HTMLElement;
+        element.style.opacity = '0';
+        element.style.transform = 'translateY(20px)';
+        element.style.transition = 'none';
+      });
+      
+      // Forcer reflow pour s'assurer que la réinitialisation est appliquée
+      void (section as HTMLElement).offsetHeight;
+      
+      // Animer avec délai
+      elements.forEach((el, index) => {
+        setTimeout(() => {
+          const element = el as HTMLElement;
+          console.log(`🎬 Starting animation for element ${index} in ${sectionId}`);
+          console.log(`🎬 Element before: opacity=${element.style.opacity}, transform=${element.style.transform}`);
+          
+          element.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+          element.style.opacity = '1';
+          element.style.transform = 'translateY(0)';
+          
+          console.log(`🎬 Element after: opacity=${element.style.opacity}, transform=${element.style.transform}`);
+          console.log(`✨ Animated element ${index} in ${sectionId}`);
+        }, index * 100);
+      });
+    }
     
-    // Sélectionner tous les liens avec des ancres
-    const links = document.querySelectorAll('a[href^="#"]');
-    
-    links.forEach(link => {
-      link.addEventListener('click', function(e) {
+    // Gestion des clics sur menu
+    document.addEventListener('click', function(e) {
+      const target = e.target as HTMLElement;
+      const link = target.closest('a[href^="#"]');
+      
+      if (link) {
         e.preventDefault();
-        
-        const href = this.getAttribute('href');
+        const href = link.getAttribute('href');
         if (!href || href === '#') return;
         
         const targetId = href.substring(1);
-        const targetElement = document.getElementById(targetId);
+        console.log(`🖱️ Menu click: ${targetId}`);
         
-        if (targetElement) {
-          console.log('Clicking on:', targetId);
-          
-          // Afficher la section cible si elle est masquée
-          if (targetId === 'services' || targetId === 'about') {
-            targetElement.classList.add('visible');
-            console.log('Section made visible:', targetId);
-          }
-          
-          // Scroll fluide vers l'élément cible avec un délai pour l'animation
-          setTimeout(() => {
-            targetElement.scrollIntoView({
-              behavior: 'smooth',
-              block: 'start'
-            });
-          }, 200);
-          
-          // Mettre à jour l'URL sans recharger la page
-          window.history.pushState(null, '', href);
+        // Debug: afficher la structure de la section
+        const targetSection = document.getElementById(targetId);
+        if (targetSection) {
+          console.log(`🏗️ Section ${targetId} structure:`, targetSection.innerHTML.substring(0, 200));
         }
-      });
+        
+        // Réinitialiser toutes les animations d'abord
+        resetAllAnimations();
+        
+        // Scroll vers la section
+        if (targetSection) {
+          scroll.scrollTo(targetSection, {
+            duration: 1,
+            easing: [0.25, 0.46, 0.45, 0.94]
+          });
+          
+          // Forcer l'animation après le scroll (peu importe l'état actuel)
+          setTimeout(() => {
+            console.log(`🖱️ Forcing animation for ${targetId} after menu click`);
+            animateSection(targetId);
+          }, 500);
+        }
+      }
     });
     
-    // Gestion du scroll pour mettre en surbrillance le lien actif et afficher les sections
-    const sections = document.querySelectorAll('section[id], [id="home"], [id="services"], [id="about"]');
-    const navLinks = document.querySelectorAll('nav a[href^="#"]');
+    // Animation au scroll
+    let currentVisibleSection = '';
     
-    function updateActiveLink() {
-      let current = '';
+    scroll.on('scroll', (_args) => {
+      const sections = ['home', 'services', 'about'];
       const windowHeight = window.innerHeight;
-      const scrollPosition = window.pageYOffset + windowHeight / 2;
       
-      sections.forEach(section => {
-        const sectionTop = (section as HTMLElement).offsetTop;
-        const sectionHeight = (section as HTMLElement).offsetHeight;
-        const sectionId = section.getAttribute('id');
-        
-        // Vérifier si la section est visible au milieu de l'écran
-        if (scrollPosition >= sectionTop && scrollPosition <= sectionTop + sectionHeight) {
-          if (sectionId) {
-            current = sectionId;
-            
-            // Afficher les sections Services et About quand elles deviennent visibles
-            if (sectionId === 'services' || sectionId === 'about') {
-              section.classList.add('visible');
-              console.log('Section became visible via scroll:', sectionId);
+      sections.forEach(sectionId => {
+        const section = document.getElementById(sectionId);
+        if (section) {
+          const rect = section.getBoundingClientRect();
+          
+          // Si la section est visible (critères plus précis)
+          if (rect.top < windowHeight * 0.5 && rect.bottom > windowHeight * 0.5) {
+            // Animer seulement si on a changé de section
+            if (currentVisibleSection !== sectionId) {
+              currentVisibleSection = sectionId;
+              animateSection(sectionId);
             }
           }
         }
       });
-      
-      navLinks.forEach(link => {
-        link.classList.remove('active');
-        const linkHref = link.getAttribute('href');
-        if (linkHref === '#' + current) {
-          link.classList.add('active');
-        }
-      });
-    }
-    
-    // Écouter le scroll pour mettre à jour le lien actif et afficher les sections
-    window.addEventListener('scroll', updateActiveLink);
-    
-    // Initialiser l'état actif au chargement
-    updateActiveLink();
-    
-    // Afficher la section Services si on arrive directement sur cette section via l'URL
-    if (window.location.hash === '#services') {
-      const servicesSection = document.getElementById('services');
-      if (servicesSection) {
-        servicesSection.classList.add('visible');
-        console.log('Services section visible from URL');
-      }
-    }
-    
-    // Afficher la section About si on arrive directement sur cette section via l'URL
-    if (window.location.hash === '#about') {
-      const aboutSection = document.getElementById('about');
-      if (aboutSection) {
-        aboutSection.classList.add('visible');
-        console.log('About section visible from URL');
-      }
-    }
-    
-    // Gestion du scroll avec la molette pour naviguer entre les sections
-    let isScrolling = false;
-    window.addEventListener('wheel', function(e) {
-      if (isScrolling) return;
-      
-      isScrolling = true;
-      setTimeout(() => {
-        isScrolling = false;
-      }, 1000);
-      
-      const currentSection = getCurrentSection();
-      const sections = ['home', 'services', 'about'];
-      const currentIndex = sections.indexOf(currentSection);
-      
-      console.log('Wheel event - Current section:', currentSection, 'Index:', currentIndex);
-      
-      if (e.deltaY > 0 && currentIndex < sections.length - 1) {
-        // Scroll vers le bas - aller à la section suivante
-        const nextSection = document.getElementById(sections[currentIndex + 1]);
-        if (nextSection) {
-          nextSection.classList.add('visible');
-          nextSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
-          window.history.pushState(null, '', '#' + sections[currentIndex + 1]);
-          console.log('Scrolling to next section:', sections[currentIndex + 1]);
-        }
-      } else if (e.deltaY < 0 && currentIndex > 0) {
-        // Scroll vers le haut - aller à la section précédente
-        const prevSection = document.getElementById(sections[currentIndex - 1]);
-        if (prevSection) {
-          prevSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
-          window.history.pushState(null, '', '#' + sections[currentIndex - 1]);
-          console.log('Scrolling to previous section:', sections[currentIndex - 1]);
-        }
-      }
     });
     
-    function getCurrentSection() {
-      const windowHeight = window.innerHeight;
-      const scrollPosition = window.pageYOffset + windowHeight / 2;
-      
-      const sections = ['home', 'services', 'about'];
-      for (const sectionId of sections) {
-        const section = document.getElementById(sectionId);
-        if (section) {
-          const sectionTop = section.offsetTop;
-          const sectionHeight = section.offsetHeight;
-          
-          if (scrollPosition >= sectionTop && scrollPosition <= sectionTop + sectionHeight) {
-            return sectionId;
-          }
-        }
-      }
-      return 'home';
-    }
+    // Animation initiale
+    setTimeout(() => {
+      animateSection('home');
+    }, 300);
+    
+    // Mise à jour au resize
+    window.addEventListener('resize', () => {
+      scroll.update();
+    });
   });
 </script>
 
@@ -273,59 +219,101 @@ const metadata = {
     box-sizing: border-box;
   }
   
+  /* Locomotive Scroll styles */
+  [data-scroll-container] {
+    overflow: hidden;
+  }
+  
+  [data-scroll-section] {
+    position: relative;
+    overflow: hidden;
+  }
+  
   /* Full-page sections */
-  .hero-section, .content-section {
+  [data-scroll-section] {
     min-height: 100vh !important;
-    height: 100vh !important;
     display: flex !important;
     align-items: center !important;
     justify-content: center !important;
     position: relative !important;
+    padding: 2rem 0;
   }
   
-  /* Masquer les sections Services et About par défaut */
-  section[id="services"], section[id="about"] {
-    opacity: 0 !important;
-    transform: translateY(50px) !important;
-    transition: opacity 0.8s ease, transform 0.8s ease !important;
-    pointer-events: none !important;
+  /* Effet de parallaxe subtil */
+  [data-scroll] {
+    will-change: transform;
   }
   
-  /* Afficher les sections quand elles sont visibles */
-  section[id="services"].visible, section[id="about"].visible {
+  /* Animations simples */
+  h1, h2, h3, p, li, .text-large, .highlight-primary, .highlight-secondary, .highlight-accent, .highlight {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+  
+  /* Éléments visibles */
+  h1[style*="opacity: 1"], h2[style*="opacity: 1"], h3[style*="opacity: 1"], 
+  p[style*="opacity: 1"], li[style*="opacity: 1"], 
+  .text-large[style*="opacity: 1"], .highlight-primary[style*="opacity: 1"], 
+  .highlight-secondary[style*="opacity: 1"], .highlight-accent[style*="opacity: 1"], 
+  .highlight[style*="opacity: 1"] {
     opacity: 1 !important;
     transform: translateY(0) !important;
-    pointer-events: auto !important;
+  }
+  
+  /* S'assurer que le header reste toujours visible */
+  header,
+  .aw-header,
+  nav {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    z-index: 1000 !important;
+    background: rgba(255, 255, 255, 0.95) !important;
+    backdrop-filter: blur(10px) !important;
+    -webkit-backdrop-filter: blur(10px) !important;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1) !important;
+  }
+  
+  /* Ajuster le padding-top pour compenser le header fixe */
+  [data-scroll-container] {
+    padding-top: 80px !important;
+  }
+  
+  /* S'assurer que les sections commencent sous le header */
+  [data-scroll-section] {
+    padding-top: 20px !important;
   }
   
   /* Style pour le lien actif dans la navigation */
-  nav a.active {
+  .aw-link-active {
     color: #3b82f6 !important;
-    font-weight: 600 !important;
+    font-weight: 600;
   }
   
-  /* Amélioration du scroll fluide */
+  /* Amélioration du scroll smooth */
   html {
-    scroll-behavior: smooth !important;
+    scroll-behavior: smooth;
   }
   
-  /* Ajustement pour le header sticky */
-  section[id] {
-    scroll-margin-top: 100px !important;
+  /* Optimisation pour mobile */
+  @media (max-width: 768px) {
+    [data-scroll-section] {
+      padding: 1rem 0;
+    }
+    
+    /* Ajuster le padding pour mobile */
+    [data-scroll-container] {
+      padding-top: 60px !important;
+    }
   }
   
-  /* S'assurer que le Hero est visible par défaut */
-  section[id="home"] {
-    opacity: 1 !important;
-    transform: translateY(0) !important;
-    pointer-events: auto !important;
-  }
-  
-  /* Forcer la hauteur de la page */
-  html, body {
-    height: 100% !important;
-    margin: 0 !important;
-    padding: 0 !important;
-    overflow-x: hidden !important;
+  /* Mode sombre pour le header */
+  [data-theme="dark"] header,
+  [data-theme="dark"] .aw-header,
+  [data-theme="dark"] nav {
+    background: rgba(17, 24, 39, 0.95) !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
   }
 </style>
