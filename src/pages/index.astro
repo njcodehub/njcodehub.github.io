@@ -219,6 +219,15 @@ const metadata = {
     box-sizing: border-box;
   }
   
+  /* Fond du site */
+  body {
+    background-color: #eeeeee !important;
+  }
+  
+  [data-scroll-container] {
+    background-color: #eeeeee !important;
+  }
+  
   /* Locomotive Scroll styles */
   [data-scroll-container] {
     overflow: hidden;
@@ -244,11 +253,61 @@ const metadata = {
     will-change: transform;
   }
   
-  /* Animations simples */
+  /* Animations simples - styles de base */
   h1, h2, h3, p, li, .text-large, .highlight-primary, .highlight-secondary, .highlight-accent, .highlight {
     opacity: 0;
     transform: translateY(20px);
     transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+  
+  /* Couleurs des titres */
+  h1, h2, h3 {
+    color: #222831 !important;
+  }
+  
+  /* Couleurs des textes de détails */
+  p, li {
+    color: #393e46 !important;
+  }
+  
+  /* Couleurs des highlights avec effet glow */
+  .highlight-primary, .highlight-secondary, .highlight-accent, .highlight {
+    color: #00adb5 !important;
+    text-shadow: 0 0 20px rgba(0, 173, 181, 0.5) !important;
+  }
+  
+  /* Effet glow pour les boutons primary */
+  .btn-primary {
+    background-color: #00adb5 !important;
+    border-color: #00adb5 !important;
+    box-shadow: 0 0 20px rgba(0, 173, 181, 0.5) !important;
+    color: white !important;
+  }
+  
+  .btn-primary:hover {
+    background-color: #009aa1 !important;
+    border-color: #009aa1 !important;
+    box-shadow: 0 0 30px rgba(0, 173, 181, 0.7) !important;
+    color: white !important;
+  }
+  
+  /* Styles spécifiques pour le bouton Contact dans le header */
+  header .btn-primary,
+  nav .btn-primary,
+  .aw-header .btn-primary {
+    background-color: #00adb5 !important;
+    border-color: #00adb5 !important;
+    box-shadow: 0 0 20px rgba(0, 173, 181, 0.5) !important;
+    color: white !important;
+  }
+  
+  header .btn-primary:hover,
+  nav .btn-primary:hover,
+  .aw-header .btn-primary:hover {
+    background-color: #009aa1 !important;
+    border-color: #009aa1 !important;
+    box-shadow: 0 0 30px rgba(0, 173, 181, 0.7) !important;
+    color: white !important;
   }
   
   /* Éléments visibles */
@@ -288,7 +347,7 @@ const metadata = {
   
   /* Style pour le lien actif dans la navigation */
   .aw-link-active {
-    color: #3b82f6 !important;
+    color: #00adb5 !important;
     font-weight: 600;
   }
   
@@ -309,11 +368,5 @@ const metadata = {
     }
   }
   
-  /* Mode sombre pour le header */
-  [data-theme="dark"] header,
-  [data-theme="dark"] .aw-header,
-  [data-theme="dark"] nav {
-    background: rgba(17, 24, 39, 0.95) !important;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
-  }
+
 </style>

@@ -29,7 +29,7 @@ const {
       {
         tagline && (
           <p
-            class="hero-tagline text-base text-secondary dark:text-blue-200 font-bold tracking-wide uppercase fade-in-element fade-in-delay-1"
+            class="hero-tagline text-base font-bold tracking-wide uppercase fade-in-element fade-in-delay-1"
             set:html={tagline}
           />
         )
@@ -37,7 +37,7 @@ const {
       {
         title && (
           <h1
-            class="hero-title text-5xl md:text-6xl font-bold leading-tighter tracking-tighter mb-4 font-heading dark:text-gray-200 text-reveal fade-in-delay-2"
+            class="hero-title text-5xl md:text-6xl font-bold leading-tighter tracking-tighter mb-4 font-heading text-reveal fade-in-delay-2"
             set:html={title}
           />
         )
@@ -46,7 +46,7 @@ const {
         {
           subtitle && (
             <p
-              class="text-xl text-muted mb-6 dark:text-slate-300 fade-in-element fade-in-delay-3"
+              class="text-xl text-muted mb-6 fade-in-element fade-in-delay-3"
               set:html={subtitle}
             />
           )
@@ -98,27 +98,30 @@ const {
 <style>
   /* Styles pour les highlights dans le titre */
   :global(.hero-title .highlight-primary) {
-    background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+    background: linear-gradient(135deg, #00adb5, #00adb5);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
-    color: #3b82f6;
+    color: #00adb5;
+    text-shadow: 0 0 20px rgba(0, 173, 181, 0.5);
   }
   
   :global(.hero-title .highlight-secondary) {
-    background: linear-gradient(135deg, #10b981, #059669);
+    background: linear-gradient(135deg, #00adb5, #00adb5);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
-    color: #10b981;
+    color: #00adb5;
+    text-shadow: 0 0 20px rgba(0, 173, 181, 0.5);
   }
   
   :global(.hero-title .highlight-accent) {
-    background: linear-gradient(135deg, #8b5cf6, #7c3aed);
+    background: linear-gradient(135deg, #00adb5, #00adb5);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
-    color: #8b5cf6;
+    color: #00adb5;
+    text-shadow: 0 0 20px rgba(0, 173, 181, 0.5);
   }
   
   :global(.hero-title .text-large) {
@@ -133,11 +136,12 @@ const {
   }
   
   :global(.hero-tagline .highlight) {
-    background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+    background: linear-gradient(135deg, #00adb5, #00adb5);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
-    color: #3b82f6;
+    color: #00adb5;
+    text-shadow: 0 0 20px rgba(0, 173, 181, 0.5);
   }
   
   /* Styles pour la section Hero */

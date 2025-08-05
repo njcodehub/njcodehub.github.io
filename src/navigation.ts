@@ -5,6 +5,6 @@ export const headerData = {
     { text: 'About', href: '/#about' },
   ],
   actions: [
-    { text: 'Contact', href: '/contact' },
+    { text: 'Contact', href: '/contact', variant: 'primary' },
   ],
 };

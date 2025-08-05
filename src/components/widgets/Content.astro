@@ -25,7 +25,7 @@ const {
 <section class="content-section relative not-prose min-h-screen flex items-center justify-center" {...id ? { id } : {}}>
   <div class="absolute inset-0 pointer-events-none -z-[1]" aria-hidden="true">
     <slot name="bg">
-      {bg ? <Fragment set:html={bg} /> : <div class="bg-gray-50 dark:bg-slate-900"></div>}
+      {bg ? <Fragment set:html={bg} /> : <div class="bg-gray-50"></div>}
     </slot>
   </div>
   <div
@@ -38,16 +38,16 @@ const {
       title={title}
       subtitle={subtitle}
       tagline={tagline}
-      classes={{
-        container: 'max-w-xl sm:mx-auto lg:max-w-2xl fade-in-element fade-in-delay-1',
-        title: 'text-4xl md:text-5xl font-bold tracking-tighter mb-4 font-heading text-reveal fade-in-delay-2',
-        subtitle: 'max-w-3xl mx-auto sm:text-center text-xl text-muted dark:text-slate-400 fade-in-element fade-in-delay-3',
-      }}
+              classes={{
+          container: 'max-w-xl sm:mx-auto lg:max-w-2xl fade-in-element fade-in-delay-1',
+          title: 'text-4xl md:text-5xl font-bold tracking-tighter mb-4 font-heading text-reveal fade-in-delay-2',
+          subtitle: 'max-w-3xl mx-auto sm:text-center text-xl fade-in-element fade-in-delay-3',
+        }}
     />
     <div class="mx-auto max-w-7xl p-4 md:px-8">
       <div class={`md:flex ${isReversed ? 'md:flex-row-reverse' : ''} md:gap-16`}>
         <div class="md:basis-1/2 self-center slide-in-left fade-in-delay-4">
-          {content && <div class="mb-12 text-lg dark:text-slate-400 fade-in-element" set:html={content} />}
+          {content && <div class="mb-12 text-lg fade-in-element" set:html={content} />}
 
           {
             callToAction && (
@@ -64,10 +64,10 @@ const {
             classes={{
               container: `gap-y-4 md:gap-y-8`,
               panel: 'max-w-none fade-in-element',
-              title: 'text-lg font-medium leading-6 dark:text-white ml-2 rtl:ml-0 rtl:mr-2',
-              description: 'text-muted dark:text-slate-400 ml-2 rtl:ml-0 rtl:mr-2',
-              icon: 'flex h-7 w-7 items-center justify-center rounded-full bg-green-600 dark:bg-green-700 text-gray-50 p-1',
-              action: 'text-lg font-medium leading-6 dark:text-white ml-2 rtl:ml-0 rtl:mr-2',
+              title: 'text-lg font-medium leading-6 ml-2 rtl:ml-0 rtl:mr-2',
+              description: 'ml-2 rtl:ml-0 rtl:mr-2',
+              icon: 'flex h-7 w-7 items-center justify-center rounded-full bg-green-600 text-gray-50 p-1',
+              action: 'text-lg font-medium leading-6 ml-2 rtl:ml-0 rtl:mr-2',
             }}
           />
         </div>
@@ -104,5 +104,26 @@ const {
     display: flex;
     align-items: center;
     justify-content: center;
+  }
+  
+  /* Styles pour les highlights dans le contenu */
+  :global(.content-section .highlight-primary) {
+    color: #00adb5 !important;
+    text-shadow: 0 0 20px rgba(0, 173, 181, 0.5) !important;
+  }
+  
+  :global(.content-section .highlight-secondary) {
+    color: #00adb5 !important;
+    text-shadow: 0 0 20px rgba(0, 173, 181, 0.5) !important;
+  }
+  
+  :global(.content-section .highlight-accent) {
+    color: #00adb5 !important;
+    text-shadow: 0 0 20px rgba(0, 173, 181, 0.5) !important;
+  }
+  
+  :global(.content-section .highlight) {
+    color: #00adb5 !important;
+    text-shadow: 0 0 20px rgba(0, 173, 181, 0.5) !important;
   }
 </style>
