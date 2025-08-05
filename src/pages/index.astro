@@ -4,11 +4,6 @@ import Layout from '~/layouts/PageLayout.astro';
 import Header from '~/components/widgets/Header.astro';
 import Hero from '~/components/widgets/Hero.astro';
 import Content from '~/components/widgets/Content.astro';
-import CallToAction from '~/components/widgets/CallToAction.astro';
-import Features3 from '~/components/widgets/Features3.astro';
-import Testimonials from '~/components/widgets/Testimonials.astro';
-import Steps from '~/components/widgets/Steps.astro';
-import BlogLatestPosts from '~/components/widgets/BlogLatestPosts.astro';
 import { getPermalink } from '~/utils/permalinks';
 
 const metadata = {
@@ -28,7 +23,7 @@ const metadata = {
       actions={[
         {
           text: 'Contact',
-          href: '#',
+          href: getPermalink('/contact#form'),
         },
       ]}
       isSticky
@@ -40,13 +35,10 @@ const metadata = {
 
   <Hero
     id="home"
-    title="Perfect electronic prototype"
-    tagline="Startup : launch our"
+    title="<span class='text-large'>Embedded software</span> that <span class='highlight-primary'>talks to hardware</span>, <span class='highlight-secondary'>runs on time</span>, and <span class='highlight-accent'>scales</span> with your process."
+    tagline="<span class='highlight'>Startup</span>, <span class='highlight'>SME</span>, or <span class='highlight'>industrial group</span> : if you need extra embedded expertise, I'm here to help."
     actions={[{ variant: 'primary', text: 'Contact', href: getPermalink('/contact#form') }]}
   >
-    <Fragment slot="subtitle">
-      Efficient, robust and secure
-    </Fragment>
   </Hero>
   <!-- Content Widget **************** -->
 
@@ -93,10 +85,247 @@ const metadata = {
        3 fun facts :<br />
      </p>
      <ul class="list-disc pl-6 mt-2 space-y-1">
-       <li>I got fired from a Titanic startup, that's why I'm here. Anyway, love them and I hope they'll be ok.</li>
-       <li>First time I became team leader, the next 3 months I handled 10 project managers.</li>
-       <li>I keep pushing in tech even if I'm almost the only tech girl in the company. So believe me, I love my job.</li>
+       <li>I started my career in a big company, but I prefer small teams where I can make a difference.</li>
+       <li>First time I became team leader, the next 3 months I handled 10 project managers. I prefer delivering good code now.</li>
+       <li>I keep pushing in tech even if I'm almost always the only tech girl in the company. So believe me, I love my job.</li>
      </ul>
    </Fragment>
  </Content>
 </Layout>
+
+<script>
+  // Gestion du scroll fluide pour les liens de navigation
+  document.addEventListener('DOMContentLoaded', function() {
+    console.log('Script loaded - Full page sections');
+    
+    // S'assurer que les sections Services et About sont masquées au chargement
+    setTimeout(() => {
+      const servicesSection = document.getElementById('services');
+      const aboutSection = document.getElementById('about');
+      
+      if (servicesSection) {
+        servicesSection.classList.remove('visible');
+        console.log('Services section hidden');
+      }
+      if (aboutSection) {
+        aboutSection.classList.remove('visible');
+        console.log('About section hidden');
+      }
+    }, 200);
+    
+    // Sélectionner tous les liens avec des ancres
+    const links = document.querySelectorAll('a[href^="#"]');
+    
+    links.forEach(link => {
+      link.addEventListener('click', function(e) {
+        e.preventDefault();
+        
+        const href = this.getAttribute('href');
+        if (!href || href === '#') return;
+        
+        const targetId = href.substring(1);
+        const targetElement = document.getElementById(targetId);
+        
+        if (targetElement) {
+          console.log('Clicking on:', targetId);
+          
+          // Afficher la section cible si elle est masquée
+          if (targetId === 'services' || targetId === 'about') {
+            targetElement.classList.add('visible');
+            console.log('Section made visible:', targetId);
+          }
+          
+          // Scroll fluide vers l'élément cible avec un délai pour l'animation
+          setTimeout(() => {
+            targetElement.scrollIntoView({
+              behavior: 'smooth',
+              block: 'start'
+            });
+          }, 200);
+          
+          // Mettre à jour l'URL sans recharger la page
+          window.history.pushState(null, '', href);
+        }
+      });
+    });
+    
+    // Gestion du scroll pour mettre en surbrillance le lien actif et afficher les sections
+    const sections = document.querySelectorAll('section[id], [id="home"], [id="services"], [id="about"]');
+    const navLinks = document.querySelectorAll('nav a[href^="#"]');
+    
+    function updateActiveLink() {
+      let current = '';
+      const windowHeight = window.innerHeight;
+      const scrollPosition = window.pageYOffset + windowHeight / 2;
+      
+      sections.forEach(section => {
+        const sectionTop = (section as HTMLElement).offsetTop;
+        const sectionHeight = (section as HTMLElement).offsetHeight;
+        const sectionId = section.getAttribute('id');
+        
+        // Vérifier si la section est visible au milieu de l'écran
+        if (scrollPosition >= sectionTop && scrollPosition <= sectionTop + sectionHeight) {
+          if (sectionId) {
+            current = sectionId;
+            
+            // Afficher les sections Services et About quand elles deviennent visibles
+            if (sectionId === 'services' || sectionId === 'about') {
+              section.classList.add('visible');
+              console.log('Section became visible via scroll:', sectionId);
+            }
+          }
+        }
+      });
+      
+      navLinks.forEach(link => {
+        link.classList.remove('active');
+        const linkHref = link.getAttribute('href');
+        if (linkHref === '#' + current) {
+          link.classList.add('active');
+        }
+      });
+    }
+    
+    // Écouter le scroll pour mettre à jour le lien actif et afficher les sections
+    window.addEventListener('scroll', updateActiveLink);
+    
+    // Initialiser l'état actif au chargement
+    updateActiveLink();
+    
+    // Afficher la section Services si on arrive directement sur cette section via l'URL
+    if (window.location.hash === '#services') {
+      const servicesSection = document.getElementById('services');
+      if (servicesSection) {
+        servicesSection.classList.add('visible');
+        console.log('Services section visible from URL');
+      }
+    }
+    
+    // Afficher la section About si on arrive directement sur cette section via l'URL
+    if (window.location.hash === '#about') {
+      const aboutSection = document.getElementById('about');
+      if (aboutSection) {
+        aboutSection.classList.add('visible');
+        console.log('About section visible from URL');
+      }
+    }
+    
+    // Gestion du scroll avec la molette pour naviguer entre les sections
+    let isScrolling = false;
+    window.addEventListener('wheel', function(e) {
+      if (isScrolling) return;
+      
+      isScrolling = true;
+      setTimeout(() => {
+        isScrolling = false;
+      }, 1000);
+      
+      const currentSection = getCurrentSection();
+      const sections = ['home', 'services', 'about'];
+      const currentIndex = sections.indexOf(currentSection);
+      
+      console.log('Wheel event - Current section:', currentSection, 'Index:', currentIndex);
+      
+      if (e.deltaY > 0 && currentIndex < sections.length - 1) {
+        // Scroll vers le bas - aller à la section suivante
+        const nextSection = document.getElementById(sections[currentIndex + 1]);
+        if (nextSection) {
+          nextSection.classList.add('visible');
+          nextSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          window.history.pushState(null, '', '#' + sections[currentIndex + 1]);
+          console.log('Scrolling to next section:', sections[currentIndex + 1]);
+        }
+      } else if (e.deltaY < 0 && currentIndex > 0) {
+        // Scroll vers le haut - aller à la section précédente
+        const prevSection = document.getElementById(sections[currentIndex - 1]);
+        if (prevSection) {
+          prevSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          window.history.pushState(null, '', '#' + sections[currentIndex - 1]);
+          console.log('Scrolling to previous section:', sections[currentIndex - 1]);
+        }
+      }
+    });
+    
+    function getCurrentSection() {
+      const windowHeight = window.innerHeight;
+      const scrollPosition = window.pageYOffset + windowHeight / 2;
+      
+      const sections = ['home', 'services', 'about'];
+      for (const sectionId of sections) {
+        const section = document.getElementById(sectionId);
+        if (section) {
+          const sectionTop = section.offsetTop;
+          const sectionHeight = section.offsetHeight;
+          
+          if (scrollPosition >= sectionTop && scrollPosition <= sectionTop + sectionHeight) {
+            return sectionId;
+          }
+        }
+      }
+      return 'home';
+    }
+  });
+</script>
+
+<style>
+  /* Reset et styles de base */
+  * {
+    box-sizing: border-box;
+  }
+  
+  /* Full-page sections */
+  .hero-section, .content-section {
+    min-height: 100vh !important;
+    height: 100vh !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    position: relative !important;
+  }
+  
+  /* Masquer les sections Services et About par défaut */
+  section[id="services"], section[id="about"] {
+    opacity: 0 !important;
+    transform: translateY(50px) !important;
+    transition: opacity 0.8s ease, transform 0.8s ease !important;
+    pointer-events: none !important;
+  }
+  
+  /* Afficher les sections quand elles sont visibles */
+  section[id="services"].visible, section[id="about"].visible {
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+    pointer-events: auto !important;
+  }
+  
+  /* Style pour le lien actif dans la navigation */
+  nav a.active {
+    color: #3b82f6 !important;
+    font-weight: 600 !important;
+  }
+  
+  /* Amélioration du scroll fluide */
+  html {
+    scroll-behavior: smooth !important;
+  }
+  
+  /* Ajustement pour le header sticky */
+  section[id] {
+    scroll-margin-top: 100px !important;
+  }
+  
+  /* S'assurer que le Hero est visible par défaut */
+  section[id="home"] {
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+    pointer-events: auto !important;
+  }
+  
+  /* Forcer la hauteur de la page */
+  html, body {
+    height: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    overflow-x: hidden !important;
+  }
+</style>
