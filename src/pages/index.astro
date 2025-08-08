@@ -24,11 +24,45 @@ const metadata = {
     
     <section data-scroll-section id="services" class="min-h-screen flex items-center justify-center">
       <div class="w-full max-w-7xl mx-auto px-4">
-        <div class="text-center mb-12">
-          <h1 class="text-4xl md:text-5xl font-bold mb-4">Services</h1>
-          <p class="text-xl text-muted">What I can do for you</p>
-        </div>
         <ServiceCards />
+        
+        <div class="text-center mb-12 mt-16">
+          <h2 class="text-3xl md:text-4xl font-bold mb-4">Why choose my services?</h2>
+          <p class="text-xl text-muted">Concrete advantages for your embedded project</p>
+        </div>
+        
+        <div class="grid gap-8 gap-x-12 sm:gap-y-8 lg:grid-cols-3 sm:grid-cols-2 mb-16">
+          <div class="relative flex flex-col intersect-once intersect-quarter intercept-no-queue motion-safe:md:opacity-0 motion-safe:md:intersect:animate-fade rounded-lg shadow-[0_4px_30px_rgba(0,0,0,0.1)] backdrop-blur border border-[#ffffff29] bg-white p-6 hover:shadow-[0_8px_40px_rgba(0,173,181,0.15)] transition-all duration-300 hover:-translate-y-1">
+            <div class="text-xl font-bold mb-2">Focused embedded expertise</div>
+            <p class="text-muted mt-2">100% firmware & hardware integration — no distractions from unrelated fields.</p>
+          </div>
+
+          <div class="relative flex flex-col intersect-once intersect-quarter intercept-no-queue motion-safe:md:opacity-0 motion-safe:md:intersect:animate-fade rounded-lg shadow-[0_4px_30px_rgba(0,0,0,0.1)] backdrop-blur border border-[#ffffff29] bg-white p-6 hover:shadow-[0_8px_40px_rgba(0,173,181,0.15)] transition-all duration-300 hover:-translate-y-1">
+            <div class="text-xl font-bold mb-2">Fast ramp-up</div>
+            <p class="text-muted mt-2">Productive from day one — no heavy onboarding or learning curve.</p>
+          </div>
+
+          <div class="relative flex flex-col intersect-once intersect-quarter intercept-no-queue motion-safe:md:opacity-0 motion-safe:md:intersect:animate-fade rounded-lg shadow-[0_4px_30px_rgba(0,0,0,0.1)] backdrop-blur border border-[#ffffff29] bg-white p-6 hover:shadow-[0_8px_40px_rgba(0,173,181,0.15)] transition-all duration-300 hover:-translate-y-1">
+            <div class="text-xl font-bold mb-2">Direct communication</div>
+            <p class="text-muted mt-2">Single point of contact from start to finish — no multiple layers of management.</p>
+          </div>
+
+          <div class="relative flex flex-col intersect-once intersect-quarter intercept-no-queue motion-safe:md:opacity-0 motion-safe:md:intersect:animate-fade rounded-lg shadow-[0_4px_30px_rgba(0,0,0,0.1)] backdrop-blur border border-[#ffffff29] bg-white p-6 hover:shadow-[0_8px_40px_rgba(0,173,181,0.15)] transition-all duration-300 hover:-translate-y-1">
+            <div class="text-xl font-bold mb-2">Adaptability</div>
+            <p class="text-muted mt-2">Short-term, fixed-price, or critical phase support — whatever fits your project best.</p>
+          </div>
+
+          <div class="relative flex flex-col intersect-once intersect-quarter intercept-no-queue motion-safe:md:opacity-0 motion-safe:md:intersect:animate-fade rounded-lg shadow-[0_4px_30px_rgba(0,0,0,0.1)] backdrop-blur border border-[#ffffff29] bg-white p-6 hover:shadow-[0_8px_40px_rgba(0,173,181,0.15)] transition-all duration-300 hover:-translate-y-1">
+            <div class="text-xl font-bold mb-2">Cost control</div>
+            <p class="text-muted mt-2">Fair pricing for targeted expertise — no unnecessary overhead.</p>
+          </div>
+
+          <div class="relative flex flex-col intersect-once intersect-quarter intercept-no-queue motion-safe:md:opacity-0 motion-safe:md:intersect:animate-fade rounded-lg shadow-[0_4px_30px_rgba(0,0,0,0.1)] backdrop-blur border border-[#ffffff29] bg-white p-6 hover:shadow-[0_8px_40px_rgba(0,173,181,0.15)] transition-all duration-300 hover:-translate-y-1">
+            <div class="text-xl font-bold mb-2">Robust, maintainable code</div>
+            <p class="text-muted mt-2">Firmware designed to last, evolve, and pass real-world tests.</p>
+            <p class="text-sm text-primary-500 mt-3 font-medium">References available on request</p>
+          </div>
+        </div>
       </div>
     </section>
     
@@ -80,7 +114,7 @@ const metadata = {
       if (!section) return;
       
       // Trouver tous les éléments à animer
-      const elements = section.querySelectorAll('h1, h2, h3, p, li, .text-large, .highlight-primary, .highlight-secondary, .highlight-accent, .highlight');
+      const elements = section.querySelectorAll('h1, h2, h3, p, li, .text-large, .highlight-primary, .highlight-secondary, .highlight-accent, .highlight, .border');
       
       console.log(`🎬 Animating section: ${sectionId} with ${elements.length} elements`);
       
@@ -140,10 +174,6 @@ const metadata = {
       currentVisibleSection = 'home';
     }, 500);
     
-
-    
-
-    
     // Animation simple au scroll
     scroll.on('scroll', (_args) => {
       const sections = ['home', 'services', 'about'];
@@ -165,15 +195,17 @@ const metadata = {
       });
     });
     
-    // Animation initiale
-    setTimeout(() => {
-      animateSection('home');
-    }, 300);
-    
     // Mise à jour au resize
     window.addEventListener('resize', () => {
       scroll.update();
     });
+    
+    // S'assurer que le header est blanc au chargement
+    const header = document.querySelector('header');
+    if (header) {
+      header.style.backgroundColor = 'white';
+      header.style.backdropFilter = 'blur(10px)';
+    }
   });
 </script>
 
@@ -222,6 +254,16 @@ const metadata = {
     opacity: 0;
     transform: translateY(20px);
     transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+  
+  /* Éléments visibles après animation */
+  h1[style*="opacity: 1"], h2[style*="opacity: 1"], h3[style*="opacity: 1"], 
+  p[style*="opacity: 1"], li[style*="opacity: 1"], 
+  .text-large[style*="opacity: 1"], .highlight-primary[style*="opacity: 1"], 
+  .highlight-secondary[style*="opacity: 1"], .highlight-accent[style*="opacity: 1"], 
+  .highlight[style*="opacity: 1"] {
+    opacity: 1 !important;
+    transform: translateY(0) !important;
   }
   
   /* Couleurs des titres */
@@ -321,6 +363,41 @@ const metadata = {
     scroll-behavior: smooth;
   }
   
+  /* Force le header à être blanc tout le temps */
+  header,
+  header.sticky,
+  header.relative,
+  header.dark,
+  header[data-aw-sticky-header] {
+    background-color: white !important;
+    backdrop-filter: blur(10px) !important;
+    -webkit-backdrop-filter: blur(10px) !important;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1) !important;
+  }
+  
+  /* S'assurer que le texte reste lisible */
+  header nav a,
+  header nav button {
+    color: #222831 !important;
+  }
+  
+  header nav a:hover,
+  header nav button:hover {
+    color: #00adb5 !important;
+  }
+  
+  /* Style pour le lien actif */
+  header nav a.aw-link-active {
+    color: #00adb5 !important;
+    font-weight: 600;
+  }
+  
+  /* S'assurer que le header est visible au chargement */
+  header {
+    opacity: 1 !important;
+    visibility: visible !important;
+  }
+  
   /* Optimisation pour mobile */
   @media (max-width: 768px) {
     [data-scroll-section] {
@@ -333,5 +410,54 @@ const metadata = {
     }
   }
   
+  /* Styles pour les cartes de fonctionnalités */
+  #services .grid > div {
+    background: rgba(255, 255, 255, 0.95) !important;
+    backdrop-filter: blur(10px) !important;
+    -webkit-backdrop-filter: blur(10px) !important;
+  }
+  
+  #services .grid > div:hover {
+    transform: translateY(-4px) !important;
+    box-shadow: 0 8px 40px rgba(0, 173, 181, 0.2) !important;
+  }
+  
+  /* Styles pour les emojis en arrière-plan */
+  #services .text-8xl {
+    font-size: 6rem !important;
+    line-height: 1 !important;
+    filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.03)) !important;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  }
+  
+  #services .grid > div:hover .text-8xl {
+    opacity: 0.25 !important;
+    transform: scale(1.05) !important;
+  }
+  
+  /* Style pour la référence */
+  #services .text-primary-500 {
+    color: #00adb5 !important;
+  }
+  
+  /* Animation d'entrée pour les cartes */
+  .intersect-once {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  .intersect-once.intersect-quarter {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+  /* Délai d'animation pour chaque carte */
+  #services .grid > div:nth-child(1) { transition-delay: 0.1s; }
+  #services .grid > div:nth-child(2) { transition-delay: 0.2s; }
+  #services .grid > div:nth-child(3) { transition-delay: 0.3s; }
+  #services .grid > div:nth-child(4) { transition-delay: 0.4s; }
+  #services .grid > div:nth-child(5) { transition-delay: 0.5s; }
+  #services .grid > div:nth-child(6) { transition-delay: 0.6s; }
 
 </style>

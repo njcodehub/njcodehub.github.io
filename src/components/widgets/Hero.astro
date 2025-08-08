@@ -23,6 +23,8 @@ const {
     <slot name="bg">
       {bg ? <Fragment set:html={bg} /> : null}
     </slot>
+    <!-- Background MCU image with fade effect -->
+    <div class="fixed inset-0 opacity-30" style="background-image: url('/MCU.png'); background-size: cover; background-position: center; background-repeat: no-repeat; filter: blur(1px) brightness(0.9);"></div>
   </div>
   <div class="relative max-w-7xl mx-auto px-4 sm:px-6 w-full">
     <div class="text-center pb-10 md:pb-16 max-w-5xl mx-auto">
@@ -151,6 +153,8 @@ const {
     align-items: center;
     justify-content: center;
   }
+  
+
   
   /* Animation de texte qui se déroule pour le titre */
   .hero-title.text-reveal {

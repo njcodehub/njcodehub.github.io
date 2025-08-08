@@ -6,11 +6,6 @@
   <!-- Card 1: Embedded C Development & Linux -->
   <div class="service-card">
     <div class="card-header">
-      <div class="card-icon">
-        <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 20 20">
-          <path fill-rule="evenodd" d="M3 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm0 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm0 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm0 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clip-rule="evenodd"></path>
-        </svg>
-      </div>
       <h3 class="card-title">Embedded C Development & Linux</h3>
     </div>
     <div class="card-content">
@@ -19,19 +14,19 @@
       </p>
       <div class="card-features">
         <div class="feature-item">
-          <span class="feature-icon">⚡</span>
+          <span class="feature-icon">•</span>
           <span>Real-time systems & RTOS</span>
         </div>
         <div class="feature-item">
-          <span class="feature-icon">🔧</span>
+          <span class="feature-icon">•</span>
           <span>Drivers & hardware abstraction</span>
         </div>
         <div class="feature-item">
-          <span class="feature-icon">📡</span>
+          <span class="feature-icon">•</span>
           <span>Protocols (I2C, SPI, UART, CAN)</span>
         </div>
         <div class="feature-item">
-          <span class="feature-icon">🌐</span>
+          <span class="feature-icon">•</span>
           <span>Embedded Linux & Yocto</span>
         </div>
       </div>
@@ -42,12 +37,7 @@
   <!-- Card 2: Test Automation & Embedded DevOps -->
   <div class="service-card">
     <div class="card-header">
-      <div class="card-icon">
-        <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 20 20">
-          <path fill-rule="evenodd" d="M11.3 1.046A1 1 0 0112 2v5h4a1 1 0 01.82 1.573l-7 10A1 1 0 018 18v-5H4a1 1 0 01-.82-1.573l7-10a1 1 0 011.12-.38z" clip-rule="evenodd"></path>
-        </svg>
-      </div>
-      <h3 class="card-title">Test Automation & Embedded DevOps</h3>
+      <h3 class="card-title">Embedded DevOps</h3>
     </div>
     <div class="card-content">
       <p class="card-description">
@@ -55,19 +45,19 @@
       </p>
       <div class="card-features">
         <div class="feature-item">
-          <span class="feature-icon">🔄</span>
+          <span class="feature-icon">•</span>
           <span>CI/CD for embedded</span>
         </div>
         <div class="feature-item">
-          <span class="feature-icon">🧪</span>
+          <span class="feature-icon">•</span>
           <span>Automated testing</span>
         </div>
         <div class="feature-item">
-          <span class="feature-icon">📊</span>
+          <span class="feature-icon">•</span>
           <span>Monitoring & metrics</span>
         </div>
         <div class="feature-item">
-          <span class="feature-icon">🚀</span>
+          <span class="feature-icon">•</span>
           <span>Continuous deployment</span>
         </div>
       </div>
@@ -89,7 +79,7 @@
 
   .service-card {
     position: relative;
-    background: rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.95);
     backdrop-filter: blur(10px);
     border: 2px solid rgba(0, 173, 181, 0.3);
     border-radius: 20px;
@@ -225,4 +215,23 @@
       transform: translateY(0);
     }
   }
-</style> 
+
+  /* S'assurer que les cartes restent visibles après animation */
+  .service-card.animated {
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+  }
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const serviceCards = document.querySelectorAll('.service-card');
+    
+    // Marquer les cartes comme animées après leur animation
+    serviceCards.forEach((card, index) => {
+      setTimeout(() => {
+        card.classList.add('animated');
+      }, 600 + (index * 100)); // 600ms pour l'animation + délai par carte
+    });
+  });
+</script> 
