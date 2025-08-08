@@ -5,6 +5,7 @@ import Hero from '~/components/widgets/Hero.astro';
 import Content from '~/components/widgets/Content.astro';
 import ServiceCards from '~/components/widgets/ServiceCards.astro';
 import { getPermalink } from '~/utils/permalinks';
+import profileImage from '~/assets/images/profile.jpg';
 
 const metadata = {
   title: 'Personal Homepage Demo',
@@ -85,6 +86,12 @@ const metadata = {
             <li>I keep pushing in tech even if I'm almost always the only tech girl in the company. So believe me, I love my job.</li>
           </ul>
         </Fragment>`}
+        image={{
+          src: profileImage,
+          alt: 'Professional headshot - Embedded systems engineer',
+          width: 500,
+          height: 500
+        }}
       >
       </Content>
     </section>
