@@ -2,398 +2,469 @@
 import Layout from '~/layouts/PageLayout.astro';
 
 import Hero from '~/components/widgets/Hero.astro';
-import Note from '~/components/widgets/Note.astro';
-import Features from '~/components/widgets/Features.astro';
-import Features2 from '~/components/widgets/Features2.astro';
-import Steps from '~/components/widgets/Steps.astro';
 import Content from '~/components/widgets/Content.astro';
-import BlogLatestPosts from '~/components/widgets/BlogLatestPosts.astro';
-import FAQs from '~/components/widgets/FAQs.astro';
-import Stats from '~/components/widgets/Stats.astro';
-import CallToAction from '~/components/widgets/CallToAction.astro';
+import ServiceCards from '~/components/widgets/ServiceCards.astro';
+import { getPermalink } from '~/utils/permalinks';
+import profileImage from '~/assets/images/profile.jpg';
 
 const metadata = {
-  title: 'AstroWind — Free template for creating websites with Astro + Tailwind CSS',
-  ignoreTitleTemplate: true,
+  title: 'Personal Homepage Demo',
 };
 ---
 
 <Layout metadata={metadata}>
-  <!-- Hero Widget ******************* -->
-
-  <Hero
-    actions={[
-      {
-        variant: 'primary',
-        text: 'Get template',
-        href: 'https://github.com/onwidget/astrowind',
-        target: '_blank',
-        icon: 'tabler:download',
-      },
-      { text: 'Learn more', href: '#features' },
-    ]}
-    image={{ src: '~/assets/images/hero-image.png', alt: 'AstroWind Hero Image' }}
-  >
-    <Fragment slot="title">
-      Free template for <span class="hidden xl:inline">creating websites with</span>
-      <span class="text-accent dark:text-white"> Astro 5.0</span> + Tailwind CSS
-    </Fragment>
-
-    <Fragment slot="subtitle">
-      <span class="hidden sm:inline">
-        <span class="font-semibold">AstroWind</span> is a free, customizable and production-ready template for Astro 5.0
-        + Tailwind CSS.</span
+  <div data-scroll-container>
+    <section data-scroll-section id="home" class="min-h-screen flex items-center justify-center">
+      <Hero
+        title="<span class='text-large'>Embedded software</span> that <span class='highlight-primary'>talks to hardware</span>, <span class='highlight-secondary'>runs on time</span>, and <span class='highlight-accent'>scales</span> with your process."
+        tagline="<span class='highlight'>Startup</span>, <span class='highlight'>SME</span>, or <span class='highlight'>industrial group</span> : if you need extra embedded expertise, I'm here to help."
+        actions={[{ variant: 'primary', text: 'Contact', href: getPermalink('/contact#form') }]}
       >
-      <span class="block mb-1 sm:hidden font-bold text-blue-600">AstroWind: Production-ready.</span>
-      Suitable for Startups, Small Business, SaaS websites, Professional Portfolios, Marketing websites, Landing Pages &
-      Blogs.
-    </Fragment>
-  </Hero>
+      </Hero>
+    </section>
+    
+    <section data-scroll-section id="services" class="min-h-screen flex items-center justify-center">
+      <div class="w-full max-w-7xl mx-auto px-4">
+        <ServiceCards />
+        
+        <div class="text-center mb-12 mt-16">
+          <h2 class="text-3xl md:text-4xl font-bold mb-4">Why choose my services?</h2>
+          <p class="text-xl text-muted">Concrete advantages for your embedded project</p>
+        </div>
+        
+        <div class="grid gap-8 gap-x-12 sm:gap-y-8 lg:grid-cols-3 sm:grid-cols-2 mb-16">
+          <div class="relative flex flex-col intersect-once intersect-quarter intercept-no-queue motion-safe:md:opacity-0 motion-safe:md:intersect:animate-fade rounded-lg shadow-[0_4px_30px_rgba(0,0,0,0.1)] backdrop-blur border border-[#ffffff29] bg-white p-6 hover:shadow-[0_8px_40px_rgba(0,173,181,0.15)] transition-all duration-300 hover:-translate-y-1">
+            <div class="text-xl font-bold mb-2">Focused embedded expertise</div>
+            <p class="text-muted mt-2">100% firmware & hardware integration — no distractions from unrelated fields.</p>
+          </div>
 
-  <!-- Note Widget ******************* -->
+          <div class="relative flex flex-col intersect-once intersect-quarter intercept-no-queue motion-safe:md:opacity-0 motion-safe:md:intersect:animate-fade rounded-lg shadow-[0_4px_30px_rgba(0,0,0,0.1)] backdrop-blur border border-[#ffffff29] bg-white p-6 hover:shadow-[0_8px_40px_rgba(0,173,181,0.15)] transition-all duration-300 hover:-translate-y-1">
+            <div class="text-xl font-bold mb-2">Fast ramp-up</div>
+            <p class="text-muted mt-2">Productive from day one — no heavy onboarding or learning curve.</p>
+          </div>
 
-  <Note title="Philosophy:" description="Simplicity, Best Practices and High Performance" />
+          <div class="relative flex flex-col intersect-once intersect-quarter intercept-no-queue motion-safe:md:opacity-0 motion-safe:md:intersect:animate-fade rounded-lg shadow-[0_4px_30px_rgba(0,0,0,0.1)] backdrop-blur border border-[#ffffff29] bg-white p-6 hover:shadow-[0_8px_40px_rgba(0,173,181,0.15)] transition-all duration-300 hover:-translate-y-1">
+            <div class="text-xl font-bold mb-2">Direct communication</div>
+            <p class="text-muted mt-2">Single point of contact from start to finish — no multiple layers of management.</p>
+          </div>
 
-  <!-- Features Widget *************** -->
+          <div class="relative flex flex-col intersect-once intersect-quarter intercept-no-queue motion-safe:md:opacity-0 motion-safe:md:intersect:animate-fade rounded-lg shadow-[0_4px_30px_rgba(0,0,0,0.1)] backdrop-blur border border-[#ffffff29] bg-white p-6 hover:shadow-[0_8px_40px_rgba(0,173,181,0.15)] transition-all duration-300 hover:-translate-y-1">
+            <div class="text-xl font-bold mb-2">Adaptability</div>
+            <p class="text-muted mt-2">Short-term, fixed-price, or critical phase support — whatever fits your project best.</p>
+          </div>
 
-  <Features
-    id="features"
-    tagline="Features"
-    title="What you get with AstroWind"
-    subtitle="One of the most professional and comprehensive templates currently on the market. Most starred & forked Astro theme in 2022, 2023 and 2024."
-    items={[
-      {
-        title: 'Astro + Tailwind CSS Integration',
-        description:
-          'A seamless integration between two great frameworks that offer high productivity, performance and versatility.',
-        icon: 'tabler:brand-tailwind',
-      },
-      {
-        title: 'Ready-to-use Components',
-        description:
-          'Widgets made with Tailwind CSS ready to be used in Marketing Websites, SaaS, Blogs, Personal Profiles, Small Business...',
-        icon: 'tabler:components',
-      },
-      {
-        title: 'Best Practices',
-        description:
-          'Creating secure, efficient, and user-friendly websites that deliver exceptional experiences and lasting value.',
-        icon: 'tabler:list-check',
-      },
-      {
-        title: 'Excellent Page Speed',
-        description:
-          'Having a good page speed impacts organic search ranking, improves user experience (UI/UX) and increase conversion rates.',
-        icon: 'tabler:rocket',
-      },
-      {
-        title: 'Search Engine Optimization (SEO)',
-        description:
-          "SEO lies in its ability to enhance a website's visibility, driving organic traffic and enabling it to reach a wider audience.",
-        icon: 'tabler:arrows-right-left',
-      },
-      {
-        title: 'Open to new ideas and contributions',
-        description:
-          'Embracing a culture that is open to new ideas and contributions is integral fostering innovation, collaboration, and a dynamic user experience.',
-        icon: 'tabler:bulb',
-      },
-    ]}
-  />
+          <div class="relative flex flex-col intersect-once intersect-quarter intercept-no-queue motion-safe:md:opacity-0 motion-safe:md:intersect:animate-fade rounded-lg shadow-[0_4px_30px_rgba(0,0,0,0.1)] backdrop-blur border border-[#ffffff29] bg-white p-6 hover:shadow-[0_8px_40px_rgba(0,173,181,0.15)] transition-all duration-300 hover:-translate-y-1">
+            <div class="text-xl font-bold mb-2">Cost control</div>
+            <p class="text-muted mt-2">Fair pricing for targeted expertise — no unnecessary overhead.</p>
+          </div>
 
-  <!-- Content Widget **************** -->
-
-  <Content
-    isReversed
-    tagline="Inside template"
-    title="AstroWind's Blueprint: Fun Meets Functionality!"
-    items={[
-      {
-        title: 'Built on top of Astro 5.0',
-        description:
-          'Benefiting from the performance and developer-friendly features of this modern static site generator.',
-      },
-      {
-        title: 'Styled using Tailwind CSS',
-        description:
-          'Facilitating rapid design and consistent styling with this highly popular utility-first CSS framework.',
-      },
-      {
-        title: 'Cross-browser compatibility',
-        description:
-          'Ensure your website looks and functions consistently across various web browsers, delivering a seamless experience to all users.',
-      },
-    ]}
-    image={{
-      src: 'https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
-      alt: 'Colorful Image',
-    }}
-  >
-    <Fragment slot="content">
-      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">Building on modern foundations</h3>
-      Gain a competitive advantage by incorporating industry leading practices
-    </Fragment>
-
-    <Fragment slot="bg">
-      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
-    </Fragment>
-  </Content>
-
-  <!-- Content Widget **************** -->
-
-  <Content
-    isAfterContent
-    items={[
-      {
-        title: 'High level of customization',
-        description: `Tailor the template effortlessly to match your brand's identity and requirements, making your website distinct and saving you time.`,
-      },
-      {
-        title: 'Multiple layout possibilities',
-        description:
-          'Explore various layout options to find the structure that best presents your content, enhancing user engagement and navigation.',
-      },
-      {
-        title: 'Fully responsive design',
-        description:
-          "Ensure your website's optimal performance on various devices and screen sizes, providing a consistent and enjoyable user experience.",
-      },
-      {
-        title: 'Integration of media',
-        description:
-          'Seamlessly incorporate images, videos, and multimedia elements that enhance your content and engage visitors effectively.',
-      },
-    ]}
-    image={{
-      src: 'https://images.unsplash.com/photo-1600132806370-bf17e65e942f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2194&q=80',
-      alt: 'Blueprint Image',
-    }}
-  >
-    <Fragment slot="content">Ensure your online presence truly represents you.</Fragment>
-
-    <Fragment slot="bg">
-      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
-    </Fragment>
-  </Content>
-
-  <!-- Content Widget **************** -->
-
-  <Content
-    isReversed
-    isAfterContent
-    items={[
-      {
-        title: 'Enhanced user engagement',
-        description:
-          'Captivate your audience with interactive elements, intuitive navigation, and visually appealing layouts, encouraging longer visits.',
-      },
-      {
-        title: 'Continuous improvement',
-        description:
-          'Ensure your website stays aligned with the latest trends and technologies through regular updates and enhancements.',
-      },
-      {
-        title: 'Time and resource efficiency',
-        description:
-          'Skip the time-consuming process of building a website from scratch and launch your online presence sooner with AstroWind.',
-      },
-      {
-        title: 'Community support',
-        description: `Join the growing AstroWind community for insights, resources, and assistance, ensuring you're never alone on your web development journey.`,
-      },
-    ]}
-    image={{
-      src: 'https://images.unsplash.com/photo-1611462985358-60d3498e0364?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
-      alt: 'Astronauts Image',
-    }}
-  >
-    <Fragment slot="content">Designed to foster growth and success.</Fragment>
-
-    <Fragment slot="bg">
-      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
-    </Fragment>
-  </Content>
-
-  <!-- Steps Widget ****************** -->
-
-  <Steps
-    title="Get your dream website up and running in no time with AstroWind."
-    items={[
-      {
-        title: 'Step 1: <span class="font-medium">Download</span>',
-        description:
-          "Kickstart with GitHub! Either fork the AstroWind template or simply click 'Use this template'. Your canvas awaits, ready for your digital masterpiece. In just a few clicks, you've already set the foundation.",
-        icon: 'tabler:package',
-      },
-      {
-        title: 'Step 2: <span class="font-medium">Add content</span>',
-        description:
-          "Pour your vision into it. Add images, text, and all that jazz to breathe life into your digital space. Remember, it's the content that tells your story, so make it captivating.",
-        icon: 'tabler:letter-case',
-      },
-      {
-        title: 'Step 3: <span class="font-medium">Customize styles</span>',
-        description:
-          'Give it your personal touch. Tailor colors, fonts, and layouts until it feels just right. Your unique flair, amplified by AstroWind! Precision in design ensures a seamless user experience.',
-        icon: 'tabler:paint',
-      },
-      {
-        title: 'Ready!',
-        icon: 'tabler:check',
-      },
-    ]}
-    image={{
-      src: 'https://images.unsplash.com/photo-1616198814651-e71f960c3180?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=987&q=80',
-      alt: 'Steps image',
-    }}
-  />
-
-  <!-- Features2 Widget ************** -->
-
-  <Features2
-    title="Most used widgets"
-    subtitle="Provides frequently used components for building websites using Tailwind CSS"
-    tagline="Components"
-    items={[
-      {
-        title: 'Headers',
-        description: "Ever tried driving without GPS? Boom! That's why websites need headers for direction.",
-        icon: 'flat-color-icons:template',
-      },
-      {
-        title: 'Heros',
-        description:
-          "Picture a superhero landing – epic, right? That's the job of a Hero section, making grand entrances!",
-        icon: 'flat-color-icons:gallery',
-      },
-      {
-        title: 'Features',
-        description:
-          'Where websites strut their stuff and show off superpowers. No holding back on the bragging rights here!',
-        icon: 'flat-color-icons:approval',
-      },
-      {
-        title: 'Content',
-        description:
-          "Dive into the meat and potatoes of a site; without it, you'd just be window shopping. Content is king.",
-        icon: 'flat-color-icons:document',
-      },
-      {
-        title: 'Call-to-Action',
-        description:
-          'That enthusiastic friend who\'s always urging, "Do it! Do it!"? Yeah, that\'s this button nudging you towards adventure.',
-        icon: 'flat-color-icons:advertising',
-      },
-      {
-        title: 'Pricing',
-        description: 'Behold the dessert menu of the website world. Tempting choices await, can you resist?',
-        icon: 'flat-color-icons:currency-exchange',
-      },
-      {
-        title: 'Testimonial',
-        description: 'Step into the gossip corner! Here, other visitors spill the beans and share the juicy details.',
-        icon: 'flat-color-icons:voice-presentation',
-      },
-      {
-        title: 'Contact',
-        description:
-          'Like a digital mailbox, but faster! Drop a line, ask a question, or send a virtual high-five. Ding! Message in.',
-        icon: 'flat-color-icons:business-contact',
-      },
-      {
-        title: 'Footers',
-        description: "The footer's like the credits of a movie but sprinkled with easter eggs. Time to hunt!",
-        icon: 'flat-color-icons:database',
-      },
-    ]}
-  >
-    <Fragment slot="bg">
-      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
-    </Fragment>
-  </Features2>
-
-  <!-- HighlightedPosts Widget ******* -->
-
-  <BlogLatestPosts
-    title="Find out more content in our Blog"
-    information={`The blog is used to display AstroWind documentation.
-                        Each new article will be an important step that you will need to know to be an expert in creating a website using Astro + Tailwind CSS.
-                        Astro is a very interesting technology. Thanks.
-                `}
-  />
-
-  <!-- FAQs Widget ******************* -->
-
-  <FAQs
-    title="Frequently Asked Questions"
-    subtitle="Dive into the following questions to gain insights into the powerful features that AstroWind offers and how it can elevate your web development journey."
-    tagline="FAQs"
-    classes={{ container: 'max-w-6xl' }}
-    items={[
-      {
-        title: 'Why AstroWind?',
-        description:
-          "Michael Knight a young loner on a crusade to champion the cause of the innocent. The helpless. The powerless in a world of criminals who operate above the law. Here he comes Here comes Speed Racer. He's a demon on wheels.",
-      },
-      {
-        title: 'What do I need to start?',
-        description:
-          'Space, the final frontier. These are the voyages of the Starship Enterprise. Its five-year mission: to explore strange new worlds. Many say exploration is part of our destiny, but it’s actually our duty to future generations.',
-      },
-      {
-        title: 'How to install the Astro + Tailwind CSS template?',
-        description:
-          "Well, the way they make shows is, they make one show. That show's called a pilot. Then they show that show to the people who make shows, and on the strength of that one show they decide if they're going to make more shows.",
-      },
-      {
-        title: "What's something that you don't understand?",
-        description:
-          "A flower in my garden, a mystery in my panties. Heart attack never stopped old Big Bear. I didn't even know we were calling him Big Bear.",
-      },
-      {
-        title: 'What is something that you would like to try again?',
-        description:
-          "A business big enough that it could be listed on the NASDAQ goes belly up. Disappears! It ceases to exist without me. No, you clearly don't know who you're talking to, so let me clue you in.",
-      },
-      {
-        title: 'If you could only ask one question to each person you meet, what would that question be?',
-        description:
-          "This is not about revenge. This is about justice. A lot of things can change in twelve years, Admiral. Well, that's certainly good to know. About four years. I got tired of hearing how young I looked.",
-      },
-    ]}
-  />
-
-  <!-- Stats Widget ****************** -->
-
-  <Stats
-    stats={[
-      { title: 'Downloads', amount: '132K' },
-      { title: 'Stars', amount: '24.8K' },
-      { title: 'Forks', amount: '10.3K' },
-      { title: 'Users', amount: '48.4K' },
-    ]}
-  />
-
-  <!-- CallToAction Widget *********** -->
-
-  <CallToAction
-    actions={[
-      {
-        variant: 'primary',
-        text: 'Get template',
-        href: 'https://github.com/onwidget/astrowind',
-        target: '_blank',
-        icon: 'tabler:download',
-      },
-    ]}
-  >
-    <Fragment slot="title">
-      Astro&nbsp;+&nbsp;<br class="block sm:hidden" /><span class="sm:whitespace-nowrap">Tailwind CSS</span>
-    </Fragment>
-
-    <Fragment slot="subtitle">
-      Be very surprised by these huge fake numbers you are seeing on this page. <br class="hidden md:inline" />Don't
-      waste more time! :P
-    </Fragment>
-  </CallToAction>
+          <div class="relative flex flex-col intersect-once intersect-quarter intercept-no-queue motion-safe:md:opacity-0 motion-safe:md:intersect:animate-fade rounded-lg shadow-[0_4px_30px_rgba(0,0,0,0.1)] backdrop-blur border border-[#ffffff29] bg-white p-6 hover:shadow-[0_8px_40px_rgba(0,173,181,0.15)] transition-all duration-300 hover:-translate-y-1">
+            <div class="text-xl font-bold mb-2">Robust, maintainable code</div>
+            <p class="text-muted mt-2">Firmware designed to last, evolve, and pass real-world tests.</p>
+            <p class="text-sm text-primary-500 mt-3 font-medium">References available on request</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <section data-scroll-section id="about" class="min-h-screen flex items-center justify-center">
+      <Content
+        title="About"
+        subtitle="Who I am"
+        tagline=""
+        content={`<Fragment>
+          <h2 class="text-2xl font-bold mb-2">About me</h2>
+          <p>
+            After years in several companies in embedded systems, I'm here at your service.<br />
+            Easy-going girl with a strong sense of doing great work.<br />
+            <br />
+            3 fun facts :<br />
+          </p>
+          <ul class="list-disc pl-6 mt-2 space-y-1">
+            <li>I started my career in a big company, but I prefer small teams where I can make a difference.</li>
+            <li>First time I became team leader, the next 3 months I handled 10 project managers. I prefer delivering good code now.</li>
+            <li>I keep pushing in tech even if I'm almost always the only tech girl in the company. So believe me, I love my job.</li>
+          </ul>
+        </Fragment>`}
+        image={{
+          src: profileImage,
+          alt: 'Professional headshot - Embedded systems engineer',
+          width: 500,
+          height: 500
+        }}
+      >
+      </Content>
+    </section>
+  </div>
 </Layout>
+
+<script>
+  import LocomotiveScroll from 'locomotive-scroll';
+  import 'locomotive-scroll/dist/locomotive-scroll.css';
+
+  document.addEventListener('DOMContentLoaded', function() {
+    console.log('🚀 Scroll system loaded');
+    
+    // Configuration simple - scroll désactivé, seulement pour les animations
+    const scroll = new LocomotiveScroll({
+      el: document.querySelector('[data-scroll-container]'),
+      smooth: false, // Désactiver le smooth scroll
+      lerp: 0.1,
+      multiplier: 1
+    });
+    
+
+    
+    // Fonction simple pour animer
+    function animateSection(sectionId) {
+      const section = document.getElementById(sectionId);
+      if (!section) return;
+      
+      // Trouver tous les éléments à animer
+      const elements = section.querySelectorAll('h1, h2, h3, p, li, .text-large, .highlight-primary, .highlight-secondary, .highlight-accent, .highlight, .border');
+      
+      console.log(`🎬 Animating section: ${sectionId} with ${elements.length} elements`);
+      
+      // Réinitialiser tous les éléments
+      elements.forEach(el => {
+        const element = el as HTMLElement;
+        element.style.opacity = '0';
+        element.style.transform = 'translateY(20px)';
+        element.style.transition = 'none';
+      });
+      
+      // Forcer reflow pour s'assurer que la réinitialisation est appliquée
+      void (section as HTMLElement).offsetHeight;
+      
+      // Animer avec délai
+      elements.forEach((el, index) => {
+        setTimeout(() => {
+          const element = el as HTMLElement;
+          element.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+          element.style.opacity = '1';
+          element.style.transform = 'translateY(0)';
+        }, index * 50); // Délai réduit pour des animations plus fluides
+      });
+    }
+    
+        // Gestion simple des clics sur menu
+    document.addEventListener('click', function(e) {
+      const target = e.target as HTMLElement;
+      const link = target.closest('a[href^="#"]');
+      
+      if (link) {
+        e.preventDefault();
+        const href = link.getAttribute('href');
+        if (!href || href === '#') return;
+        
+        const targetId = href.substring(1);
+        const targetSection = document.getElementById(targetId);
+        
+        if (targetSection) {
+          // Scroll simple vers la section
+          targetSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          
+          // Animer la section après un court délai
+          setTimeout(() => {
+            animateSection(targetId);
+          }, 500);
+        }
+      }
+    });
+    
+    // Animation au scroll
+    let currentVisibleSection = '';
+    
+    // Animation initiale pour la section home
+    setTimeout(() => {
+      animateSection('home');
+      currentVisibleSection = 'home';
+    }, 500);
+    
+    // Animation simple au scroll
+    scroll.on('scroll', (_args) => {
+      const sections = ['home', 'services', 'about'];
+      const windowHeight = window.innerHeight;
+      
+      sections.forEach(sectionId => {
+        const section = document.getElementById(sectionId);
+        if (section) {
+          const rect = section.getBoundingClientRect();
+          
+          // Si la section est visible
+          if (rect.top < windowHeight * 0.5 && rect.bottom > windowHeight * 0.5) {
+            if (currentVisibleSection !== sectionId) {
+              currentVisibleSection = sectionId;
+              animateSection(sectionId);
+            }
+          }
+        }
+      });
+    });
+    
+    // Mise à jour au resize
+    window.addEventListener('resize', () => {
+      scroll.update();
+    });
+    
+    // S'assurer que le header est blanc au chargement
+    const header = document.querySelector('header');
+    if (header) {
+      header.style.backgroundColor = 'white';
+      header.style.backdropFilter = 'blur(10px)';
+    }
+  });
+</script>
+
+<style>
+  /* Reset et styles de base */
+  * {
+    box-sizing: border-box;
+  }
+  
+  /* Fond du site */
+  body {
+    background-color: #eeeeee !important;
+  }
+  
+  [data-scroll-container] {
+    background-color: #eeeeee !important;
+  }
+  
+  /* Locomotive Scroll styles */
+  [data-scroll-container] {
+    overflow: hidden;
+  }
+  
+  [data-scroll-section] {
+    position: relative;
+    overflow: hidden;
+  }
+  
+  /* Full-page sections */
+  [data-scroll-section] {
+    min-height: 100vh !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    position: relative !important;
+    padding: 2rem 0;
+  }
+  
+  /* Effet de parallaxe subtil */
+  [data-scroll] {
+    will-change: transform;
+  }
+  
+  /* Animations simples - styles de base */
+  h1, h2, h3, p, li, .text-large, .highlight-primary, .highlight-secondary, .highlight-accent, .highlight {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+  
+  /* Éléments visibles après animation */
+  h1[style*="opacity: 1"], h2[style*="opacity: 1"], h3[style*="opacity: 1"], 
+  p[style*="opacity: 1"], li[style*="opacity: 1"], 
+  .text-large[style*="opacity: 1"], .highlight-primary[style*="opacity: 1"], 
+  .highlight-secondary[style*="opacity: 1"], .highlight-accent[style*="opacity: 1"], 
+  .highlight[style*="opacity: 1"] {
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+  }
+  
+  /* Couleurs des titres */
+  h1, h2, h3 {
+    color: #222831 !important;
+  }
+  
+  /* Couleurs des textes de détails */
+  p, li {
+    color: #393e46 !important;
+  }
+  
+  /* Couleurs des highlights avec effet glow */
+  .highlight-primary, .highlight-secondary, .highlight-accent, .highlight {
+    color: #00adb5 !important;
+    text-shadow: 0 0 20px rgba(0, 173, 181, 0.5) !important;
+  }
+  
+  /* Effet glow pour les boutons primary */
+  .btn-primary {
+    background-color: #00adb5 !important;
+    border-color: #00adb5 !important;
+    box-shadow: 0 0 20px rgba(0, 173, 181, 0.5) !important;
+    color: white !important;
+  }
+  
+  .btn-primary:hover {
+    background-color: #009aa1 !important;
+    border-color: #009aa1 !important;
+    box-shadow: 0 0 30px rgba(0, 173, 181, 0.7) !important;
+    color: white !important;
+  }
+  
+  /* Styles spécifiques pour le bouton Contact dans le header */
+  header .btn-primary,
+  nav .btn-primary,
+  .aw-header .btn-primary {
+    background-color: #00adb5 !important;
+    border-color: #00adb5 !important;
+    box-shadow: 0 0 20px rgba(0, 173, 181, 0.5) !important;
+    color: white !important;
+  }
+  
+  header .btn-primary:hover,
+  nav .btn-primary:hover,
+  .aw-header .btn-primary:hover {
+    background-color: #009aa1 !important;
+    border-color: #009aa1 !important;
+    box-shadow: 0 0 30px rgba(0, 173, 181, 0.7) !important;
+    color: white !important;
+  }
+  
+  /* Style pour le lien actif dans la navigation */
+  .aw-link-active {
+    color: #00adb5 !important;
+    font-weight: 600;
+  }
+  
+  /* S'assurer que le header reste visible */
+  [data-aw-sticky-header] {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    z-index: 1000 !important;
+    background: rgba(255, 255, 255, 0.95) !important;
+    backdrop-filter: blur(10px) !important;
+    -webkit-backdrop-filter: blur(10px) !important;
+  }
+  
+  /* S'assurer que le scroll fonctionne correctement */
+  [data-scroll-container] {
+    overflow-y: auto !important;
+    overflow-x: hidden !important;
+  }
+  
+  /* Éléments visibles */
+  h1[style*="opacity: 1"], h2[style*="opacity: 1"], h3[style*="opacity: 1"], 
+  p[style*="opacity: 1"], li[style*="opacity: 1"], 
+  .text-large[style*="opacity: 1"], .highlight-primary[style*="opacity: 1"], 
+  .highlight-secondary[style*="opacity: 1"], .highlight-accent[style*="opacity: 1"], 
+  .highlight[style*="opacity: 1"] {
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+  }
+  
+
+  
+  /* Style pour le lien actif dans la navigation */
+  .aw-link-active {
+    color: #00adb5 !important;
+    font-weight: 600;
+  }
+  
+  /* Amélioration du scroll smooth */
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  /* Force le header à être blanc tout le temps */
+  header,
+  header.sticky,
+  header.relative,
+  header.dark,
+  header[data-aw-sticky-header] {
+    background-color: white !important;
+    backdrop-filter: blur(10px) !important;
+    -webkit-backdrop-filter: blur(10px) !important;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1) !important;
+  }
+  
+  /* S'assurer que le texte reste lisible */
+  header nav a,
+  header nav button {
+    color: #222831 !important;
+  }
+  
+  header nav a:hover,
+  header nav button:hover {
+    color: #00adb5 !important;
+  }
+  
+  /* Style pour le lien actif */
+  header nav a.aw-link-active {
+    color: #00adb5 !important;
+    font-weight: 600;
+  }
+  
+  /* S'assurer que le header est visible au chargement */
+  header {
+    opacity: 1 !important;
+    visibility: visible !important;
+  }
+  
+  /* Optimisation pour mobile */
+  @media (max-width: 768px) {
+    [data-scroll-section] {
+      padding: 1rem 0;
+    }
+    
+    /* Ajuster le padding pour mobile */
+    [data-scroll-container] {
+      padding-top: 60px !important;
+    }
+  }
+  
+  /* Styles pour les cartes de fonctionnalités */
+  #services .grid > div {
+    background: rgba(255, 255, 255, 0.95) !important;
+    backdrop-filter: blur(10px) !important;
+    -webkit-backdrop-filter: blur(10px) !important;
+  }
+  
+  #services .grid > div:hover {
+    transform: translateY(-4px) !important;
+    box-shadow: 0 8px 40px rgba(0, 173, 181, 0.2) !important;
+  }
+  
+  /* Styles pour les emojis en arrière-plan */
+  #services .text-8xl {
+    font-size: 6rem !important;
+    line-height: 1 !important;
+    filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.03)) !important;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  }
+  
+  #services .grid > div:hover .text-8xl {
+    opacity: 0.25 !important;
+    transform: scale(1.05) !important;
+  }
+  
+  /* Style pour la référence */
+  #services .text-primary-500 {
+    color: #00adb5 !important;
+  }
+  
+  /* Animation d'entrée pour les cartes */
+  .intersect-once {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  .intersect-once.intersect-quarter {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+  /* Délai d'animation pour chaque carte */
+  #services .grid > div:nth-child(1) { transition-delay: 0.1s; }
+  #services .grid > div:nth-child(2) { transition-delay: 0.2s; }
+  #services .grid > div:nth-child(3) { transition-delay: 0.3s; }
+  #services .grid > div:nth-child(4) { transition-delay: 0.4s; }
+  #services .grid > div:nth-child(5) { transition-delay: 0.5s; }
+  #services .grid > div:nth-child(6) { transition-delay: 0.6s; }
+
+</style>
