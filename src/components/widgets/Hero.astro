@@ -18,82 +18,161 @@ const {
 } = Astro.props;
 ---
 
-<section class="relative md:-mt-[76px] not-prose" {...id ? { id } : {}}>
+<section class="hero-section relative not-prose min-h-screen flex items-center justify-center" {...id ? { id } : {}}>
   <div class="absolute inset-0 pointer-events-none" aria-hidden="true">
     <slot name="bg">
       {bg ? <Fragment set:html={bg} /> : null}
     </slot>
+    <!-- Background MCU image with fade effect -->
+    <div class="fixed inset-0 opacity-30" style="background-image: url('/MCU.png'); background-size: cover; background-position: center; background-repeat: no-repeat; filter: blur(1px) brightness(0.9);"></div>
   </div>
-  <div class="relative max-w-7xl mx-auto px-4 sm:px-6">
-    <div class="pt-0 md:pt-[76px] pointer-events-none"></div>
-    <div class="py-12 md:py-20">
-      <div class="text-center pb-10 md:pb-16 max-w-5xl mx-auto">
+  <div class="relative max-w-7xl mx-auto px-4 sm:px-6 w-full">
+    <div class="text-center pb-10 md:pb-16 max-w-5xl mx-auto">
+      {
+        tagline && (
+          <p
+            class="hero-tagline text-base font-bold tracking-wide uppercase fade-in-element fade-in-delay-1"
+            set:html={tagline}
+          />
+        )
+      }
+      {
+        title && (
+          <h1
+            class="hero-title text-5xl md:text-6xl font-bold leading-tighter tracking-tighter mb-4 font-heading text-reveal fade-in-delay-2"
+            set:html={title}
+          />
+        )
+      }
+      <div class="max-w-3xl mx-auto">
         {
-          tagline && (
+          subtitle && (
             <p
-              class="text-base text-secondary dark:text-blue-200 font-bold tracking-wide uppercase intersect-once intersect-quarter motion-safe:md:opacity-0 motion-safe:md:intersect:animate-fade"
-              set:html={tagline}
+              class="text-xl text-muted mb-6 fade-in-element fade-in-delay-3"
+              set:html={subtitle}
             />
           )
         }
         {
-          title && (
-            <h1
-              class="text-5xl md:text-6xl font-bold leading-tighter tracking-tighter mb-4 font-heading dark:text-gray-200 intersect-once intersect-quarter motion-safe:md:opacity-0 motion-safe:md:intersect:animate-fade"
-              set:html={title}
-            />
-          )
-        }
-        <div class="max-w-3xl mx-auto">
-          {
-            subtitle && (
-              <p
-                class="text-xl text-muted mb-6 dark:text-slate-300 intersect-once intersect-quarter motion-safe:md:opacity-0 motion-safe:md:intersect:animate-fade"
-                set:html={subtitle}
-              />
-            )
-          }
-          {
-            actions && (
-              <div class="max-w-xs sm:max-w-md m-auto flex flex-nowrap flex-col sm:flex-row sm:justify-center gap-4 intersect-once intersect-quarter motion-safe:md:opacity-0 motion-safe:md:intersect:animate-fade">
-                {Array.isArray(actions) ? (
-                  actions.map((action) => (
-                    <div class="flex w-full sm:w-auto">
-                      <Button {...(action || {})} class="w-full sm:mb-0" />
-                    </div>
-                  ))
-                ) : (
-                  <Fragment set:html={actions} />
-                )}
-              </div>
-            )
-          }
-        </div>
-        {content && <Fragment set:html={content} />}
-      </div>
-      <div
-        class="intersect-once intersect-no-queue intersect-quarter motion-safe:md:opacity-0 motion-safe:md:intersect:animate-fade"
-      >
-        {
-          image && (
-            <div class="relative m-auto max-w-5xl">
-              {typeof image === 'string' ? (
-                <Fragment set:html={image} />
+          actions && (
+            <div class="max-w-xs sm:max-w-md m-auto flex flex-nowrap flex-col sm:flex-row sm:justify-center gap-4 fade-in-element fade-in-delay-6">
+              {Array.isArray(actions) ? (
+                actions.map((action) => (
+                  <div class="flex w-full sm:w-auto">
+                    <Button {...(action || {})} class="w-full sm:mb-0" />
+                  </div>
+                ))
               ) : (
-                <Image
-                  class="mx-auto rounded-md w-full"
-                  widths={[400, 768, 1024, 2040]}
-                  sizes="(max-width: 767px) 400px, (max-width: 1023px) 768px, (max-width: 2039px) 1024px, 2040px"
-                  loading="eager"
-                  width={1024}
-                  height={576}
-                  {...image}
-                />
+                <Fragment set:html={actions} />
               )}
             </div>
           )
         }
       </div>
+      {content && <Fragment set:html={content} />}
+    </div>
+    <div
+      class="intersect-once intercept-no-queue intersect-quarter motion-safe:md:opacity-0 motion-safe:md:intersect:animate-fade"
+    >
+      {
+        image && (
+          <div class="relative m-auto max-w-5xl">
+            {typeof image === 'string' ? (
+              <Fragment set:html={image} />
+            ) : (
+              <Image
+                class="mx-auto rounded-md w-full"
+                widths={[400, 768, 1024, 2040]}
+                sizes="(max-width: 767px) 400px, (max-width: 1023px) 768px, (max-width: 2039px) 1024px, 2040px"
+                loading="eager"
+                width={1024}
+                height={576}
+                {...image}
+              />
+            )}
+          </div>
+        )
+      }
     </div>
   </div>
 </section>
+
+<style>
+  /* Styles pour les highlights dans le titre */
+  :global(.hero-title .highlight-primary) {
+    background: linear-gradient(135deg, #00adb5, #00adb5);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: #00adb5;
+    text-shadow: 0 0 20px rgba(0, 173, 181, 0.5);
+  }
+  
+  :global(.hero-title .highlight-secondary) {
+    background: linear-gradient(135deg, #00adb5, #00adb5);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: #00adb5;
+    text-shadow: 0 0 20px rgba(0, 173, 181, 0.5);
+  }
+  
+  :global(.hero-title .highlight-accent) {
+    background: linear-gradient(135deg, #00adb5, #00adb5);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: #00adb5;
+    text-shadow: 0 0 20px rgba(0, 173, 181, 0.5);
+  }
+  
+  :global(.hero-title .text-large) {
+    font-size: 3.75rem;
+    line-height: 1;
+  }
+  
+  @media (min-width: 768px) {
+    :global(.hero-title .text-large) {
+      font-size: 4.5rem;
+    }
+  }
+  
+  :global(.hero-tagline .highlight) {
+    background: linear-gradient(135deg, #00adb5, #00adb5);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: #00adb5;
+    text-shadow: 0 0 20px rgba(0, 173, 181, 0.5);
+  }
+  
+  /* Styles pour la section Hero */
+  .hero-section {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+
+  
+  /* Animation de texte qui se déroule pour le titre */
+  .hero-title.text-reveal {
+    overflow: visible;
+  }
+  
+  .hero-title.text-reveal.visible {
+    animation: slideInFromBottom 1.2s ease forwards;
+  }
+  
+  @keyframes slideInFromBottom {
+    from {
+      transform: translateY(50px);
+      opacity: 0;
+    }
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+</style>
