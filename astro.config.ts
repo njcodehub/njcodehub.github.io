@@ -23,6 +23,7 @@ const whenExternalScripts = (items: (() => AstroIntegration) | (() => AstroInteg
 
 export default defineConfig({
   output: 'static',
+  outDir: './docs',  // Change output directory to docs for GitHub Pages
 
   integrations: [
     tailwind({
