@@ -4,7 +4,5 @@ export const headerData = {
     { text: 'Services', href: '/#services' },
     { text: 'About', href: '/#about' },
   ],
-  actions: [
-    { text: 'Contact', href: '/contact', variant: 'primary' },
-  ],
+  actions: [{ text: 'Contact', href: '/contact', variant: 'primary' }],
 };

@@ -26,6 +26,7 @@ export interface Props {
   isDark?: boolean;
   isFullWidth?: boolean;
   showRssFeed?: boolean;
+  showToggleTheme?: boolean;
   position?: string;
 }
 
@@ -37,6 +38,7 @@ const {
   isDark = false,
   isFullWidth = false,
   showRssFeed = false,
+  showToggleTheme = false,
   position = 'center',
 } = Astro.props;
 
@@ -143,6 +145,19 @@ const currentPath = `/${trimSlash(new URL(Astro.url).pathname)}`;
           }
         </div>
         {
+          showToggleTheme && (
+            <button
+              id="theme-toggle"
+              type="button"
+              class="text-muted dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-2.5 inline-flex items-center"
+              aria-label="Toggle theme"
+            >
+              <Icon name="tabler:sun" class="w-5 h-5 hidden dark:block" />
+              <Icon name="tabler:moon" class="w-5 h-5 block dark:hidden" />
+            </button>
+          )
+        }
+        {
           actions?.length ? (
             <span class="ml-4 rtl:ml-0 rtl:mr-4">
               {actions.map((btnProps) => (
@@ -170,24 +185,24 @@ const currentPath = `/${trimSlash(new URL(Astro.url).pathname)}`;
     -webkit-backdrop-filter: blur(10px) !important;
     border-bottom: 1px solid rgba(0, 0, 0, 0.1) !important;
   }
-  
+
   /* S'assurer que le texte reste lisible */
   header nav a,
   header nav button {
     color: #222831 !important;
   }
-  
+
   header nav a:hover,
   header nav button:hover {
     color: #00adb5 !important;
   }
-  
+
   /* Style pour le lien actif */
   header nav a.aw-link-active {
     color: #00adb5 !important;
     font-weight: 600;
   }
-  
+
   /* S'assurer que le header est visible au chargement */
   header {
     opacity: 1 !important;

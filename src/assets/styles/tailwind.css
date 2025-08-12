@@ -31,13 +31,13 @@
     border-color: #00adb5 !important;
     box-shadow: 0 0 20px rgba(0, 173, 181, 0.5) !important;
   }
-  
+
   .btn-primary:hover {
     background-color: #009aa1 !important;
     border-color: #009aa1 !important;
     box-shadow: 0 0 30px rgba(0, 173, 181, 0.7) !important;
   }
-  
+
   /* Effet glow pour les boutons primary */
   .btn-primary {
     background-color: #00adb5 !important;
@@ -45,14 +45,14 @@
     box-shadow: 0 0 20px rgba(0, 173, 181, 0.5) !important;
     color: white !important;
   }
-  
+
   .btn-primary:hover {
     background-color: #009aa1 !important;
     border-color: #009aa1 !important;
     box-shadow: 0 0 30px rgba(0, 173, 181, 0.7) !important;
     color: white !important;
   }
-  
+
   /* Styles spécifiques pour le bouton Contact dans le header */
   header .btn-primary,
   nav .btn-primary,
@@ -62,7 +62,7 @@
     box-shadow: 0 0 20px rgba(0, 173, 181, 0.5) !important;
     color: white !important;
   }
-  
+
   header .btn-primary:hover,
   nav .btn-primary:hover,
   .aw-header .btn-primary:hover {

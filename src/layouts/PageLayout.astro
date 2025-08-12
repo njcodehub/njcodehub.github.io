@@ -3,8 +3,7 @@ import Layout from '~/layouts/Layout.astro';
 import Header from '~/components/widgets/Header.astro';
 
 import { headerData } from '~/navigation';
-
-import type { MetaData } from '~/types';
+import type { MetaData, CallToAction } from '~/types';
 
 export interface Props {
   metadata?: MetaData;
@@ -16,7 +15,7 @@ const { metadata } = Astro.props;
 <Layout metadata={metadata}>
   {/* Retire l'annonce */}
   {/* <Announcement /> */}
-  <Header {...headerData} isSticky />
+  <Header links={headerData.links} actions={headerData.actions as CallToAction[]} isSticky={true} />
   <main>
     <slot />
   </main>
