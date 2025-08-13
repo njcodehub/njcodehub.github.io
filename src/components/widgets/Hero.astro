@@ -32,14 +32,7 @@ const {
   </div>
   <div class="relative max-w-7xl mx-auto px-4 sm:px-6 w-full">
     <div class="text-center pb-10 md:pb-16 max-w-5xl mx-auto">
-      {
-        tagline && (
-          <p
-            class="hero-tagline text-base font-bold tracking-wide uppercase"
-            set:html={tagline}
-          />
-        )
-      }
+      {tagline && <p class="hero-tagline text-base font-bold tracking-wide uppercase" set:html={tagline} />}
       {
         title && (
           <h1
@@ -148,6 +141,4 @@ const {
     align-items: center;
     justify-content: center;
   }
-
-
 </style>
