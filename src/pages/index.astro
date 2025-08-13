@@ -113,12 +113,8 @@ const metadata = {
 </Layout>
 
 <script>
-
-
   document.addEventListener('DOMContentLoaded', function () {
     console.log('🚀 Scroll system loaded');
-
-
 
     // Gestion simple des clics sur menu
     document.addEventListener('click', function (e) {
@@ -136,8 +132,6 @@ const metadata = {
         if (targetSection) {
           // Scroll simple vers la section
           targetSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
-          
-
         }
       }
     });
@@ -175,8 +169,6 @@ const metadata = {
     position: relative !important;
     padding: 2rem 0;
   }
-
-
 
   /* Couleurs des titres */
   h1,
@@ -343,25 +335,8 @@ const metadata = {
     box-shadow: 0 8px 40px rgba(0, 173, 181, 0.2) !important;
   }
 
-  /* Styles pour les emojis en arrière-plan */
-  #services .text-8xl {
-    font-size: 6rem !important;
-    line-height: 1 !important;
-    filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.03)) !important;
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
-  }
-
-  #services .grid > div:hover .text-8xl {
-    opacity: 0.25 !important;
-    transform: scale(1.05) !important;
-  }
-
   /* Style pour la référence */
   #services .text-primary-500 {
     color: #00adb5 !important;
   }
-
-
-
-
 </style>
