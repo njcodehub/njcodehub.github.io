@@ -1,0 +1,213 @@
+---
+import Layout from '~/layouts/LandingLayout.astro';
+import { getPermalink } from '~/utils/permalinks';
+---
+
+<Layout>
+  <div>
+    <!-- Hero Section -->
+    <section class="min-h-screen flex items-center justify-center relative overflow-hidden">
+      <!-- Background Image -->
+      <div
+        class="fixed inset-0 opacity-30 z-0"
+        style="background-image: url('/MCU.png'); background-size: cover; background-position: center; background-repeat: no-repeat; filter: blur(1px) brightness(0.9);"
+      >
+      </div>
+      <!-- Content -->
+      <div class="relative z-10 w-full max-w-7xl mx-auto px-4 text-center">
+        <h1 class="text-4xl md:text-6xl font-bold mb-6">
+          <span class="text-[#00adb5]">My Work</span> Speaks for Itself
+        </h1>
+        <p class="text-xl text-gray-600 mb-12 max-w-3xl mx-auto">
+          Real projects, real results. Here's what I've built in embedded systems.
+        </p>
+      </div>
+    </section>
+
+    <!-- Project Section -->
+    <section class="py-20 bg-white">
+      <div class="w-full max-w-7xl mx-auto px-4">
+        <div class="text-center mb-16">
+          <h2 class="text-3xl md:text-4xl font-bold mb-4">Hardware Test System</h2>
+          <p class="text-xl text-gray-600">Complete embedded system with custom PCB, sensors, and web API</p>
+        </div>
+
+        <!-- Diagram -->
+        <div class="mb-16 flex justify-center">
+          <div class="service-card no-hover max-w-4xl">
+            <img
+              src="/hardware-design.svg"
+              alt="Hardware Design Architecture - Embedded System with sensors, microcontrollers, and web API"
+              class="w-full h-auto bg-white"
+              style="background-color: white;"
+            />
+          </div>
+        </div>
+
+        <!-- Project Description -->
+        <div class="max-w-4xl mx-auto">
+          <h3 class="text-2xl font-bold mb-6 text-center">Key Contributions</h3>
+
+          <div class="grid md:grid-cols-2 gap-8">
+            <!-- Hardware & Integration -->
+            <div class="service-card">
+              <div class="card-header">
+                <h3 class="card-title">Hardware & Integration</h3>
+              </div>
+              <div class="card-content">
+                <div class="card-description space-y-3 text-center">
+                  <div>Component wiring coordination with mechanical team</div>
+                  <div>Test bench version management (V1/V2) via JSON API</div>
+                  <div>Microcontroller integration in Linux build system (Yocto)</div>
+                  <div>Firmware adaptation for different test bench versions</div>
+                </div>
+              </div>
+              <div class="card-glow"></div>
+            </div>
+
+            <!-- Software & Development -->
+            <div class="service-card">
+              <div class="card-header">
+                <h3 class="card-title">Software & Development</h3>
+              </div>
+              <div class="card-content">
+                <div class="card-description space-y-3 text-center">
+                  <div>FastAPI endpoints for new features</div>
+                  <div>Automated testing with pytest and CI/CD</div>
+                  <div>Modbus protocol implementation</div>
+                  <div>Sensor configuration and documentation</div>
+                </div>
+              </div>
+              <div class="card-glow"></div>
+            </div>
+          </div>
+
+          <!-- Technologies Used -->
+          <div class="service-card white-static mt-12 text-center">
+            <h4 class="text-xl font-semibold mb-6">Technologies & Protocols</h4>
+            <div class="flex flex-wrap justify-center gap-3">
+              <span class="px-4 py-2 bg-[#00adb5] text-white rounded-full text-sm font-medium">ST Microcontroller</span>
+              <span class="px-4 py-2 bg-[#00adb5] text-white rounded-full text-sm font-medium">C</span>
+              <span class="px-4 py-2 bg-[#00adb5] text-white rounded-full text-sm font-medium">Python3</span>
+              <span class="px-4 py-2 bg-[#00adb5] text-white rounded-full text-sm font-medium">FastAPI</span>
+              <span class="px-4 py-2 bg-[#00adb5] text-white rounded-full text-sm font-medium">Modbus</span>
+              <span class="px-4 py-2 bg-[#00adb5] text-white rounded-full text-sm font-medium">RS485</span>
+              <span class="px-4 py-2 bg-[#00adb5] text-white rounded-full text-sm font-medium">1-Wire</span>
+              <span class="px-4 py-2 bg-[#00adb5] text-white rounded-full text-sm font-medium">Yocto</span>
+              <span class="px-4 py-2 bg-[#00adb5] text-white rounded-full text-sm font-medium">Linux</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-20 border-t border-gray-200">
+      <div class="service-card white-static max-w-4xl mx-auto">
+        <div class="text-center">
+          <h2 class="text-3xl md:text-4xl font-bold text-[#00adb5] mb-6">Ready to Build Something Amazing?</h2>
+          <p class="text-xl text-gray-600 mb-8">
+            Let's discuss your embedded project and how I can help bring it to life.
+          </p>
+          <a
+            href={getPermalink('/contact')}
+            class="inline-block bg-[#00adb5] text-white px-8 py-4 rounded-full font-semibold text-lg hover:bg-[#009aa1] transition-colors duration-300 shadow-lg hover:shadow-xl"
+          >
+            Start Your Project
+          </a>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <style>
+    .service-card {
+      position: relative;
+      background: white !important;
+      backdrop-filter: none !important;
+      border: 2px solid rgba(0, 173, 181, 0.3);
+      border-radius: 20px;
+      padding: 2rem;
+      transition: all 0.3s ease;
+      overflow: hidden;
+      min-height: 200px;
+      display: flex;
+      flex-direction: column;
+      cursor: pointer;
+    }
+
+    .service-card:hover {
+      transform: translateY(-10px);
+      border-color: #00adb5;
+      box-shadow: 0 20px 40px rgba(0, 173, 181, 0.3);
+    }
+
+    /* Carte sans effet de survol pour le diagramme */
+    .service-card.no-hover:hover {
+      transform: none;
+      border-color: rgba(0, 173, 181, 0.3);
+      box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Carte blanche sans animation pour technologies et CTA */
+    .service-card.white-static {
+      background: white !important;
+      border: 2px solid rgba(0, 173, 181, 0.3);
+      cursor: default;
+    }
+
+    .service-card.white-static:hover {
+      transform: none;
+      border-color: rgba(0, 173, 181, 0.3);
+      box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    }
+
+    .card-header {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .card-title {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #222831;
+      margin: 0;
+      line-height: 1.3;
+      text-align: center;
+      width: 100%;
+    }
+
+    .card-content {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .card-description {
+      font-size: 1.1rem;
+      color: #666;
+      line-height: 1.6;
+      text-align: center;
+      margin: 0;
+    }
+
+    .card-glow {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(135deg, rgba(0, 173, 181, 0.1), rgba(0, 154, 161, 0.1));
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      pointer-events: none;
+    }
+
+    .service-card:hover .card-glow {
+      opacity: 1;
+    }
+  </style>
+</Layout>
