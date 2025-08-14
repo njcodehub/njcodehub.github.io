@@ -16,8 +16,8 @@ const metadata = {
   <div>
     <section id="home" class="min-h-screen flex items-center justify-center">
       <Hero
-        title="<span class='text-large'>Embedded software</span> that <span class='highlight-primary'>talks to hardware</span>, <span class='highlight-secondary'>runs on time</span>, and <span class='highlight-accent'>scales</span> with your process."
-        tagline="<span class='highlight'>Startup</span>, <span class='highlight'>SME</span>, or <span class='highlight'>industrial group</span> : if you need extra embedded expertise, I'm here to help."
+        title="Let's <span class='text-[#00adb5] font-bold' style='text-shadow: 0 0 20px rgba(0, 173, 181, 0.5);'>fix</span> this <span class='text-[#00adb5] font-bold' style='text-shadow: 0 0 20px rgba(0, 173, 181, 0.5);'>NOW</span>"
+        tagline="<span class='text-lg'>Every day you wait <span class='text-[#00adb5] font-bold'>money down</span> the drain, <span class='text-[#00adb5] font-bold'>time is running out</span></span><br/><span class='text-xl'>and <span class='text-[#00adb5] font-bold'>your embedded project</span> is still in the starting blocks?</span>"
         actions={[{ variant: 'primary', text: 'Contact', href: getPermalink('/contact#form') }]}
       />
     </section>
@@ -167,9 +167,21 @@ const metadata = {
   }
 
   /* Couleurs des highlights avec effet glow */
-  .highlight-primary,
-  .highlight-secondary,
-  .highlight-accent,
+  .highlight-primary {
+    color: #00adb5 !important;
+    text-shadow: 0 0 20px rgba(0, 173, 181, 0.5) !important;
+  }
+
+  .highlight-secondary {
+    color: #009aa1 !important;
+    text-shadow: 0 0 20px rgba(0, 154, 161, 0.5) !important;
+  }
+
+  .highlight-accent {
+    color: #0066cc !important;
+    text-shadow: 0 0 20px rgba(0, 102, 204, 0.5) !important;
+  }
+
   .highlight {
     color: #00adb5 !important;
     text-shadow: 0 0 20px rgba(0, 173, 181, 0.5) !important;
