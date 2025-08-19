@@ -16,8 +16,7 @@ const metadata = {
   <div>
     <section id="home" class="min-h-screen flex items-center justify-center">
       <Hero
-        title="<span class='text-[rgb(224,233,234)] font-bold'>Unlock the power of your data with a <span class='text-[#00adb5] font-bold'>sensors monitoring system</span>"
-        tagline="<span class='text-[rgb(224,233,234)] font-bold'>Get clear, reliable data for your business </span>"
+        title="<span class='text-[rgb(224,233,234)] font-bold'>Get <span class='text-[#00adb5] font-bold'>reliable </span> <span class='text-[rgb(224,233,234)] font-bold'>system"
         actions={[{ variant: 'primary', text: 'Contact', href: getPermalink('/contact#form') }]}
       />
     </section>
@@ -30,30 +29,14 @@ const metadata = {
       </div>
     </section>
 
-    <section id="about" class="min-h-screen flex items-center justify-center">
+    <section id="about" class="min-h-screen px-10 flex items-center justify-center">
+      <div class="mx-auto"></div>
       <Content
-        title="About"
-        subtitle="Who I am"
-        tagline=""
-        content={`<Fragment>
-          <h2 class="text-2xl font-bold mb-2">About me</h2>
-          <p>
-            After years in several companies in embedded systems, I'm here at your service.<br />
-            Easy-going girl with a strong sense of doing great work.<br />
-            <br />
-            3 fun facts :<br />
-          </p>
-          <ul class="list-disc pl-6 mt-2 space-y-1">
-            <li>I started my career in a big company, but I prefer small teams where I can make a difference.</li>
-            <li>First time I became team leader, the next 3 months I handled 10 project managers. I prefer delivering good code now.</li>
-            <li>I keep pushing in tech even if I'm almost always the only tech girl in the company. So believe me, I love my job.</li>
-          </ul>
-        </Fragment>`}
         image={{
           src: profileImage,
           alt: 'Professional headshot - Embedded systems engineer',
-          width: 500,
-          height: 500,
+          width: 400,
+          height: 400,
         }}
       />
     </section>
