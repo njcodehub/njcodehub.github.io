@@ -3,9 +3,9 @@ import Layout from '~/layouts/PageLayout.astro';
 
 import Hero from '~/components/widgets/Hero.astro';
 import Content from '~/components/widgets/Content.astro';
-import ServiceCards from '~/components/widgets/ServiceCards.astro';
 import { getPermalink } from '~/utils/permalinks';
 import profileImage from '~/assets/images/profile.jpg';
+import DemoCarousel from '~/components/widgets/Carousel.jsx';
 
 const metadata = {
   title: 'Personal Homepage Demo',
@@ -24,43 +24,8 @@ const metadata = {
 
     <section id="services" class="min-h-screen flex items-center justify-center">
       <div class="w-full max-w-7xl mx-auto px-4">
-        <ServiceCards />
-
-        <div class="text-center mb-12 mt-16">
-          <h2 class="text-3xl md:text-4xl font-bold mb-4">Why choose my services?</h2>
-          <p class="text-xl text-muted">Concrete advantages for your embedded project</p>
-        </div>
-
-        <div class="grid gap-8 gap-x-12 sm:gap-y-8 lg:grid-cols-3 sm:grid-cols-2 mb-16">
-          <div
-            class="relative flex flex-col intersect-once intersect-quarter intercept-no-queue motion-safe:md:opacity-0 motion-safe:md:intersect:animate-fade rounded-lg shadow-[0_4px_30px_rgba(0,0,0,0.1)] backdrop-blur border border-[#ffffff29] bg-white p-6 hover:shadow-[0_8px_40px_rgba(0,173,181,0.15)] transition-all duration-300 hover:-translate-y-1"
-          >
-            <div class="text-xl font-bold mb-2">Focused expertise + Fast ramp-up</div>
-            <p class="text-muted mt-2">
-              100% firmware & hardware integration with zero distractions. Productive from day one — no heavy onboarding
-              or learning curve.
-            </p>
-          </div>
-
-          <div
-            class="relative flex flex-col intersect-once intersect-quarter intercept-no-queue motion-safe:md:opacity-0 motion-safe:md:intersect:animate-fade rounded-lg shadow-[0_4px_30px_rgba(0,0,0,0.1)] backdrop-blur border border-[#ffffff29] bg-white p-6 hover:shadow-[0_8px_40px_rgba(0,173,181,0.15)] transition-all duration-300 hover:-translate-y-1"
-          >
-            <div class="text-xl font-bold mb-2">Cost control & Fair pricing</div>
-            <p class="text-muted mt-2">
-              Targeted expertise without unnecessary overhead. Short-term, fixed-price, or critical phase support —
-              whatever fits your budget best.
-            </p>
-          </div>
-
-          <div
-            class="relative flex flex-col intersect-once intersect-quarter intercept-no-queue motion-safe:md:opacity-0 motion-safe:md:intersect:animate-fade rounded-lg shadow-[0_4px_30px_rgba(0,0,0,0.1)] backdrop-blur border border-[#ffffff29] bg-white p-6 hover:shadow-[0_8px_40px_rgba(0,173,181,0.15)] transition-all duration-300 hover:-translate-y-1"
-          >
-            <div class="text-xl font-bold mb-2">Team relief & Fresh perspective</div>
-            <p class="text-muted mt-2">
-              Single point of contact from start to finish. Robust, maintainable code designed to last and evolve.
-              References available on request.
-            </p>
-          </div>
+        <div class="demo-carousel">
+          <DemoCarousel client:load />
         </div>
       </div>
     </section>
