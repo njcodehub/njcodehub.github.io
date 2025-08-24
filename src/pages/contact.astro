@@ -7,6 +7,8 @@ const metadata = {
 };
 ---
 
+<link rel="stylesheet" href="/src/assets/css/animations.css" />
+
 <Layout metadata={metadata}>
   <!-- Background MCU image with fade effect -->
   <div
@@ -16,7 +18,7 @@ const metadata = {
   </div>
 
   <section class="py-5 flex justify-center items-center min-h-[60vh] relative z-10">
-    <form class="p-8 rounded shadow-md w-full max-w-md space-y-4 animate-fade-in">
+    <form class="p-8 rounded shadow-md w-full max-w-md space-y-4 animate-fade-in-up">
       <h1 class="text-2xl font-bold mb-4 text-center text-[rgb(224,233,234)] dark:text-white">Contact</h1>
       <input
         type="text"
@@ -44,19 +46,6 @@ const metadata = {
 </Layout>
 
 <style>
-  .animate-fade-in {
-    opacity: 0;
-    transform: translateY(30px);
-    animation: fadeInUp 0.8s ease-out forwards;
-  }
-
-  @keyframes fadeInUp {
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-
   /* Force le header à être blanc tout le temps */
   header,
   header.sticky,
