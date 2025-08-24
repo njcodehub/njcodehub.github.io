@@ -2,15 +2,16 @@
 import Layout from '~/layouts/PageLayout.astro';
 
 import Hero from '~/components/widgets/Hero.astro';
-import Content from '~/components/widgets/Content.astro';
+
 import { getPermalink } from '~/utils/permalinks';
-import profileImage from '~/assets/images/profile.jpg';
 import DemoCarousel from '~/components/widgets/Carousel.jsx';
 
 const metadata = {
   title: 'Personal Homepage Demo',
 };
 ---
+
+<link rel="stylesheet" href="/src/assets/css/animations.css" />
 
 <Layout metadata={metadata}>
   <div>
@@ -28,60 +29,10 @@ const metadata = {
         </div>
       </div>
     </section>
-
-    <section id="about" class="min-h-screen px-10 flex items-center justify-center">
-      <div class="mx-auto"></div>
-      <Content
-        image={{
-          src: profileImage,
-          alt: 'Professional headshot - Embedded systems engineer',
-          width: 400,
-          height: 400,
-        }}
-      />
-    </section>
   </div>
 </Layout>
 
-<script>
-  document.addEventListener('DOMContentLoaded', function () {
-    console.log('🚀 Scroll system loaded');
-
-    // Gestion simple des clics sur menu
-    document.addEventListener('click', function (e) {
-      const target = e.target as HTMLElement;
-      const link = target.closest('a[href^="#"]');
-
-      if (link) {
-        e.preventDefault();
-        const href = link.getAttribute('href');
-        if (!href || href === '#') return;
-
-        const targetId = href.substring(1);
-        const targetSection = document.getElementById(targetId);
-
-        if (targetSection) {
-          // Scroll simple vers la section
-          targetSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        }
-      }
-    });
-
-    // S'assurer que le header est blanc au chargement
-    const header = document.querySelector('header');
-    if (header) {
-      header.style.backgroundColor = 'white';
-      header.style.backdropFilter = 'blur(10px)';
-    }
-  });
-</script>
-
 <style>
-  /* Reset et styles de base */
-  * {
-    box-sizing: border-box;
-  }
-
   /* Fond du site */
   body {
     background-color: #eeeeee !important;
@@ -114,59 +65,12 @@ const metadata = {
     color: #393e46 !important;
   }
 
-  /* Couleurs des highlights avec effet glow */
-  .highlight-primary {
-    color: #00adb5 !important;
-    text-shadow: 0 0 20px rgba(0, 173, 181, 0.5) !important;
-  }
-
-  .highlight-secondary {
-    color: #009aa1 !important;
-    text-shadow: 0 0 20px rgba(0, 154, 161, 0.5) !important;
-  }
-
-  .highlight-accent {
-    color: #0066cc !important;
-    text-shadow: 0 0 20px rgba(0, 102, 204, 0.5) !important;
-  }
-
+  /* Couleurs des highlights */
+  .highlight-primary,
+  .highlight-secondary,
+  .highlight-accent,
   .highlight {
     color: #00adb5 !important;
-    text-shadow: 0 0 20px rgba(0, 173, 181, 0.5) !important;
-  }
-
-  /* Effet glow pour les boutons primary */
-  .btn-primary {
-    background-color: #00adb5 !important;
-    border-color: #00adb5 !important;
-    box-shadow: 0 0 20px rgba(0, 173, 181, 0.5) !important;
-    color: white !important;
-  }
-
-  .btn-primary:hover {
-    background-color: #009aa1 !important;
-    border-color: #009aa1 !important;
-    box-shadow: 0 0 30px rgba(0, 173, 181, 0.7) !important;
-    color: white !important;
-  }
-
-  /* Styles spécifiques pour le bouton Contact dans le header */
-  header .btn-primary,
-  nav .btn-primary,
-  .aw-header .btn-primary {
-    background-color: #00adb5 !important;
-    border-color: #00adb5 !important;
-    box-shadow: 0 0 20px rgba(0, 173, 181, 0.5) !important;
-    color: white !important;
-  }
-
-  header .btn-primary:hover,
-  nav .btn-primary:hover,
-  .aw-header .btn-primary:hover {
-    background-color: #009aa1 !important;
-    border-color: #009aa1 !important;
-    box-shadow: 0 0 30px rgba(0, 173, 181, 0.7) !important;
-    color: white !important;
   }
 
   /* Style pour le lien actif dans la navigation */
@@ -185,38 +89,6 @@ const metadata = {
     background: rgba(255, 255, 255, 0.95) !important;
     backdrop-filter: blur(10px) !important;
     -webkit-backdrop-filter: blur(10px) !important;
-  }
-
-  /* S'assurer que le scroll fonctionne correctement */
-  [data-scroll-container] {
-    overflow-y: auto !important;
-    overflow-x: hidden !important;
-  }
-
-  /* Éléments visibles */
-  h1[style*='opacity: 1'],
-  h2[style*='opacity: 1'],
-  h3[style*='opacity: 1'],
-  p[style*='opacity: 1'],
-  li[style*='opacity: 1'],
-  .text-large[style*='opacity: 1'],
-  .highlight-primary[style*='opacity: 1'],
-  .highlight-secondary[style*='opacity: 1'],
-  .highlight-accent[style*='opacity: 1'],
-  .highlight[style*='opacity: 1'] {
-    opacity: 1 !important;
-    transform: translateY(0) !important;
-  }
-
-  /* Style pour le lien actif dans la navigation */
-  .aw-link-active {
-    color: #00adb5 !important;
-    font-weight: 600;
-  }
-
-  /* Amélioration du scroll smooth */
-  html {
-    scroll-behavior: smooth;
   }
 
   /* Force le header à être blanc tout le temps */
@@ -260,26 +132,8 @@ const metadata = {
       padding: 1rem 0;
     }
 
-    /* Ajuster le padding pour mobile */
     [data-scroll-container] {
       padding-top: 60px !important;
     }
-  }
-
-  /* Styles pour les cartes de fonctionnalités */
-  #services .grid > div {
-    background: rgba(255, 255, 255, 0.95) !important;
-    backdrop-filter: blur(10px) !important;
-    -webkit-backdrop-filter: blur(10px) !important;
-  }
-
-  #services .grid > div:hover {
-    transform: translateY(-4px) !important;
-    box-shadow: 0 8px 40px rgba(0, 173, 181, 0.2) !important;
-  }
-
-  /* Style pour la référence */
-  #services .text-primary-500 {
-    color: #00adb5 !important;
   }
 </style>
