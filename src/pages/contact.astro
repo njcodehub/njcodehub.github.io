@@ -104,12 +104,11 @@ const metadata = {
   }
 </style>
 
-<!-- EmailJS SDK -->
-<script is:inline type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"
-></script>
+<!-- EmailJS depuis node_modules -->
+<script is:inline type="text/javascript" src="/node_modules/@emailjs/browser/dist/email.min.js"></script>
 
 <script>
-  // Type simple pour EmailJS
+  // Type pour EmailJS
   type EmailJS = {
     init: (userId: string) => void;
     send: (
@@ -118,6 +117,9 @@ const metadata = {
       templateParams: Record<string, string>
     ) => Promise<{ status: number; text: string }>;
   };
+
+  // EmailJS via npm installé localement
+  const emailjs = (window as unknown as { emailjs: EmailJS }).emailjs;
 
   document.addEventListener('DOMContentLoaded', function () {
     // S'assurer que le header est blanc au chargement
@@ -135,7 +137,6 @@ const metadata = {
     };
 
     // Initialiser EmailJS
-    const emailjs = (window as unknown as { emailjs: EmailJS }).emailjs;
     emailjs.init(EMAILJS_CONFIG.USER_ID);
 
     // Gestion du formulaire
