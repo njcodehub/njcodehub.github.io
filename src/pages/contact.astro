@@ -108,7 +108,7 @@ const metadata = {
 <script is:inline type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"
 ></script>
 
-<script>
+<script is:inline>
   // Configuration EmailJS
   const EMAILJS_CONFIG = {
     SERVICE_ID: 'service_xy2wi56',
@@ -116,32 +116,17 @@ const metadata = {
     USER_ID: 'y1Kl58XSDbPZuJeMO',
   };
 
-  // Interface pour EmailJS
-  interface EmailJS {
-    init: (userId: string) => void;
-    send: (
-      serviceId: string,
-      templateId: string,
-      params: Record<string, string>
-    ) => Promise<{ status: number; text: string }>;
-  }
-
-  // Helper pour accéder à EmailJS de manière sûre
-  function getEmailJS(): EmailJS | undefined {
-    return (window as unknown as { emailjs?: EmailJS }).emailjs;
-  }
-
   // Fonction d'initialisation avec vérifications étape par étape
   function initContactForm() {
     console.log('=== DÉBUT INITIALISATION FORMULAIRE ===');
 
     // ÉTAPE 1: Vérifier que le DOM est prêt
-    const contactForm = document.getElementById('contactForm') as HTMLFormElement;
-    const submitBtn = document.getElementById('submitBtn') as HTMLButtonElement;
-    const btnText = document.getElementById('btnText') as HTMLElement;
-    const btnLoading = document.getElementById('btnLoading') as HTMLElement;
-    const successMessage = document.getElementById('successMessage') as HTMLElement;
-    const errorMessage = document.getElementById('errorMessage') as HTMLElement;
+    const contactForm = document.getElementById('contactForm');
+    const submitBtn = document.getElementById('submitBtn');
+    const btnText = document.getElementById('btnText');
+    const btnLoading = document.getElementById('btnLoading');
+    const successMessage = document.getElementById('successMessage');
+    const errorMessage = document.getElementById('errorMessage');
 
     if (!contactForm || !submitBtn || !btnText || !btnLoading || !successMessage || !errorMessage) {
       console.log('❌ DOM pas prêt - éléments manquants, retry dans 100ms...');
@@ -152,8 +137,7 @@ const metadata = {
     console.log('✅ DOM vérifié - tous les éléments trouvés');
 
     // ÉTAPE 2: Vérifier et attendre EmailJS CDN
-    const emailjs = getEmailJS();
-    if (!emailjs || typeof emailjs.init !== 'function') {
+    if (!window.emailjs || typeof window.emailjs.init !== 'function') {
       console.log('⏳ EmailJS CDN pas encore chargé, retry dans 100ms...');
       setTimeout(initContactForm, 100);
       return;
@@ -162,6 +146,7 @@ const metadata = {
     console.log('✅ EmailJS CDN chargé et prêt');
 
     // ÉTAPE 3: Initialiser EmailJS avec vos paramètres
+    const emailjs = window.emailjs;
     emailjs.init(EMAILJS_CONFIG.USER_ID);
     console.log('✅ EmailJS initialisé avec USER_ID:', EMAILJS_CONFIG.USER_ID);
 
@@ -198,15 +183,9 @@ const metadata = {
         console.log('📧 Envoi EmailJS avec paramètres:', templateParams);
 
         // Envoyer l'email via EmailJS
-        if (!emailjs) {
-          console.error('❌ EmailJS non disponible');
-          return;
-        }
-
-        // À ce point, emailjs est garanti d'être défini
-        emailjs!
+        emailjs
           .send(EMAILJS_CONFIG.SERVICE_ID, EMAILJS_CONFIG.TEMPLATE_ID, templateParams)
-          .then(function (response: { status: number; text: string }) {
+          .then(function (response) {
             console.log('✅ SUCCESS!', response.status, response.text);
 
             // Afficher le message de succès
@@ -220,7 +199,7 @@ const metadata = {
             btnText.classList.remove('hidden');
             btnLoading.classList.add('hidden');
           })
-          .catch(function (error: unknown) {
+          .catch(function (error) {
             console.log('❌ FAILED...', error);
 
             // Afficher le message d'erreur
@@ -241,13 +220,12 @@ const metadata = {
 
     console.log('=== INITIALISATION TERMINÉE AVEC SUCCÈS ===');
   }
-
   // Démarrer l'initialisation directement
   initContactForm();
 
   // Solution standard Astro : Écouter les transitions de page
   document.addEventListener('astro:after-swap', () => {
-    if (window.location.pathname === '/contact') {
+    if (window.location.pathname === '/contact/') {
       console.log('🔄 Navigation Astro détectée, réinitialisation du formulaire...');
       initContactForm();
     }
