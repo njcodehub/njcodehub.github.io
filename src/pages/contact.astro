@@ -108,97 +108,132 @@ const metadata = {
 <script is:inline type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"
 ></script>
 
-<script>
-  // Type simple pour EmailJS
-  type EmailJS = {
-    init: (userId: string) => void;
-    send: (
-      serviceId: string,
-      templateId: string,
-      templateParams: Record<string, string>
-    ) => Promise<{ status: number; text: string }>;
+<script is:inline>
+  // Configuration EmailJS
+  const EMAILJS_CONFIG = {
+    SERVICE_ID: 'service_xy2wi56',
+    TEMPLATE_ID: 'template_vbrqiw6',
+    USER_ID: 'y1Kl58XSDbPZuJeMO',
   };
 
-  document.addEventListener('DOMContentLoaded', function () {
-    // S'assurer que le header est blanc au chargement
-    const header = document.querySelector('header');
-    if (header) {
-      header.style.backgroundColor = 'white';
-      header.style.backdropFilter = 'blur(10px)';
+  // Fonction d'initialisation avec vérifications étape par étape
+  function initContactForm() {
+    console.log('=== DÉBUT INITIALISATION FORMULAIRE ===');
+
+    // ÉTAPE 1: Vérifier que le DOM est prêt
+    const contactForm = document.getElementById('contactForm');
+    const submitBtn = document.getElementById('submitBtn');
+    const btnText = document.getElementById('btnText');
+    const btnLoading = document.getElementById('btnLoading');
+    const successMessage = document.getElementById('successMessage');
+    const errorMessage = document.getElementById('errorMessage');
+
+    if (!contactForm || !submitBtn || !btnText || !btnLoading || !successMessage || !errorMessage) {
+      console.log('❌ DOM pas prêt - éléments manquants, retry dans 100ms...');
+      setTimeout(initContactForm, 100);
+      return;
     }
 
-    // Configuration EmailJS
-    const EMAILJS_CONFIG = {
-      SERVICE_ID: 'service_xy2wi56',
-      TEMPLATE_ID: 'template_vbrqiw6',
-      USER_ID: 'y1Kl58XSDbPZuJeMO',
-    };
+    console.log('✅ DOM vérifié - tous les éléments trouvés');
 
-    // Initialiser EmailJS
-    const emailjs = (window as unknown as { emailjs: EmailJS }).emailjs;
+    // ÉTAPE 2: Vérifier et attendre EmailJS CDN
+    if (!window.emailjs || typeof window.emailjs.init !== 'function') {
+      console.log('⏳ EmailJS CDN pas encore chargé, retry dans 100ms...');
+      setTimeout(initContactForm, 100);
+      return;
+    }
+
+    console.log('✅ EmailJS CDN chargé et prêt');
+
+    // ÉTAPE 3: Initialiser EmailJS avec vos paramètres
+    const emailjs = window.emailjs;
     emailjs.init(EMAILJS_CONFIG.USER_ID);
+    console.log('✅ EmailJS initialisé avec USER_ID:', EMAILJS_CONFIG.USER_ID);
 
-    // Gestion du formulaire
-    const contactForm = document.getElementById('contactForm') as HTMLFormElement;
-    const submitBtn = document.getElementById('submitBtn') as HTMLButtonElement;
-    const btnText = document.getElementById('btnText') as HTMLSpanElement;
-    const btnLoading = document.getElementById('btnLoading') as HTMLSpanElement;
-    const successMessage = document.getElementById('successMessage') as HTMLDivElement;
-    const errorMessage = document.getElementById('errorMessage') as HTMLDivElement;
+    // ÉTAPE 4: Créer et attacher l'event listener sur le bouton
+    function attachSubmitListener() {
+      console.log("🔗 Attachement de l'event listener submit...");
 
-    contactForm.addEventListener('submit', function (e) {
-      e.preventDefault();
+      contactForm.addEventListener('submit', function (e) {
+        console.log('🚀 BOUTON APPUYÉ - Soumission du formulaire!');
+        e.preventDefault();
 
-      // Vérifications de sécurité
-      if (!submitBtn || !btnText || !btnLoading || !successMessage || !errorMessage) {
-        console.error('Éléments du formulaire non trouvés');
-        return;
+        // Vérifications de sécurité
+        if (!submitBtn || !btnText || !btnLoading || !successMessage || !errorMessage) {
+          console.error('❌ Éléments du formulaire non trouvés');
+          return;
+        }
+
+        // Afficher l'état de chargement
+        submitBtn.disabled = true;
+        btnText.classList.add('hidden');
+        btnLoading.classList.remove('hidden');
+
+        // Masquer les messages précédents
+        successMessage.classList.add('hidden');
+        errorMessage.classList.add('hidden');
+
+        // Préparer les données du template
+        const templateParams = {
+          from_name: contactForm.user_name.value,
+          from_email: contactForm.user_email.value,
+          message: contactForm.message.value,
+        };
+
+        console.log('📧 Envoi EmailJS avec paramètres:', templateParams);
+
+        // Envoyer l'email via EmailJS
+        emailjs
+          .send(EMAILJS_CONFIG.SERVICE_ID, EMAILJS_CONFIG.TEMPLATE_ID, templateParams)
+          .then(function (response) {
+            console.log('✅ SUCCESS!', response.status, response.text);
+
+            // Afficher le message de succès
+            successMessage.classList.remove('hidden');
+
+            // Réinitialiser le formulaire
+            contactForm.reset();
+
+            // Remettre le bouton en état normal
+            submitBtn.disabled = false;
+            btnText.classList.remove('hidden');
+            btnLoading.classList.add('hidden');
+          })
+          .catch(function (error) {
+            console.log('❌ FAILED...', error);
+
+            // Afficher le message d'erreur
+            errorMessage.classList.remove('hidden');
+
+            // Remettre le bouton en état normal
+            submitBtn.disabled = false;
+            btnText.classList.remove('hidden');
+            btnLoading.classList.add('hidden');
+          });
+      });
+
+      console.log('✅ Event listener attaché avec succès!');
+    }
+
+    // Attacher l'event listener pour la première fois
+    attachSubmitListener();
+
+    console.log('=== INITIALISATION TERMINÉE AVEC SUCCÈS ===');
+  }
+  // Démarrer l'initialisation directement
+  initContactForm();
+
+  // Solution robuste : Vérifier l'URL /contact pour tous les types de navigation
+  let currentUrl = window.location.href;
+  setInterval(function () {
+    if (window.location.href !== currentUrl) {
+      currentUrl = window.location.href;
+
+      // Vérifier si on est sur /contact
+      if (window.location.pathname === '/contact') {
+        console.log('🔄 Navigation vers /contact détectée, réinitialisation...');
+        initContactForm();
       }
-
-      // Afficher l'état de chargement
-      submitBtn.disabled = true;
-      btnText.classList.add('hidden');
-      btnLoading.classList.remove('hidden');
-
-      // Masquer les messages précédents
-      successMessage.classList.add('hidden');
-      errorMessage.classList.add('hidden');
-
-      // Préparer les données du template
-      const templateParams = {
-        from_name: contactForm.user_name.value,
-        from_email: contactForm.user_email.value,
-        message: contactForm.message.value,
-      };
-
-      // Envoyer l'email via EmailJS
-      emailjs
-        .send(EMAILJS_CONFIG.SERVICE_ID, EMAILJS_CONFIG.TEMPLATE_ID, templateParams)
-        .then(function (response: { status: number; text: string }) {
-          console.log('SUCCESS!', response.status, response.text);
-
-          // Afficher le message de succès
-          successMessage.classList.remove('hidden');
-
-          // Réinitialiser le formulaire
-          contactForm.reset();
-
-          // Remettre le bouton en état normal
-          submitBtn.disabled = false;
-          btnText.classList.remove('hidden');
-          btnLoading.classList.add('hidden');
-        })
-        .catch(function (error: Error) {
-          console.log('FAILED...', error);
-
-          // Afficher le message d'erreur
-          errorMessage.classList.remove('hidden');
-
-          // Remettre le bouton en état normal
-          submitBtn.disabled = false;
-          btnText.classList.remove('hidden');
-          btnLoading.classList.add('hidden');
-        });
-    });
-  });
+    }
+  }, 100);
 </script>
