@@ -1,9 +1,8 @@
 site:
   name: AstroWind
-  site: 'https://astrowind.vercel.app'
+  site: 'https://njcodehub.github.io'
   base: '/'
-  trailingSlash: false
-
+  trailingSlash: true
   googleSiteVerificationId: orcPxI47GSa-cRvY11tUe6iGg2IO_RPvnA1q95iEM3M
 
 # Default SEO metadata
