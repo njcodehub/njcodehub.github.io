@@ -1,0 +1,119 @@
+---
+import Layout from '~/layouts/Layout.astro';
+---
+
+<Layout metadata={{ title: 'Politique des cookies' }}>
+  <section class="bg-gray-50 py-16">
+    <div class="container mx-auto px-4">
+      <div class="max-w-4xl mx-auto bg-white rounded-lg shadow-lg p-8">
+        <h1 class="text-3xl font-bold text-gray-900 mb-8">Politique des cookies</h1>
+
+        <div class="space-y-8 text-gray-700">
+          <!-- Introduction -->
+          <div>
+            <p class="text-lg">
+              Cette politique des cookies explique comment ce site utilise les cookies et comment vous pouvez les gérer.
+            </p>
+          </div>
+
+          <!-- Qu'est-ce qu'un cookie -->
+          <div>
+            <h2 class="text-xl font-semibold text-gray-900 mb-4">Qu'est-ce qu'un cookie ?</h2>
+            <p>
+              Un cookie est un petit fichier texte stocké sur votre ordinateur ou appareil mobile lorsque vous visitez
+              un site web. Les cookies permettent au site de mémoriser vos actions et préférences (identifiant de
+              connexion, langue, taille de police et autres préférences d'affichage) pendant une durée déterminée.
+            </p>
+          </div>
+
+          <!-- Cookies utilisés sur ce site -->
+          <div>
+            <h2 class="text-xl font-semibold text-gray-900 mb-4">Cookies utilisés sur ce site</h2>
+
+            <div class="space-y-4">
+              <!-- Cookies techniques -->
+              <div class="bg-green-50 p-4 rounded-lg border-l-4 border-green-400">
+                <h3 class="font-semibold text-green-800">Cookies techniques (obligatoires)</h3>
+                <p class="text-green-700 mt-2">
+                  Ces cookies sont nécessaires au bon fonctionnement du site et ne peuvent pas être désactivés :
+                </p>
+                <ul class="list-disc list-inside mt-2 text-green-700">
+                  <li>Cookies de session pour la navigation</li>
+                  <li>Cookies de sécurité</li>
+                  <li>Cookies de préférences techniques</li>
+                </ul>
+              </div>
+
+              <!-- Aucun cookie de tracking -->
+              <div class="bg-blue-50 p-4 rounded-lg border-l-4 border-blue-400">
+                <h3 class="font-semibold text-blue-800">Aucun cookie de tracking</h3>
+                <p class="text-blue-700 mt-2">
+                  Ce site n'utilise pas de cookies de tracking, d'analyse ou de publicité. Votre vie privée est
+                  respectée.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Gestion des cookies -->
+          <div>
+            <h2 class="text-xl font-semibold text-gray-900 mb-4">Comment gérer les cookies ?</h2>
+
+            <div class="space-y-4">
+              <!-- Navigateur -->
+              <div>
+                <h3 class="font-semibold text-gray-900 mb-2">Via votre navigateur</h3>
+                <p>
+                  Vous pouvez configurer votre navigateur pour refuser tous les cookies ou être informé quand un cookie
+                  est envoyé. Cependant, si vous refusez les cookies, certaines fonctionnalités du site peuvent ne pas
+                  fonctionner correctement.
+                </p>
+              </div>
+
+              <!-- Instructions par navigateur -->
+              <div class="bg-gray-50 p-4 rounded-lg">
+                <h4 class="font-semibold mb-2">Instructions par navigateur :</h4>
+                <ul class="space-y-2 text-sm">
+                  <li>
+                    <strong>Chrome :</strong> Paramètres → Confidentialité et sécurité → Cookies et autres données de sites
+                  </li>
+                  <li><strong>Firefox :</strong> Options → Vie privée et sécurité → Cookies et données de sites</li>
+                  <li><strong>Safari :</strong> Préférences → Confidentialité → Cookies et données de sites web</li>
+                  <li><strong>Edge :</strong> Paramètres → Cookies et autorisations de sites</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <!-- Cookies tiers -->
+          <div>
+            <h2 class="text-xl font-semibold text-gray-900 mb-4">Cookies tiers</h2>
+            <p>Ce site n'utilise pas de cookies tiers. Tous les cookies sont gérés directement par le site.</p>
+          </div>
+
+          <!-- Mise à jour -->
+          <div>
+            <h2 class="text-xl font-semibold text-gray-900 mb-4">Mise à jour de cette politique</h2>
+            <p>
+              Cette politique des cookies peut être mise à jour. La version la plus récente sera toujours disponible sur
+              cette page.
+            </p>
+          </div>
+
+          <!-- Contact -->
+          <div>
+            <h2 class="text-xl font-semibold text-gray-900 mb-4">Questions sur les cookies</h2>
+            <p>Si vous avez des questions concernant l'utilisation des cookies sur ce site, contactez-moi :</p>
+            <div class="bg-blue-50 p-4 rounded-lg mt-2">
+              <p><strong>Contact :</strong> Via le formulaire de contact ou LinkedIn uniquement</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="mt-8 pt-6 border-t border-gray-200 text-sm text-gray-500">
+          <p>Dernière mise à jour : {new Date().toLocaleDateString('fr-FR')}</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>

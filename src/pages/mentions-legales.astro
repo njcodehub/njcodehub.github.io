@@ -1,0 +1,82 @@
+---
+import Layout from '~/layouts/Layout.astro';
+import { SITE } from 'astrowind:config';
+---
+
+<Layout metadata={{ title: 'Mentions légales' }}>
+  <section class="bg-gray-50 py-16">
+    <div class="container mx-auto px-4">
+      <div class="max-w-4xl mx-auto bg-white rounded-lg shadow-lg p-8">
+        <h1 class="text-3xl font-bold text-gray-900 mb-8">Mentions légales</h1>
+
+        <div class="space-y-8 text-gray-700">
+          <!-- Éditeur du site -->
+          <div>
+            <h2 class="text-xl font-semibold text-gray-900 mb-4">Éditeur du site</h2>
+            <div class="bg-gray-50 p-4 rounded-lg">
+              <p><strong>Nom :</strong> Noëlie JESTIN</p>
+              <p><strong>Adresse :</strong> Non communiquée pour des raisons de confidentialité</p>
+              <p><strong>Contact :</strong> Via le formulaire de contact ou LinkedIn uniquement</p>
+              <p><strong>Directeur de publication :</strong> Noëlie JESTIN</p>
+            </div>
+          </div>
+
+          <!-- Hébergement -->
+          <div>
+            <h2 class="text-xl font-semibold text-gray-900 mb-4">Hébergement</h2>
+            <div class="bg-gray-50 p-4 rounded-lg">
+              <p><strong>Hébergeur :</strong> GitHub Pages</p>
+              <p><strong>Adresse :</strong> 88 Colin P Kelly Jr St, San Francisco, CA 94107, United States</p>
+              <p>
+                <strong>Site web :</strong>
+                <a href="https://pages.github.com" class="text-blue-600 hover:underline">https://pages.github.com</a>
+              </p>
+            </div>
+          </div>
+
+          <!-- Propriété intellectuelle -->
+          <div>
+            <h2 class="text-xl font-semibold text-gray-900 mb-4">Propriété intellectuelle</h2>
+            <p>
+              L'ensemble de ce site relève de la législation française et internationale sur le droit d'auteur et la
+              propriété intellectuelle. Tous les droits de reproduction sont réservés, y compris pour les documents
+              téléchargeables et les représentations iconographiques et photographiques.
+            </p>
+          </div>
+
+          <!-- Liens hypertextes -->
+          <div>
+            <h2 class="text-xl font-semibold text-gray-900 mb-4">Liens hypertextes</h2>
+            <p>
+              Les liens hypertextes mis en place dans le cadre du présent site web en direction d'autres ressources
+              présentes sur le réseau Internet ne sauraient engager la responsabilité de Noëlie JESTIN.
+            </p>
+          </div>
+
+          <!-- Cookies -->
+          <div>
+            <h2 class="text-xl font-semibold text-gray-900 mb-4">Cookies</h2>
+            <p>
+              Ce site n'utilise pas de cookies de tracking. Seuls des cookies techniques nécessaires au bon
+              fonctionnement du site peuvent être utilisés.
+            </p>
+          </div>
+
+          <!-- Droit applicable -->
+          <div>
+            <h2 class="text-xl font-semibold text-gray-900 mb-4">Droit applicable</h2>
+            <p>
+              Tout litige en relation avec l'utilisation du site <strong>{SITE?.site}</strong> est soumis au droit français.
+              En dehors des cas où la loi ne le permet pas, il est fait attribution exclusive de juridiction aux tribunaux
+              compétents du ressort territorial compétent.
+            </p>
+          </div>
+        </div>
+
+        <div class="mt-8 pt-6 border-t border-gray-200 text-sm text-gray-500">
+          <p>Dernière mise à jour : {new Date().toLocaleDateString('fr-FR')}</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>
