@@ -17,7 +17,7 @@ const { metadata } = Astro.props;
   {/* Retire l'annonce */}
   {/* <Announcement /> */}
   <Header links={headerData.links} actions={headerData.actions as CallToAction[]} isSticky={true} />
-  <main>
+  <main class="flex-1">
     <slot />
   </main>
   <Footer />
