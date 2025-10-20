@@ -9,7 +9,7 @@ const metadata = {
 <link rel="stylesheet" href="/css/animations.css" />
 
 <Layout metadata={metadata}>
-  <section id="about" class="min-h-screen px-10 flex items-center justify-center scroll-mt-60 relative">
+  <section id="about" class="min-h-screen px-6 sm:px-10 py-16 flex items-center justify-center scroll-mt-60 relative">
     <!-- Image de fond -->
     <div
       class="absolute inset-0 z-0"
@@ -22,7 +22,7 @@ const metadata = {
       <div class="grid lg:grid-cols-2 gap-6 lg:gap-16 items-center">
         <!-- Photo à gauche -->
         <div class="flex justify-center lg:justify-center animate-fade-in-up">
-          <div class="relative -mt-8 sm:-mt-8 lg:mt-0">
+          <div class="relative mt-6 sm:mt-0">
             <div
               class="w-48 h-48 sm:w-64 sm:h-64 lg:w-96 lg:h-96 rounded-2xl overflow-hidden shadow-2xl border-2 border-[#00adb5] hover:shadow-[0_20px_40px_rgba(0,173,181,0.4)] transition-all duration-500 hover:-translate-y-2"
             >
@@ -37,31 +37,25 @@ const metadata = {
 
         <!-- Contenu à droite -->
         <div
-          class="bg-white/95 backdrop-blur-md p-4 sm:p-6 lg:p-8 rounded-2xl shadow-2xl border border-gray-200 text-center lg:text-center animate-fade-in-up"
+          class="bg-white/95 backdrop-blur-md p-4 sm:p-6 lg:p-8 rounded-2xl shadow-2xl border border-gray-200 text-center lg:text-center animate-fade-in-up mb-8 sm:mb-0"
           style="animation-delay: 0.2s;"
         >
-          <h2 class="text-xl sm:text-2xl lg:text-4xl font-bold text-black mb-4 lg:mb-6">About</h2>
+          <h2 class="text-xl sm:text-2xl lg:text-4xl font-bold text-black mb-4 lg:mb-6">Behind the scenes</h2>
           <p class="text-sm sm:text-base lg:text-lg text-gray-700 leading-relaxed">Hello, I'm Noëlie Jestin, building embedded systems since 2017 from safety-critical fire detection systems to green-tech products.<br />I founded <strong>Embedded Partner</strong> to focus on what matters most to me: renewable energy and sustainable IoT.<br />Feel free to reach out if you'd like to collaborate.</p>
 
-          <!-- LinkedIn Link -->
-          <div class="mt-6 flex justify-center">
-            <a
-              href="https://www.linkedin.com/in/%F0%9F%91%89no%C3%ABlie-jestin%F0%9F%91%88-019076130/"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="inline-flex items-center gap-3 px-6 py-3.5 rounded-full font-semibold text-white transition-all duration-200 hover:scale-105"
-              style="background-color: #00adb5; border-color: #00adb5; box-shadow: 0 0 20px rgba(0, 173, 181, 0.5);"
-              onmouseover="this.style.backgroundColor='#009aa1'; this.style.borderColor='#009aa1'; this.style.boxShadow='0 0 30px rgba(0, 173, 181, 0.7)'"
-              onmouseout="this.style.backgroundColor='#00adb5'; this.style.borderColor='#00adb5'; this.style.boxShadow='0 0 20px rgba(0, 173, 181, 0.5)'"
-              aria-label="Connect with Noëlie JESTIN on LinkedIn"
-            >
-              <!-- LinkedIn Icon SVG - Version simplifiée -->
-              <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
-                <path
-                  d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"
-                ></path>
+          <!-- Links (icons) -->
+          <div class="mt-6 flex justify-center gap-4">
+            <a href="/contact/" class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white text-[#00adb5] border border-[#00adb5]/30 shadow hover:shadow-md hover:text-[#009aa1] transition" aria-label="Contact form">
+              <!-- Mail icon -->
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5">
+                <path d="M1.5 6.75A2.25 2.25 0 0 1 3.75 4.5h16.5A2.25 2.25 0 0 1 22.5 6.75v10.5A2.25 2.25 0 0 1 20.25 19.5H3.75A2.25 2.25 0 0 1 1.5 17.25V6.75Zm2.25-.75a.75.75 0 0 0-.75.75v.267l8.388 5.032a.75.75 0 0 0 .774 0L21 7.017V6.75a.75.75 0 0 0-.75-.75H3.75Zm16.5 3.138-7.65 4.592a2.25 2.25 0 0 1-2.3 0L2.65 9.138v8.112c0 .414.336.75.75.75h16.5c.414 0 .75-.336.75-.75V9.138Z"/>
               </svg>
-              <span>LinkedIn</span>
+            </a>
+            <a href="https://www.linkedin.com/in/%F0%9F%91%89no%C3%ABlie-jestin%F0%9F%91%88-019076130/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white text-[#00adb5] border border-[#00adb5]/30 shadow hover:shadow-md hover:text-[#009aa1] transition" aria-label="LinkedIn">
+              <!-- LinkedIn icon -->
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5">
+                <path d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5zM.5 8.5h4V23h-4V8.5zm7 0h3.8v1.98h.05c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.78 2.65 4.78 6.1V23h-3.98v-6.45c0-1.54-.03-3.52-2.15-3.52-2.16 0-2.49 1.68-2.49 3.41V23H7.5V8.5z"/>
+              </svg>
             </a>
           </div>
         </div>
