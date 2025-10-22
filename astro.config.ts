@@ -24,7 +24,7 @@ const whenExternalScripts = (items: (() => AstroIntegration) | (() => AstroInteg
 
 export default defineConfig({
   output: 'static',
-  site: 'https://njcodehub.github.io',
+  site: 'https://embeddedpartner.fr',
 
   integrations: [
     tailwind({
