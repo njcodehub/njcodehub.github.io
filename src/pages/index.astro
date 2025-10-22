@@ -9,8 +9,8 @@ import DemoCarousel from '~/components/widgets/Carousel.jsx';
 const metadata = {
   title: 'Embedded Partner - Reliable Embedded Systems',
   description:
-    'Professional embedded systems development. From RTOS to Linux, from prototypes to production. Get reliable systems for your projects.',
-  image: 'https://njcodehub.github.io/Embedded_Partner_card_to_cloud.jpg',
+    'Professional embedded systems development. From PCB to cloud, from prototypes to production. Get reliable embedded systems for your projects.',
+  image: 'https://njcodehub.github.io/Embedded_Partner_PCB_To_Cloud_solutions.png',
 };
 ---
 
@@ -37,12 +37,14 @@ const metadata = {
     <section id="timeline" class="py-16 bg-white">
       <div class="container mx-auto px-4">
         <div class="text-center max-w-3xl mx-auto mb-16">
-          <h2 class="timeline-title text-4xl md:text-5xl font-bold text-[#222831] mb-6 font-heading">
-            How we <span class="text-[#00adb5]">work</span>
-          </h2>
-          <p class="timeline-subtitle text-xl text-[#393e46]">
-            From initial concept to final delivery, here's how we work together to bring your vision to life.
-          </p>
+          <div class="bg-[#eeeeee] backdrop-blur-sm rounded-2xl px-8 py-4 shadow-lg">
+            <h2 class="timeline-title text-4xl md:text-5xl font-bold text-[#222831] mb-3 font-heading">
+              How we <span class="text-[#00adb5]">work</span>
+            </h2>
+            <p class="timeline-subtitle text-xl text-[#393e46]">
+              From initial concept to final delivery, here's how we work together to bring your vision to life.
+            </p>
+          </div>
         </div>
 
         <div class="timeline-container">
@@ -95,21 +97,21 @@ const metadata = {
     </section>
 
     <!-- Call to Action Section -->
-    <section class="py-16 bg-gradient-to-r from-[#00adb5] to-[#009aa1]">
+    <section class="cta py-16 bg-gradient-to-r from-[#00adb5] to-[#009aa1]">
       <div class="container mx-auto px-4 text-center">
         <div class="max-w-3xl mx-auto">
-          <h2 class="cta-title text-4xl md:text-5xl font-bold text-white mb-6 font-heading">
-            Ready to start your <span class="text-[#222831]">project</span>?
-          </h2>
-          <p class="cta-subtitle text-xl text-white/90 mb-8">
-            Let's work together to bring your embedded vision to life. Get in touch and let's discuss your project.
-          </p>
+          <div class="bg-[#eeeeee] backdrop-blur-sm rounded-2xl px-8 py-1 shadow-lg">
+            <h2 class="cta-title text-4xl md:text-5xl font-bold text-[#222831] mb-3 font-heading">Ready ?</h2>
+            <p class="cta-subtitle text-xl text-[#393e46] mb-4">
+              Let's work together to bring your embedded vision to life. Get in touch and let's discuss your project.
+            </p>
+          </div>
           <a
             href="/contact/"
-            class="cta-button btn-primary inline-flex items-center px-8 py-4 font-semibold rounded-full transition-all duration-300 transform hover:scale-105"
+            class="cta-button btn-primary inline-flex items-center px-8 py-4 font-semibold rounded-full transition-all duration-300 transform hover:scale-105 mt-6"
           >
             Start Your Project Now
-            <svg class="ml-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <svg class="ml-2 w-5 h-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
             </svg>
           </a>
@@ -248,6 +250,13 @@ const metadata = {
     transform: translateY(0);
   }
 
+  /* Fond blanc pour la section timeline */
+  .timeline .bg-\[\#eeeeee\] {
+    background: #eeeeee;
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(238, 238, 238, 0.2);
+  }
+
   .timeline-container {
     max-width: 800px;
     margin: 0 auto;
@@ -332,7 +341,7 @@ const metadata = {
   }
 
   .timeline-content {
-    background: white;
+    background: #eeeeee;
     padding: 1.5rem;
     border-radius: 12px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
@@ -350,13 +359,13 @@ const metadata = {
 
   .timeline-item:nth-child(odd) .timeline-content::before {
     right: -24px;
-    border-left-color: white;
+    border-left-color: #eeeeee;
     transform: translateY(-50%);
   }
 
   .timeline-item:nth-child(even) .timeline-content::before {
     left: -24px;
-    border-right-color: white;
+    border-right-color: #eeeeee;
     transform: translateY(-50%);
   }
 
@@ -391,7 +400,7 @@ const metadata = {
     .timeline-item:nth-child(even) .timeline-content::before {
       left: -24px;
       right: auto;
-      border-right-color: white;
+      border-right-color: #eeeeee;
       border-left-color: transparent;
     }
 
@@ -422,6 +431,13 @@ const metadata = {
   .cta-subtitle.visible {
     opacity: 1;
     transform: translateY(0);
+  }
+
+  /* Fond semi-transparent pour la section CTA */
+  .cta .bg-\[\#eeeeee\] {
+    background: #eeeeee;
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(238, 238, 238, 0.2);
   }
 
   .cta-button {
