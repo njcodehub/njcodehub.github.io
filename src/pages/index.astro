@@ -29,6 +29,90 @@ const metadata = {
         </div>
       </div>
     </section>
+
+    <!-- Timeline Section -->
+    <section id="timeline" class="py-16 bg-white">
+      <div class="container mx-auto px-4">
+        <div class="text-center max-w-3xl mx-auto mb-16">
+          <h2 class="timeline-title text-4xl md:text-5xl font-bold text-[#222831] mb-6 font-heading">
+            How we <span class="text-[#00adb5]">work</span>
+          </h2>
+          <p class="timeline-subtitle text-xl text-[#393e46]">
+            From initial concept to final delivery, here's how we work together to bring your vision to life.
+          </p>
+        </div>
+        
+        <div class="timeline-container">
+          <div class="timeline">
+            <div class="timeline-item">
+              <div class="timeline-marker"></div>
+              <div class="timeline-content">
+                <h3>We connect</h3>
+                <p>Share your idea</p>
+              </div>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-marker"></div>
+              <div class="timeline-content">
+                <h3>We align</h3>
+                <p>Together we define the scope and goals</p>
+              </div>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-marker"></div>
+              <div class="timeline-content">
+                <h3>You get your plan</h3>
+                <p>Clear roadmap & fix budget</p>
+              </div>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-marker"></div>
+              <div class="timeline-content">
+                <h3>We build</h3>
+                <p>Weekly updates, you will see your idea come to life</p>
+              </div>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-marker"></div>
+              <div class="timeline-content">
+                <h3>We refine</h3>
+                <p>Continuous feedback integration, customizing your idea to your needs</p>
+              </div>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-marker"></div>
+              <div class="timeline-content">
+                <h3>You launch</h3>
+                <p>Your solution is ready!</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Call to Action Section -->
+    <section class="py-16 bg-gradient-to-r from-[#00adb5] to-[#009aa1]">
+      <div class="container mx-auto px-4 text-center">
+        <div class="max-w-3xl mx-auto">
+          <h2 class="cta-title text-4xl md:text-5xl font-bold text-white mb-6 font-heading">
+            Ready to start your <span class="text-[#222831]">project</span>?
+          </h2>
+          <p class="cta-subtitle text-xl text-white/90 mb-8">
+            Let's work together to bring your embedded vision to life. Get in touch and let's discuss your project.
+          </p>
+          <a 
+            href="/contact/" 
+            class="cta-button btn-primary inline-flex items-center px-8 py-4 font-semibold rounded-full transition-all duration-300 transform hover:scale-105"
+          >
+            Start Your Project Now
+            <svg class="ml-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </section>
   </div>
 </Layout>
 
@@ -136,4 +220,306 @@ const metadata = {
       padding-top: 60px !important;
     }
   }
+
+  /* Timeline Styles */
+  .timeline-title {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .timeline-title.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .timeline-subtitle {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+    transition-delay: 0.2s;
+  }
+
+  .timeline-subtitle.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .timeline-container {
+    max-width: 800px;
+    margin: 0 auto;
+    position: relative;
+  }
+
+  .timeline {
+    position: relative;
+    padding: 2rem 0;
+  }
+
+  .timeline::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 0;
+    bottom: 0;
+    width: 4px;
+    background: linear-gradient(to bottom, #00adb5, #009aa1);
+    transform: translateX(-50%);
+    border-radius: 2px;
+  }
+
+  .timeline-item {
+    position: relative;
+    margin: 2rem 0;
+    opacity: 0;
+    transform: translateY(50px);
+    transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .timeline-item.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .timeline-item:nth-child(1) { transition-delay: 0.1s; }
+  .timeline-item:nth-child(2) { transition-delay: 0.2s; }
+  .timeline-item:nth-child(3) { transition-delay: 0.3s; }
+  .timeline-item:nth-child(4) { transition-delay: 0.4s; }
+  .timeline-item:nth-child(5) { transition-delay: 0.5s; }
+  .timeline-item:nth-child(6) { transition-delay: 0.6s; }
+
+  .timeline-item:nth-child(odd) .timeline-content {
+    margin-left: 0;
+    margin-right: 50%;
+    padding-right: 2rem;
+    text-align: right;
+  }
+
+  .timeline-item:nth-child(even) .timeline-content {
+    margin-left: 50%;
+    margin-right: 0;
+    padding-left: 2rem;
+    text-align: left;
+  }
+
+  .timeline-marker {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 20px;
+    height: 20px;
+    background: #00adb5;
+    border: 4px solid white;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+    box-shadow: 0 0 0 4px #00adb5;
+  }
+
+  .timeline-content {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    position: relative;
+  }
+
+  .timeline-content::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    width: 0;
+    height: 0;
+    border: 12px solid transparent;
+  }
+
+  .timeline-item:nth-child(odd) .timeline-content::before {
+    right: -24px;
+    border-left-color: white;
+    transform: translateY(-50%);
+  }
+
+  .timeline-item:nth-child(even) .timeline-content::before {
+    left: -24px;
+    border-right-color: white;
+    transform: translateY(-50%);
+  }
+
+  .timeline-content h3 {
+    color: #222831;
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+  }
+
+  .timeline-content p {
+    color: #393e46;
+    margin: 0;
+    line-height: 1.6;
+  }
+
+  @media (max-width: 768px) {
+    .timeline::before {
+      left: 20px;
+    }
+
+    .timeline-item:nth-child(odd) .timeline-content,
+    .timeline-item:nth-child(even) .timeline-content {
+      margin-left: 60px;
+      margin-right: 0;
+      padding-left: 1.5rem;
+      padding-right: 1.5rem;
+      text-align: left;
+    }
+
+    .timeline-item:nth-child(odd) .timeline-content::before,
+    .timeline-item:nth-child(even) .timeline-content::before {
+      left: -24px;
+      right: auto;
+      border-right-color: white;
+      border-left-color: transparent;
+    }
+
+    .timeline-marker {
+      left: 20px;
+    }
+  }
+
+  /* CTA Section Animations */
+  .cta-title {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .cta-title.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .cta-subtitle {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+    transition-delay: 0.2s;
+  }
+
+  .cta-subtitle.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .cta-button {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+    transition-delay: 0.4s;
+  }
+
+  .cta-button.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* Styles spécifiques pour le bouton CTA - même effet que Contact */
+  .cta-button.btn-primary {
+    background-color: #00adb5 !important;
+    border-color: #00adb5 !important;
+    box-shadow: 0 0 20px rgba(0, 173, 181, 0.5) !important;
+    color: white !important;
+  }
+
+  .cta-button.btn-primary:hover {
+    background-color: #009aa1 !important;
+    border-color: #009aa1 !important;
+    box-shadow: 0 0 30px rgba(0, 173, 181, 0.7) !important;
+    color: white !important;
+  }
 </style>
+
+<script>
+  // Fonction pour initialiser les animations
+  function initTimelineAnimations() {
+    const timelineItems = document.querySelectorAll(".timeline-item");
+    const timelineTitle = document.querySelector(".timeline-title");
+    const timelineSubtitle = document.querySelector(".timeline-subtitle");
+    const ctaTitle = document.querySelector(".cta-title");
+    const ctaSubtitle = document.querySelector(".cta-subtitle");
+    const ctaButton = document.querySelector(".cta-button");
+
+    // Vérifier si les éléments sont déjà animés
+    const isAlreadyAnimated = (element) => {
+      return element.classList.contains("visible");
+    };
+
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting && !isAlreadyAnimated(entry.target)) {
+          // Animation du titre et sous-titre timeline
+          if (entry.target.classList.contains('timeline-title')) {
+            setTimeout(() => {
+              entry.target.classList.add("visible");
+            }, 200);
+          } else if (entry.target.classList.contains('timeline-subtitle')) {
+            setTimeout(() => {
+              entry.target.classList.add("visible");
+            }, 400);
+          } 
+          // Animation des éléments CTA
+          else if (entry.target.classList.contains('cta-title')) {
+            setTimeout(() => {
+              entry.target.classList.add("visible");
+            }, 200);
+          } else if (entry.target.classList.contains('cta-subtitle')) {
+            setTimeout(() => {
+              entry.target.classList.add("visible");
+            }, 400);
+          } else if (entry.target.classList.contains('cta-button')) {
+            setTimeout(() => {
+              entry.target.classList.add("visible");
+            }, 600);
+          }
+          // Animation des éléments de timeline
+          else {
+            setTimeout(() => {
+              entry.target.classList.add("visible");
+            }, 100);
+          }
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { 
+      threshold: 0.15,
+      rootMargin: '0px 0px -50px 0px'
+    });
+
+    // Observer seulement les éléments non encore animés
+    if (timelineTitle && !isAlreadyAnimated(timelineTitle)) {
+      observer.observe(timelineTitle);
+    }
+    if (timelineSubtitle && !isAlreadyAnimated(timelineSubtitle)) {
+      observer.observe(timelineSubtitle);
+    }
+    if (ctaTitle && !isAlreadyAnimated(ctaTitle)) {
+      observer.observe(ctaTitle);
+    }
+    if (ctaSubtitle && !isAlreadyAnimated(ctaSubtitle)) {
+      observer.observe(ctaSubtitle);
+    }
+    if (ctaButton && !isAlreadyAnimated(ctaButton)) {
+      observer.observe(ctaButton);
+    }
+    
+    timelineItems.forEach(item => {
+      if (!isAlreadyAnimated(item)) {
+        observer.observe(item);
+      }
+    });
+  }
+
+  // Initialiser au chargement de la page
+  document.addEventListener("DOMContentLoaded", initTimelineAnimations);
+
+  // Réinitialiser après les changements de page (pour Astro View Transitions)
+  document.addEventListener("astro:page-load", initTimelineAnimations);
+</script>
