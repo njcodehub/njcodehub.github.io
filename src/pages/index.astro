@@ -8,7 +8,8 @@ import DemoCarousel from '~/components/widgets/Carousel.jsx';
 
 const metadata = {
   title: 'Embedded Partner - Reliable Embedded Systems',
-  description: 'Professional embedded systems development. From RTOS to Linux, from prototypes to production. Get reliable systems for your projects.',
+  description:
+    'Professional embedded systems development. From RTOS to Linux, from prototypes to production. Get reliable systems for your projects.',
   image: 'https://njcodehub.github.io/Embedded_Partner_card_to_cloud.jpg',
 };
 ---
@@ -43,7 +44,7 @@ const metadata = {
             From initial concept to final delivery, here's how we work together to bring your vision to life.
           </p>
         </div>
-        
+
         <div class="timeline-container">
           <div class="timeline">
             <div class="timeline-item">
@@ -103,8 +104,8 @@ const metadata = {
           <p class="cta-subtitle text-xl text-white/90 mb-8">
             Let's work together to bring your embedded vision to life. Get in touch and let's discuss your project.
           </p>
-          <a 
-            href="/contact/" 
+          <a
+            href="/contact/"
             class="cta-button btn-primary inline-flex items-center px-8 py-4 font-semibold rounded-full transition-all duration-300 transform hover:scale-105"
           >
             Start Your Project Now
@@ -283,12 +284,24 @@ const metadata = {
     transform: translateY(0);
   }
 
-  .timeline-item:nth-child(1) { transition-delay: 0.1s; }
-  .timeline-item:nth-child(2) { transition-delay: 0.2s; }
-  .timeline-item:nth-child(3) { transition-delay: 0.3s; }
-  .timeline-item:nth-child(4) { transition-delay: 0.4s; }
-  .timeline-item:nth-child(5) { transition-delay: 0.5s; }
-  .timeline-item:nth-child(6) { transition-delay: 0.6s; }
+  .timeline-item:nth-child(1) {
+    transition-delay: 0.1s;
+  }
+  .timeline-item:nth-child(2) {
+    transition-delay: 0.2s;
+  }
+  .timeline-item:nth-child(3) {
+    transition-delay: 0.3s;
+  }
+  .timeline-item:nth-child(4) {
+    transition-delay: 0.4s;
+  }
+  .timeline-item:nth-child(5) {
+    transition-delay: 0.5s;
+  }
+  .timeline-item:nth-child(6) {
+    transition-delay: 0.6s;
+  }
 
   .timeline-item:nth-child(odd) .timeline-content {
     margin-left: 0;
@@ -322,7 +335,7 @@ const metadata = {
     background: white;
     padding: 1.5rem;
     border-radius: 12px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     position: relative;
   }
 
@@ -442,58 +455,61 @@ const metadata = {
 <script>
   // Fonction pour initialiser les animations
   function initTimelineAnimations() {
-    const timelineItems = document.querySelectorAll(".timeline-item");
-    const timelineTitle = document.querySelector(".timeline-title");
-    const timelineSubtitle = document.querySelector(".timeline-subtitle");
-    const ctaTitle = document.querySelector(".cta-title");
-    const ctaSubtitle = document.querySelector(".cta-subtitle");
-    const ctaButton = document.querySelector(".cta-button");
+    const timelineItems = document.querySelectorAll('.timeline-item');
+    const timelineTitle = document.querySelector('.timeline-title');
+    const timelineSubtitle = document.querySelector('.timeline-subtitle');
+    const ctaTitle = document.querySelector('.cta-title');
+    const ctaSubtitle = document.querySelector('.cta-subtitle');
+    const ctaButton = document.querySelector('.cta-button');
 
     // Vérifier si les éléments sont déjà animés
     const isAlreadyAnimated = (element: Element) => {
-      return element.classList.contains("visible");
+      return element.classList.contains('visible');
     };
 
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting && !isAlreadyAnimated(entry.target)) {
-          // Animation du titre et sous-titre timeline
-          if (entry.target.classList.contains('timeline-title')) {
-            setTimeout(() => {
-              entry.target.classList.add("visible");
-            }, 200);
-          } else if (entry.target.classList.contains('timeline-subtitle')) {
-            setTimeout(() => {
-              entry.target.classList.add("visible");
-            }, 400);
-          } 
-          // Animation des éléments CTA
-          else if (entry.target.classList.contains('cta-title')) {
-            setTimeout(() => {
-              entry.target.classList.add("visible");
-            }, 200);
-          } else if (entry.target.classList.contains('cta-subtitle')) {
-            setTimeout(() => {
-              entry.target.classList.add("visible");
-            }, 400);
-          } else if (entry.target.classList.contains('cta-button')) {
-            setTimeout(() => {
-              entry.target.classList.add("visible");
-            }, 600);
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting && !isAlreadyAnimated(entry.target)) {
+            // Animation du titre et sous-titre timeline
+            if (entry.target.classList.contains('timeline-title')) {
+              setTimeout(() => {
+                entry.target.classList.add('visible');
+              }, 200);
+            } else if (entry.target.classList.contains('timeline-subtitle')) {
+              setTimeout(() => {
+                entry.target.classList.add('visible');
+              }, 400);
+            }
+            // Animation des éléments CTA
+            else if (entry.target.classList.contains('cta-title')) {
+              setTimeout(() => {
+                entry.target.classList.add('visible');
+              }, 200);
+            } else if (entry.target.classList.contains('cta-subtitle')) {
+              setTimeout(() => {
+                entry.target.classList.add('visible');
+              }, 400);
+            } else if (entry.target.classList.contains('cta-button')) {
+              setTimeout(() => {
+                entry.target.classList.add('visible');
+              }, 600);
+            }
+            // Animation des éléments de timeline
+            else {
+              setTimeout(() => {
+                entry.target.classList.add('visible');
+              }, 100);
+            }
+            observer.unobserve(entry.target);
           }
-          // Animation des éléments de timeline
-          else {
-            setTimeout(() => {
-              entry.target.classList.add("visible");
-            }, 100);
-          }
-          observer.unobserve(entry.target);
-        }
-      });
-    }, { 
-      threshold: 0.15,
-      rootMargin: '0px 0px -50px 0px'
-    });
+        });
+      },
+      {
+        threshold: 0.15,
+        rootMargin: '0px 0px -50px 0px',
+      }
+    );
 
     // Observer seulement les éléments non encore animés
     if (timelineTitle && !isAlreadyAnimated(timelineTitle)) {
@@ -511,8 +527,8 @@ const metadata = {
     if (ctaButton && !isAlreadyAnimated(ctaButton)) {
       observer.observe(ctaButton);
     }
-    
-    timelineItems.forEach(item => {
+
+    timelineItems.forEach((item) => {
       if (!isAlreadyAnimated(item)) {
         observer.observe(item);
       }
@@ -520,8 +536,8 @@ const metadata = {
   }
 
   // Initialiser au chargement de la page
-  document.addEventListener("DOMContentLoaded", initTimelineAnimations);
+  document.addEventListener('DOMContentLoaded', initTimelineAnimations);
 
   // Réinitialiser après les changements de page (pour Astro View Transitions)
-  document.addEventListener("astro:page-load", initTimelineAnimations);
+  document.addEventListener('astro:page-load', initTimelineAnimations);
 </script>
