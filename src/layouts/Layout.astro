@@ -7,7 +7,7 @@ import CommonMeta from '~/components/common/CommonMeta.astro';
 import Favicons from '~/components/Favicons.astro';
 import CustomStyles from '~/components/CustomStyles.astro';
 import ApplyColorMode from '~/components/common/ApplyColorMode.astro';
-import Metadata from '~/components/common/Metadata.astro';
+// import Metadata from '~/components/common/Metadata.astro'; // Disabled to avoid duplicate Open Graph tags
 import SiteVerification from '~/components/common/SiteVerification.astro';
 import Analytics from '~/components/common/Analytics.astro';
 import BasicScripts from '~/components/common/BasicScripts.astro';
@@ -32,13 +32,23 @@ const { language, textDirection } = I18N;
     <Favicons />
     <CustomStyles />
     <ApplyColorMode />
-    <Metadata {...metadata} />
+    <!-- Metadata component disabled to avoid duplicate Open Graph tags -->
+    <!-- <Metadata {...metadata} /> -->
+
+    <!-- Basic Meta Tags -->
+    <title>{metadata.title || 'Embedded Partner - Reliable Embedded Systems'}</title>
+    <meta
+      name="description"
+      content={metadata.description ||
+        'Professional embedded systems development. From PCB to cloud, from prototypes to production. Get reliable systems for your projects.'}
+    />
+
     <SiteVerification />
     <Analytics />
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
-    <meta property="og:url" content={Astro.url.href} />
+    <meta property="og:url" content="https://embeddedpartner.fr" />
     <meta property="og:title" content={metadata.title || 'Embedded Partner - Reliable Embedded Systems'} />
     <meta
       property="og:description"
@@ -49,21 +59,44 @@ const { language, textDirection } = I18N;
       property="og:image"
       content={metadata.image || 'https://embeddedpartner.fr/Embedded_Partner_PCB_To_Cloud_solutions.png'}
     />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Embedded Partner - PCB to Cloud Solutions" />
     <meta property="og:site_name" content="Embedded Partner" />
+    <meta property="og:locale" content="en_US" />
 
     <!-- Twitter -->
-    <meta property="twitter:card" content="summary_large_image" />
-    <meta property="twitter:url" content={Astro.url.href} />
-    <meta property="twitter:title" content={metadata.title || 'Embedded Partner - Reliable Embedded Systems'} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content="https://embeddedpartner.fr" />
+    <meta name="twitter:title" content={metadata.title || 'Embedded Partner - Reliable Embedded Systems'} />
     <meta
-      property="twitter:description"
+      name="twitter:description"
       content={metadata.description ||
         'Professional embedded systems development. From PCB to cloud, from prototypes to production. Get reliable systems for your projects.'}
     />
     <meta
-      property="twitter:image"
+      name="twitter:image"
       content={metadata.image || 'https://embeddedpartner.fr/Embedded_Partner_PCB_To_Cloud_solutions.png'}
     />
+    <meta name="twitter:image:alt" content="Embedded Partner - PCB to Cloud Solutions" />
+    <meta name="twitter:site" content="@embeddedpartner" />
+
+    <!-- Additional Open Graph for LinkedIn/Google -->
+    <meta property="og:image:type" content="image/png" />
+    <meta
+      property="og:image:secure_url"
+      content="https://embeddedpartner.fr/Embedded_Partner_PCB_To_Cloud_solutions.png"
+    />
+    <meta property="og:updated_time" content={new Date().toISOString()} />
+
+    <!-- Additional SEO Meta Tags -->
+    <meta name="robots" content="index, follow" />
+    <meta name="author" content="Embedded Partner" />
+    <meta name="theme-color" content="#00adb5" />
+    <meta name="msapplication-TileColor" content="#00adb5" />
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://embeddedpartner.fr" />
 
     <!-- Comment the line below to disable View Transitions -->
     <ClientRouter fallback="swap" />
