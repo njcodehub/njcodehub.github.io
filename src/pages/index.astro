@@ -33,71 +33,166 @@ const metadata = {
       </div>
     </section>
 
-    <!-- About Me Section -->
-    <section id="about-preview" class="min-h-screen px-6 sm:px-10 py-16 flex items-center justify-center scroll-mt-60">
-      <!-- Contenu -->
-      <div class="max-w-7xl mx-auto w-full">
-        <div class="grid lg:grid-cols-2 gap-6 lg:gap-16 items-center">
-          <!-- Photo à gauche -->
-          <div class="flex justify-center lg:justify-center animate-fade-in-up">
-            <div class="relative mt-6 sm:mt-0">
-              <div
-                class="w-48 h-48 sm:w-64 sm:h-64 lg:w-96 lg:h-96 rounded-2xl overflow-hidden shadow-2xl border-2 border-[#00adb5] hover:shadow-[0_20px_40px_rgba(0,173,181,0.4)] transition-all duration-500 hover:-translate-y-2"
-              >
-                <img
-                  src="/profile.webp"
-                  alt="Professional headshot - Embedded systems engineer"
-                  class="w-full h-full object-cover"
-                />
+    <!-- Services Section -->
+    <section id="services" class="py-14 bg-white min-h-screen flex items-center justify-center">
+      <div class="max-w-screen-xl mx-auto px-4 text-gray-600 md:px-8 w-full">
+        <div class="text-center max-w-3xl mx-auto mb-16">
+          <div class="bg-[#eeeeee] backdrop-blur-sm rounded-2xl px-8 py-4 shadow-lg">
+            <h3 class="text-gray-800 text-3xl font-semibold sm:text-4xl mb-3">Bring your connected product to life</h3>
+            <p class="text-xl text-gray-600">I design and implement end-to-end embedded solutions</p>
+          </div>
+        </div>
+        <div class="relative mt-12">
+          <ul class="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+            <!-- PCB Design & Prototyping -->
+            <li class="bg-white space-y-3 p-4 border rounded-lg">
+              <div class="text-[#00adb5] pb-3">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke-width="1.5"
+                  stroke="currentColor"
+                  class="w-8 h-8"
+                >
+                  <rect x="3" y="4" width="18" height="16" rx="1.5" stroke-linecap="round" stroke-linejoin="round"
+                  ></rect>
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M7 8h5M7 11h8M7 14h6M7 17h5"></path>
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M14 8v4M10 11v6"></path>
+                  <rect x="9" y="7" width="3" height="2" rx="0.3"></rect>
+                  <rect x="13" y="14" width="3" height="2" rx="0.3"></rect>
+                  <circle cx="6.5" cy="9" r="1"></circle>
+                  <circle cx="17.5" cy="9" r="1"></circle>
+                  <circle cx="6.5" cy="15" r="1"></circle>
+                  <circle cx="17.5" cy="15" r="1"></circle>
+                  <circle cx="10.5" cy="13" r="0.6"></circle>
+                  <circle cx="15.5" cy="11" r="0.6"></circle>
+                </svg>
               </div>
-            </div>
-          </div>
+              <h4 class="text-lg text-gray-800 font-semibold">PCB Design & Prototyping</h4>
+              <p>
+                Electronics design for small IoT devices and prototypes.<br />Class 1 boards with complete deliverables:
+                schematics, PCB layout, BOM, and manufacturing files (KiCad only).
+              </p>
+            </li>
 
-          <!-- Contenu à droite -->
-          <div
-            class="bg-white/95 backdrop-blur-md p-4 sm:p-6 lg:p-8 rounded-2xl shadow-2xl border border-gray-200 text-center lg:text-center animate-fade-in-up mb-8 sm:mb-0"
-            style="animation-delay: 0.2s;"
-          >
-            <h2 class="text-xl sm:text-2xl lg:text-4xl font-bold text-black mb-4 lg:mb-6">Hello world !</h2>
-            <p class="text-sm sm:text-base lg:text-lg text-gray-700 leading-relaxed">
-              I'm Noëlie Jestin, building embedded systems since 2017 from safety-critical fire detection systems to
-              green-tech products.<br /> I'm a french freelancer living in Paris, France.
-              <br />I also work remotely from anywhere in the world.<br />
-              <br />I founded <strong>Embedded Partner</strong> to focus on what matters most to me:
-              <strong>renewable energy and sustainable IoT.</strong><br />Feel free to reach out if you'd like to
-              collaborate.
-            </p>
-
-            <!-- Links (icons) -->
-            <div class="mt-6 flex justify-center gap-4">
-              <a
-                href="/contact/"
-                class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white text-[#00adb5] border border-[#00adb5]/30 shadow hover:shadow-md hover:text-[#009aa1] transition"
-                aria-label="Contact form"
-              >
-                <!-- Mail icon -->
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5">
+            <!-- Embedded Software & Edge Intelligence -->
+            <li class="bg-white space-y-3 p-4 border rounded-lg">
+              <div class="text-[#00adb5] pb-3">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke-width="1.5"
+                  stroke="currentColor"
+                  class="w-8 h-8"
+                >
                   <path
-                    d="M1.5 6.75A2.25 2.25 0 0 1 3.75 4.5h16.5A2.25 2.25 0 0 1 22.5 6.75v10.5A2.25 2.25 0 0 1 20.25 19.5H3.75A2.25 2.25 0 0 1 1.5 17.25V6.75Zm2.25-.75a.75.75 0 0 0-.75.75v.267l8.388 5.032a.75.75 0 0 0 .774 0L21 7.017V6.75a.75.75 0 0 0-.75-.75H3.75Zm16.5 3.138-7.65 4.592a2.25 2.25 0 0 1-2.3 0L2.65 9.138v8.112c0 .414.336.75.75.75h16.5c.414 0 .75-.336.75-.75V9.138Z"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M8.288 15.038a5.25 5.25 0 017.424 0M5.106 11.856c3.807-3.808 9.98-3.808 13.788 0M1.924 8.674c5.565-5.565 14.587-5.565 20.152 0M12.53 18.22l-.53.53-.53-.53a.75.75 0 011.06 0z"
                   ></path>
                 </svg>
-              </a>
-              <a
-                href="https://www.linkedin.com/in/%F0%9F%91%89no%C3%ABlie-jestin%F0%9F%91%88-019076130/"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white text-[#00adb5] border border-[#00adb5]/30 shadow hover:shadow-md hover:text-[#009aa1] transition"
-                aria-label="LinkedIn"
-              >
-                <!-- LinkedIn icon -->
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5">
+              </div>
+              <h4 class="text-lg text-gray-800 font-semibold">Embedded Software & Edge Intelligence</h4>
+              <p>
+                End-to-end development from low-level firmware and connectivity to business logic or on-device
+                analytics.<br />(RTOS / Linux, Yocto, Wi-Fi, MQTT, BLE, FastAPI, Qt, TensorFlow Lite...)
+              </p>
+            </li>
+
+            <!-- Cloud Integration -->
+            <li class="bg-white space-y-3 p-4 border rounded-lg">
+              <div class="text-[#00adb5] pb-3">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke-width="1.5"
+                  stroke="currentColor"
+                  class="w-8 h-8"
+                >
                   <path
-                    d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5zM.5 8.5h4V23h-4V8.5zm7 0h3.8v1.98h.05c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.78 2.65 4.78 6.1V23h-3.98v-6.45c0-1.54-.03-3.52-2.15-3.52-2.16 0-2.49 1.68-2.49 3.41V23H7.5V8.5z"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M2.25 15a4.5 4.5 0 004.5 4.5H18a3.75 3.75 0 001.332-7.257 3 3 0 00-3.758-3.848 5.25 5.25 0 00-10.233 2.33A4.502 4.502 0 002.25 15z"
                   ></path>
                 </svg>
-              </a>
-            </div>
-          </div>
+              </div>
+              <h4 class="text-lg text-gray-800 font-semibold">Cloud Integration</h4>
+              <p>Data ingestion and orchestration between your device and your cloud (AWS IoT, IAM, Lambda..)</p>
+            </li>
+
+            <!-- Data Management -->
+            <li class="bg-white space-y-3 p-4 border rounded-lg">
+              <div class="text-[#00adb5] pb-3">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke-width="1.5"
+                  stroke="currentColor"
+                  class="w-8 h-8"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M20.25 6.375c0 2.278-3.694 4.125-8.25 4.125S3.75 8.653 3.75 6.375m16.5 0c0-2.278-3.694-4.125-8.25-4.125S3.75 4.097 3.75 6.375m16.5 0v11.25c0 2.278-3.694 4.125-8.25 4.125s-8.25-1.847-8.25-4.125V6.375m16.5 0v3.75m-16.5-3.75v3.75m16.5 0v3.75C20.25 16.153 16.556 18 12 18s-8.25-1.847-8.25-4.125v-3.75m16.5 0c0 2.278-3.694 4.125-8.25 4.125s-8.25-1.847-8.25-4.125"
+                  ></path>
+                </svg>
+              </div>
+              <h4 class="text-lg text-gray-800 font-semibold">Data Management</h4>
+              <p>Efficient storage and querying of time-series or structured data (InfluxDB, SQL..)</p>
+            </li>
+
+            <!-- Visualization & Monitoring -->
+            <li class="bg-white space-y-3 p-4 border rounded-lg">
+              <div class="text-[#00adb5] pb-3">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke-width="1.5"
+                  stroke="currentColor"
+                  class="w-8 h-8"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M3 13.125C3 12.504 3.504 12 4.125 12h2.25c.621 0 1.125.504 1.125 1.125v6.75C7.5 20.496 6.996 21 6.375 21h-2.25A1.125 1.125 0 013 19.875v-6.75zM9.75 8.625c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125v11.25c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V8.625zM16.5 4.125c0-.621.504-1.125 1.125-1.125h2.25C20.496 3 21 3.504 21 4.125v15.75c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V4.125z"
+                  ></path>
+                </svg>
+              </div>
+              <h4 class="text-lg text-gray-800 font-semibold">Visualization & Monitoring</h4>
+              <p>Real-time dashboards and analytics (Grafana, custom web tools...)</p>
+            </li>
+
+            <!-- AI Workflow, Automation & Security -->
+            <li class="bg-white space-y-3 p-4 border rounded-lg">
+              <div class="text-[#00adb5] pb-3">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke-width="1.5"
+                  stroke="currentColor"
+                  class="w-8 h-8"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M9.594 3.94c.09-.542.56-.94 1.11-.94h2.593c.55 0 1.02.398 1.11.94l.213 1.281c.063.374.313.686.645.87.074.04.147.083.22.127.324.196.72.257 1.075.124l1.217-.456a1.125 1.125 0 011.37.49l1.296 2.247a1.125 1.125 0 01-.26 1.431l-1.003.827c-.293.24-.438.613-.431.992a6.759 6.759 0 010 .255c-.007.378.138.75.43.99l1.005.828c.424.35.534.954.26 1.43l-1.298 2.247a1.125 1.125 0 01-1.369.491l-1.217-.456c-.355-.133-.75-.072-1.076.124a6.57 6.57 0 01-.22.128c-.331.183-.581.495-.644.869l-.213 1.28c-.09.543-.56.941-1.11.941h-2.594c-.55 0-1.02-.398-1.11-.94l-.213-1.281c-.062-.374-.312-.686-.644-.87a6.52 6.52 0 01-.22-.127c-.325-.196-.72-.257-1.076-.124l-1.217.456a1.125 1.125 0 01-1.369-.49l-1.297-2.247a1.125 1.125 0 01.26-1.431l1.004-.827c.292-.24.437-.613.43-.992a6.932 6.932 0 010-.255c.007-.378-.138-.75-.43-.99l-1.004-.828a1.125 1.125 0 01-.26-1.43l1.297-2.247a1.125 1.125 0 011.37-.491l1.216.456c.356.133.751.072 1.076-.124.072-.044.146-.087.22-.128.332-.183.582-.495.644-.869l.214-1.281z"
+                  ></path>
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                </svg>
+              </div>
+              <h4 class="text-lg text-gray-800 font-semibold">AI Workflow, Automation & Security</h4>
+              <p>
+                AI-assisted development, containerized environments, CI/CD, and integrated cybersecurity practices
+                across all layers.<br />(Docker, GitLab CI, Ansible, Cursor, static analysis & security scans...)
+              </p>
+            </li>
+          </ul>
         </div>
       </div>
     </section>
@@ -186,6 +281,75 @@ const metadata = {
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
             </svg>
           </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- About Me Section -->
+    <section id="about-preview" class="px-6 sm:px-10 py-16 flex items-center justify-center scroll-mt-60">
+      <!-- Contenu -->
+      <div class="max-w-7xl mx-auto w-full">
+        <div class="grid lg:grid-cols-2 gap-6 lg:gap-16 items-center">
+          <!-- Photo à gauche -->
+          <div class="flex justify-center lg:justify-center animate-fade-in-up">
+            <div class="relative mt-6 sm:mt-0">
+              <div
+                class="w-48 h-48 sm:w-64 sm:h-64 lg:w-96 lg:h-96 rounded-2xl overflow-hidden shadow-2xl border-2 border-[#00adb5] hover:shadow-[0_20px_40px_rgba(0,173,181,0.4)] transition-all duration-500 hover:-translate-y-2"
+              >
+                <img
+                  src="/profile.webp"
+                  alt="Professional headshot - Embedded systems engineer"
+                  class="w-full h-full object-cover"
+                />
+              </div>
+            </div>
+          </div>
+
+          <!-- Contenu à droite -->
+          <div
+            class="bg-white/95 backdrop-blur-md p-4 sm:p-6 lg:p-8 rounded-2xl shadow-2xl border border-gray-200 text-center lg:text-center animate-fade-in-up mb-8 sm:mb-0"
+            style="animation-delay: 0.2s;"
+          >
+            <h2 class="text-xl sm:text-2xl lg:text-4xl font-bold text-black mb-4 lg:mb-6">Hello world !</h2>
+            <p class="text-sm sm:text-base lg:text-lg text-gray-700 leading-relaxed">
+              I'm Noëlie Jestin, building embedded systems since 2017 from safety-critical fire detection systems to
+              green-tech products.<br /> I'm a french freelancer living in Paris, France.
+              <br />I also work remotely from anywhere in the world.<br />
+              <br />I founded <strong>Embedded Partner</strong> to focus on what matters most to me:
+              <strong>renewable energy and sustainable IoT.</strong><br />Feel free to reach out if you'd like to
+              collaborate.
+            </p>
+
+            <!-- Links (icons) -->
+            <div class="mt-6 flex justify-center gap-4">
+              <a
+                href="/contact/"
+                class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white text-[#00adb5] border border-[#00adb5]/30 shadow hover:shadow-md hover:text-[#009aa1] transition"
+                aria-label="Contact form"
+              >
+                <!-- Mail icon -->
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5">
+                  <path
+                    d="M1.5 6.75A2.25 2.25 0 0 1 3.75 4.5h16.5A2.25 2.25 0 0 1 22.5 6.75v10.5A2.25 2.25 0 0 1 20.25 19.5H3.75A2.25 2.25 0 0 1 1.5 17.25V6.75Zm2.25-.75a.75.75 0 0 0-.75.75v.267l8.388 5.032a.75.75 0 0 0 .774 0L21 7.017V6.75a.75.75 0 0 0-.75-.75H3.75Zm16.5 3.138-7.65 4.592a2.25 2.25 0 0 1-2.3 0L2.65 9.138v8.112c0 .414.336.75.75.75h16.5c.414 0 .75-.336.75-.75V9.138Z"
+                  ></path>
+                </svg>
+              </a>
+              <a
+                href="https://www.linkedin.com/in/%F0%9F%91%89no%C3%ABlie-jestin%F0%9F%91%88-019076130/"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white text-[#00adb5] border border-[#00adb5]/30 shadow hover:shadow-md hover:text-[#009aa1] transition"
+                aria-label="LinkedIn"
+              >
+                <!-- LinkedIn icon -->
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5">
+                  <path
+                    d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5zM.5 8.5h4V23h-4V8.5zm7 0h3.8v1.98h.05c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.78 2.65 4.78 6.1V23h-3.98v-6.45c0-1.54-.03-3.52-2.15-3.52-2.16 0-2.49 1.68-2.49 3.41V23H7.5V8.5z"
+                  ></path>
+                </svg>
+              </a>
+            </div>
+          </div>
         </div>
       </div>
     </section>
