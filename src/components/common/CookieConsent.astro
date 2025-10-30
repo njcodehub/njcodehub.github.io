@@ -1,0 +1,69 @@
+---
+
+---
+
+<div
+  id="cookie-consent-banner"
+  class="fixed bottom-0 left-0 right-0 z-50 bg-white border-t border-gray-200 shadow-lg hidden"
+  role="dialog"
+  aria-labelledby="cookie-consent-title"
+  aria-modal="true"
+>
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+    <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+      <div class="flex-1">
+        <h3 id="cookie-consent-title" class="text-lg font-semibold text-gray-900 mb-2">Cookies & Privacy</h3>
+        <p class="text-sm text-gray-600">
+          This website uses cookies to improve your experience and analyze traffic (Google Analytics). You can accept or
+          refuse analytics cookies.
+          <a href="/privacy/" class="text-[#00adb5] hover:underline ml-1" target="_blank" rel="noopener noreferrer">
+            Learn more
+          </a>
+        </p>
+      </div>
+      <div class="flex-shrink-0 flex gap-3">
+        <button
+          id="reject-cookies"
+          class="px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-md hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#00adb5]"
+        >
+          Reject
+        </button>
+        <button
+          id="accept-cookies"
+          class="px-4 py-2 text-sm font-medium text-white bg-[#00adb5] border border-transparent rounded-md hover:bg-[#00959a] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#00adb5]"
+        >
+          Accept
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script is:inline>
+  function initCookieConsent() {
+    const banner = document.getElementById('cookie-consent-banner');
+    const acceptBtn = document.getElementById('accept-cookies');
+    const rejectBtn = document.getElementById('reject-cookies');
+    if (!banner || !acceptBtn || !rejectBtn) return;
+
+    const consent = localStorage.getItem('cookieConsent');
+    if (!consent) banner.classList.remove('hidden');
+
+    acceptBtn.addEventListener('click', () => {
+      localStorage.setItem('cookieConsent', 'accepted');
+      banner.classList.add('hidden');
+      window.dispatchEvent(new Event('cookieConsentAccepted'));
+    });
+
+    rejectBtn.addEventListener('click', () => {
+      localStorage.setItem('cookieConsent', 'rejected');
+      banner.classList.add('hidden');
+    });
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initCookieConsent);
+  } else {
+    initCookieConsent();
+  }
+</script>

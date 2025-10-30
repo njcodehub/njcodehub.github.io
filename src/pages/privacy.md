@@ -47,12 +47,47 @@ In accordance with the GDPR, you have the right to:
 For any request regarding personal data, please contact:  
 contact@embeddedpartner.fr
 
-## 7. Cookies
+## 7. Google Analytics
 
-This website only uses cookies that are strictly necessary for its technical operation.  
-No analytics, tracking, or advertising cookies are used.
+This website uses Google Analytics 4 (GA4) to analyze website traffic and user behavior. The service is provided by Google LLC (1600 Amphitheatre Parkway, Mountain View, CA 94043, USA).
 
-## 8. Hosting
+**Data collected by Google Analytics:**
+
+- Page views
+- Session duration
+- User location (country, city)
+- Device type and browser
+- Referrer information
+- User interactions (clicks, scrolls)
+
+**Cookies used:**
+Google Analytics uses cookies to distinguish users and collect usage information. These cookies have a maximum lifespan of 2 years.
+
+**Purpose:**
+The data collected is used to understand how visitors interact with the website, improve user experience, and optimize content.
+
+**Legal basis:**
+Data processing is based on your consent, given when you accept cookies or continue browsing after being informed about analytics tracking.
+
+**Data retention:**
+Google Analytics data is retained for 14 months by default, after which it is automatically deleted.
+
+**Your rights:**
+
+- You can disable Google Analytics by installing the [Google Analytics Opt-out Browser Add-on](https://tools.google.com/dlpage/gaoptout)
+- You can also refuse analytics cookies via your browser settings
+
+**Google's privacy policy:**
+https://policies.google.com/privacy
+
+**Transfer of data:**
+Data collected by Google Analytics may be transferred to and processed in the United States. Google is certified under the EU-US Privacy Shield Framework.
+
+## 8. Cookies
+
+This website uses cookies necessary for its technical operation and analytics cookies (Google Analytics) with your consent.
+
+## 9. Hosting
 
 The website is hosted by GitHub Pages,  
 GitHub, Inc. – 88 Colin P. Kelly Jr. Street, San Francisco, CA 94107, USA.  
