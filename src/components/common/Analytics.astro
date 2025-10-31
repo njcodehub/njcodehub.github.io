@@ -1,15 +1,45 @@
 ---
-const gaId = 'G-CWRZLDKN40';
+import { ANALYTICS } from 'astrowind:config';
+
+const gaId = ANALYTICS?.vendors?.googleAnalytics?.id;
 ---
 
 {
-  gaId && (
-    <>
-      <script is:inline define:vars={{ gaId }} async src={'https://www.googletagmanager.com/gtag/js?id=' + gaId} />
-      <script is:inline define:vars={{ gaId }}>
-        window.dataLayer = window.dataLayer || []; const gtag = (...args) => dataLayer.push(...args); gtag('js', new
-        Date()); gtag('config', gaId);
-      </script>
-    </>
-  )
+  gaId ? (
+    <script is:inline define:vars={{ gaId: String(gaId) }}>
+      (function() {
+        function initGoogleAnalytics() {
+          const consent = localStorage.getItem('cookieConsent');
+          if (consent !== 'accepted') return;
+
+          if (document.querySelector('script[src*="googletagmanager.com/gtag/js?id=' + gaId + '"]')) return;
+
+          window.dataLayer = window.dataLayer || [];
+          function gtag() {
+            dataLayer.push(arguments); // eslint-disable-line prefer-rest-params
+          }
+          window.gtag = gtag;
+          gtag('js', new Date());
+          gtag('config', gaId);
+
+          const script = document.createElement('script');
+          script.async = true;
+          script.src = 'https://www.googletagmanager.com/gtag/js?id=' + gaId;
+          document.head.appendChild(script);
+        }
+
+        const consent = localStorage.getItem('cookieConsent');
+
+        if (consent === 'accepted') {
+          if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', initGoogleAnalytics);
+          } else {
+            initGoogleAnalytics();
+          }
+        } else {
+          window.addEventListener('cookieConsentAccepted', initGoogleAnalytics);
+        }
+      })();
+    </script>
+  ) : null
 }
