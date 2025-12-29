@@ -174,36 +174,61 @@ const currentPath = `/${trimSlash(new URL(Astro.url).pathname)}`;
 </header>
 
 <style>
-  /* Force le header à être blanc tout le temps */
+  /* Navigation intégrée au hero - style sobre et premium */
   header,
   header.sticky,
   header.relative,
   header.dark,
   header[data-aw-sticky-header] {
-    background-color: white !important;
-    backdrop-filter: blur(10px) !important;
-    -webkit-backdrop-filter: blur(10px) !important;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.1) !important;
+    background: rgba(255, 255, 255, 0.08) !important;
+    backdrop-filter: blur(8px) !important;
+    -webkit-backdrop-filter: blur(8px) !important;
+    border-bottom: none !important;
   }
 
-  /* S'assurer que le texte reste lisible */
+  /* État scrollé - légèrement plus opaque */
+  header.scroll {
+    background: rgba(255, 255, 255, 0.12) !important;
+  }
+
+  /* Typographie des liens - sobre et aéré */
   header nav a,
   header nav button {
-    color: #222831 !important;
+    color: rgba(255, 255, 255, 0.85) !important;
+    font-weight: 500 !important;
+    letter-spacing: 0.02em !important;
+    padding: 0.75rem 1.25rem !important;
+    transition: color 0.2s ease !important;
   }
 
   header nav a:hover,
   header nav button:hover {
-    color: #00adb5 !important;
+    color: #ffffff !important;
   }
 
-  /* Style pour le lien actif */
+  /* Lien actif - discret */
   header nav a.aw-link-active {
-    color: #00adb5 !important;
-    font-weight: 600;
+    color: #ffffff !important;
+    font-weight: 600 !important;
   }
 
-  /* S'assurer que le header est visible au chargement */
+  /* CTA Contact - élégant, pas criard */
+  header :global(.btn-primary) {
+    background: transparent !important;
+    border: 1px solid rgba(255, 255, 255, 0.4) !important;
+    color: #ffffff !important;
+    box-shadow: none !important;
+    font-weight: 500 !important;
+    letter-spacing: 0.02em !important;
+    transition: all 0.2s ease !important;
+  }
+
+  header :global(.btn-primary:hover) {
+    background: rgba(255, 255, 255, 0.1) !important;
+    border-color: rgba(255, 255, 255, 0.6) !important;
+  }
+
+  /* Visibilité */
   header {
     opacity: 1 !important;
     visibility: visible !important;
