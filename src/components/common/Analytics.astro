@@ -15,8 +15,8 @@ const gaId = ANALYTICS?.vendors?.googleAnalytics?.id;
           if (document.querySelector('script[src*="googletagmanager.com/gtag/js?id=' + gaId + '"]')) return;
 
           window.dataLayer = window.dataLayer || [];
-          function gtag(...args) {
-            dataLayer.push(...args);
+          function gtag() {
+            dataLayer.push(arguments); // eslint-disable-line prefer-rest-params
           }
           window.gtag = gtag;
           gtag('js', new Date());
