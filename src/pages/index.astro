@@ -5,6 +5,7 @@ import Hero from '~/components/widgets/Hero.astro';
 
 import { getPermalink } from '~/utils/permalinks';
 import DemoCarousel from '~/components/widgets/Carousel.jsx';
+import Testimonials from '~/components/widgets/Testimonials.astro';
 
 const metadata = {
   title: 'Embedded Partner - Reliable Embedded Systems',
@@ -32,6 +33,35 @@ const metadata = {
           <DemoCarousel client:load />
         </div>
       </div>
+    </section>
+
+    <section id="testimonials" class="py-14">
+      <div class="text-center max-w-3xl mx-auto mb-16 px-4">
+        <div class="bg-[#eeeeee] backdrop-blur-sm rounded-2xl px-8 py-4 shadow-lg">
+          <h3 class="text-gray-800 text-3xl font-semibold sm:text-4xl mb-3">What they say</h3>
+          <p class="text-xl text-gray-600">Trusted by engineers and founders</p>
+          <p class="text-sm text-gray-400 mt-2">Verified reviews from Malt</p>
+        </div>
+      </div>
+      <Testimonials
+        testimonials={[
+          {
+            testimonial: "Noëlie adopte une démarche itérative efficace, qui nous a permis d'avancer dans les bonnes directions tout au long du projet. Sa capacité à prioriser et à proposer des alternatives pertinentes nous a permis de continuer à progresser. Les livrables fournis sont de grande qualité : bien documentés, clairement expliqués et parfaitement conformes à nos attentes. Je recommande Noëlie sans réserve.",
+            name: "Karim",
+            job: "CEO, PomeLabs",
+          },
+          {
+            testimonial: "J'ai recruté et j'étais la manager de Noëlie pendant plusieurs années. Elle s'est bien intégrée à l'équipe et a rapidement pris des responsabilités au-delà de son périmètre de manière autonome. Elle était très efficace et fournissait des développements de qualité. Elle a su aussi d'immerger dans un code complexe et volumineux rapidement et faire des correctifs / ajouts de qualité.",
+            name: "Marion Lok",
+            job: "Chef de projet, SEFI",
+          },
+          {
+            testimonial: "J'ai eu l'occasion de travailler avec Noëlie pendant deux ans chez SEFI, et j'ai pu apprécier sa fiabilité. Rigoureuse et méthodique, elle a su délivrer un code de qualité, fiable et maintenable. Elle se distingue également par un excellent relationnel, marqué par une attitude collaborative et un vrai sens du collectif, dans un esprit « low ego ».",
+            name: "Jean-Stanislas Russocki",
+            job: "Embedded Software Engineer, Airbus Group",
+          },
+        ]}
+      />
     </section>
 
     <!-- Services Section -->
@@ -358,6 +388,18 @@ const metadata = {
 </Layout>
 
 <style>
+  /* Testimonials cards */
+  #testimonials :global(.flex.flex-col) {
+    background-color: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(8px);
+  }
+
+  #testimonials :global(h2),
+  #testimonials :global(p),
+  #testimonials :global(.text-muted) {
+    color: #222831 !important;
+  }
+
   /* Fond du site */
   body {
     background-color: #eeeeee !important;
