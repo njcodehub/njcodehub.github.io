@@ -105,9 +105,11 @@ export default function ToolboxCarousel() {
 
       {/* Integration cards — horizontal scroll */}
       <div style={{ position: 'relative' }}>
-        <p style={{ textAlign: 'center', color: '#393e46', fontSize: '0.95rem', marginBottom: '16px' }}>
-          And I connect your devices all the way up
-        </p>
+        <div style={{ textAlign: 'center', marginBottom: '16px' }}>
+          <span style={{ background: 'rgba(255,255,255,0.95)', backdropFilter: 'blur(8px)', padding: '8px 20px', borderRadius: '12px', color: '#393e46', fontSize: '0.95rem' }}>
+            And I connect your devices all the way up
+          </span>
+        </div>
 
         {/* Left arrow */}
         <button
