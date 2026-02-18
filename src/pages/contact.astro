@@ -24,8 +24,22 @@ const metadata = {
     <div class="max-w-5xl mx-auto px-4">
       <h1 class="text-3xl font-bold mb-8 text-center text-white drop-shadow-lg">Get in touch</h1>
       <div class="grid md:grid-cols-2 gap-8">
-        <!-- Left: Ask a question -->
+        <!-- Left: Book a call -->
         <div class="animate-fade-in-up">
+          <div class="p-8 rounded-2xl shadow-md w-full bg-white/95 backdrop-blur-md">
+            <h2 class="text-xl font-bold mb-2 text-center text-black">Book a first call</h2>
+            <p class="text-sm text-gray-500 text-center mb-4">30 min to discuss your project.</p>
+            <div
+              class="calendly-inline-widget"
+              data-url="https://calendly.com/noelie-jestin-embeddedpartner/30min?hide_gdpr_banner=1"
+              style="min-width:280px;height:500px;"
+            >
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: Ask a question -->
+        <div class="animate-fade-in-up" style="animation-delay: 0.2s;">
           <form id="contactForm" class="p-8 rounded-2xl shadow-md w-full space-y-4 bg-white/95 backdrop-blur-md">
             <h2 class="text-xl font-bold mb-2 text-center text-black">Ask a question</h2>
             <p class="text-sm text-gray-500 text-center mb-4">I will get back to you within 1-2 business days.</p>
@@ -70,20 +84,6 @@ const metadata = {
               <span id="btnLoading" class="hidden">Sending...</span>
             </button>
           </form>
-        </div>
-
-        <!-- Right: Book a call -->
-        <div class="animate-fade-in-up" style="animation-delay: 0.2s;">
-          <div class="p-8 rounded-2xl shadow-md w-full bg-white/95 backdrop-blur-md">
-            <h2 class="text-xl font-bold mb-2 text-center text-black">Book a first call</h2>
-            <p class="text-sm text-gray-500 text-center mb-4">30 min to discuss your project.</p>
-            <div
-              class="calendly-inline-widget"
-              data-url="https://calendly.com/noelie-jestin-embeddedpartner/30min?hide_gdpr_banner=1"
-              style="min-width:280px;height:500px;"
-            >
-            </div>
-          </div>
         </div>
       </div>
     </div>
