@@ -1,0 +1,102 @@
+---
+import Layout from '~/layouts/Layout.astro';
+
+const metadata = {
+  title: 'Confidentialité — Embedded Partner',
+};
+---
+
+<Layout metadata={metadata}>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style is:global>
+  :root {
+    --bg: #0d1118;
+    --bg2: #121820;
+    --bg3: #171f2c;
+    --card: #161d28;
+    --card2: #1b2333;
+    --teal: #00c8c8;
+    --teal-dim: #00a0a0;
+    --teal-glow: rgba(0,200,200,0.12);
+    --teal-border: rgba(0,200,200,0.25);
+    --green: #22c55e;
+    --green-dark: #16a34a;
+    --white: #f0f4f8;
+    --muted: #a0b8cf;
+    --muted2: #728fa8;
+    --border: rgba(255,255,255,0.07);
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Poppins', sans-serif; background: var(--bg); color: var(--white); overflow-x: hidden; }
+  h1,h2,h3,h4,h5 { font-family: 'Poppins', sans-serif; }
+  a { color: var(--teal); }
+  a:hover { color: var(--teal-dim); }
+  .topbar { position: relative; display: flex; align-items: center; justify-content: space-between; padding: 22px 48px; border-bottom: 1px solid var(--border); }
+  .brand { font-family: 'Poppins', sans-serif; font-weight: 600; font-size: 18px; color: var(--white); text-decoration: none; letter-spacing: -0.3px; }
+  .brand span { color: var(--teal); }
+  .footer-links { display: flex; gap: 18px; justify-content: center; margin-bottom: 12px; }
+  .footer-links a { font-size: 12px; color: var(--muted); text-decoration: none; }
+  .footer-links a:hover { color: var(--white); }
+  footer { background: #090d13; border-top: 1px solid var(--border); padding: 40px 48px 32px; text-align: center; }
+  .footer-inner { max-width: 1120px; margin: 0 auto; }
+  .footer-inner .brand { font-size: 16px; }
+  .footer-inner span { font-size: 12px; color: var(--muted2); }
+  .footer-inner span a { font-size: 12px; }
+  section { padding: 80px 48px; max-width: 900px; margin: 0 auto; }
+  section h1 { font-size: 48px; font-weight: 700; margin-bottom: 32px; letter-spacing: -0.5px; }
+  section h2 { font-size: 24px; font-weight: 700; margin-top: 40px; margin-bottom: 16px; letter-spacing: -0.3px; }
+  section p { font-size: 16px; line-height: 1.75; margin-bottom: 16px; color: var(--muted); }
+  section ul { margin-left: 24px; margin-bottom: 16px; }
+  section li { font-size: 16px; line-height: 1.75; margin-bottom: 12px; color: var(--muted); }
+  .last-updated { font-size: 14px; color: var(--muted2); font-style: italic; margin-bottom: 32px; }
+  @media (max-width: 900px) { section { padding: 60px 22px; } section h1 { font-size: 32px; } .topbar { padding: 18px 22px; } footer { padding: 32px 22px; } }
+</style>
+<div class="topbar">
+  <a href="/" class="brand">Embedded<span>Partner</span></a>
+</div>
+<section>
+  <h1>Politique de confidentialité</h1>
+  <p class="last-updated"><em>Dernière mise à jour</em> : Août 2026</p>
+  <p>Embedded Partner s'engage à protéger votre vie privée et à respecter le Règlement Général sur la Protection des Données (RGPD) de l'Union européenne.</p>
+
+  <h2>1. Google Analytics</h2>
+  <p>Ce site utilise Google Analytics 4 (GA4) pour analyser le trafic du site et le comportement des utilisateurs. Le service est fourni par Google LLC (1600 Amphitheatre Parkway, Mountain View, CA 94043, USA).</p>
+  <p><strong>Données collectées par Google Analytics :</strong></p>
+  <ul>
+    <li>Pages consultées</li>
+    <li>Durée des sessions</li>
+    <li>Localisation de l'utilisateur (pays, ville)</li>
+    <li>Type d'appareil et navigateur</li>
+    <li>Informations du référent</li>
+    <li>Interactions des utilisateurs (clics, défilements)</li>
+  </ul>
+  <p><strong>Cookies utilisés :</strong> Google Analytics utilise des cookies pour distinguer les utilisateurs et collecter des informations d'utilisation. Ces cookies ont une durée de vie maximale de 2 ans.</p>
+  <p><strong>Finalité :</strong> Les données collectées permettent de comprendre comment les visiteurs interagissent avec le site, d'améliorer l'expérience utilisateur et d'optimiser le contenu.</p>
+  <p><strong>Base légale :</strong> Le traitement des données repose sur votre consentement, donné lorsque vous acceptez les cookies ou continuez à consulter le site après avoir été informé du suivi analytique.</p>
+  <p><strong>Conservation des données :</strong> Google Analytics conserve les données pendant 14 mois par défaut, après quoi elles sont automatiquement supprimées.</p>
+  <p><strong>Vos droits :</strong></p>
+  <ul>
+    <li>Vous pouvez désactiver Google Analytics en installant le <a href="https://tools.google.com/dlpage/gaoptout">module complémentaire de désactivation de Google Analytics</a></li>
+    <li>Vous pouvez également refuser les cookies analytiques via les paramètres de votre navigateur</li>
+  </ul>
+  <p><strong>Politique de confidentialité de Google :</strong> <a href="https://policies.google.com/privacy">https://policies.google.com/privacy</a></p>
+  <p><strong>Transfert de données :</strong> Les données collectées par Google Analytics peuvent être transférées et traitées aux États-Unis. Google est certifié dans le cadre du Privacy Shield UE-États-Unis.</p>
+
+  <h2>2. Cookies</h2>
+  <p>Ce site utilise des cookies nécessaires à son fonctionnement technique et des cookies analytiques (Google Analytics) avec votre consentement.</p>
+
+  <h2>3. Hébergement</h2>
+  <p>Le site est hébergé par GitHub Pages, GitHub, Inc. – 88 Colin P. Kelly Jr. Street, San Francisco, CA 94107, USA. La déclaration de confidentialité de GitHub est disponible à l'adresse : <a href="https://docs.github.com/en/site-policy/privacy-policies/github-privacy-statement">https://docs.github.com/en/site-policy/privacy-policies/github-privacy-statement</a></p>
+</section>
+<footer>
+  <div class="footer-inner">
+    <div class="footer-links">
+      <a href="/terms/">Conditions générales</a>
+      <a href="/privacy/">Confidentialité</a>
+    </div>
+    <span>Copyright © 2026 - Embedded<span style="color:var(--teal);">Partner</span></span>
+  </div>
+</footer>
+</Layout>
