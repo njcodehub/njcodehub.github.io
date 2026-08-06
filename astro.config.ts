@@ -72,7 +72,6 @@ export default defineConfig({
     }),
   ],
 
-
   markdown: {
     remarkPlugins: [readingTimeRemarkPlugin],
     rehypePlugins: [responsiveTablesRehypePlugin, lazyImagesRehypePlugin],

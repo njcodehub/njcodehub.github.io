@@ -56,10 +56,7 @@ const { language, textDirection } = I18N;
       content={metadata.description ||
         'Professional embedded systems development. From PCB to cloud, from prototypes to production. Get reliable systems for your projects.'}
     />
-    <meta
-      property="og:image"
-      content={metadata.image || 'https://embeddedpartner.fr/Embedded_Partner_PCB_To_Cloud_solutions.png'}
-    />
+    <meta property="og:image" content={metadata.image || 'https://embeddedpartner.fr/Embedded_Partner_Preview.svg'} />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
     <meta property="og:image:alt" content="Embedded Partner - PCB to Cloud Solutions" />
@@ -75,19 +72,13 @@ const { language, textDirection } = I18N;
       content={metadata.description ||
         'Professional embedded systems development. From PCB to cloud, from prototypes to production. Get reliable systems for your projects.'}
     />
-    <meta
-      name="twitter:image"
-      content={metadata.image || 'https://embeddedpartner.fr/Embedded_Partner_PCB_To_Cloud_solutions.png'}
-    />
+    <meta name="twitter:image" content={metadata.image || 'https://embeddedpartner.fr/Embedded_Partner_Preview.svg'} />
     <meta name="twitter:image:alt" content="Embedded Partner - PCB to Cloud Solutions" />
     <meta name="twitter:site" content="@embeddedpartner" />
 
     <!-- Additional Open Graph for LinkedIn/Google -->
-    <meta property="og:image:type" content="image/png" />
-    <meta
-      property="og:image:secure_url"
-      content="https://embeddedpartner.fr/Embedded_Partner_PCB_To_Cloud_solutions.png"
-    />
+    <meta property="og:image:type" content="image/svg+xml" />
+    <meta property="og:image:secure_url" content="https://embeddedpartner.fr/Embedded_Partner_Preview.svg" />
     <meta property="og:updated_time" content={new Date().toISOString()} />
 
     <!-- Additional SEO Meta Tags -->
@@ -98,7 +89,6 @@ const { language, textDirection } = I18N;
 
     <!-- Canonical URL -->
     <link rel="canonical" href="https://embeddedpartner.fr" />
-
   </head>
 
   <body class="antialiased text-default bg-page tracking-tight min-h-screen flex flex-col">

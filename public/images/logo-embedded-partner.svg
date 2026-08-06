@@ -1,0 +1,11 @@
+<svg viewBox="0 0 300 50" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap');
+      .logo-text { font-family: 'Poppins', sans-serif; font-size: 28px; font-weight: 600; }
+    </style>
+  </defs>
+
+  <text x="0" y="35" class="logo-text" fill="#f0f4f8">Embedded</text>
+  <text x="160" y="35" class="logo-text" fill="#00c8c8">Partner</text>
+</svg>

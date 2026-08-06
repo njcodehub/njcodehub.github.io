@@ -1,0 +1,19 @@
+<svg viewBox="0 0 1200 630" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="1200" height="630" fill="#0d1118"/>
+
+  <!-- Gradient overlay -->
+  <defs>
+    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0d1825;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#0a1420;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bgGradient)"/>
+
+  <!-- Logo centered -->
+  <g transform="translate(300, 235)">
+    <text x="0" y="130" font-family="'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="120" font-weight="600" fill="#f0f4f8">Embedded</text>
+    <text x="645" y="130" font-family="'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="120" font-weight="600" fill="#00c8c8">Partner</text>
+  </g>
+</svg>
