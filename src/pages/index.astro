@@ -1,889 +1,723 @@
 ---
-import Layout from '~/layouts/PageLayout.astro';
-
-import Hero from '~/components/widgets/Hero.astro';
-
-import { getPermalink } from '~/utils/permalinks';
-import DemoCarousel from '~/components/widgets/Carousel.jsx';
-import ToolboxCarousel from '~/components/widgets/ToolboxCarousel.jsx';
-import Testimonials from '~/components/widgets/Testimonials.astro';
+import { Image } from 'astro:assets';
+import Layout from '~/layouts/Layout.astro';
+import heroImage from '~/assets/images/hero-embedded-partner.jpg';
 
 const metadata = {
-  title: 'Embedded Partner - Reliable Embedded Systems',
+  title: 'Embedded Partner — Firmware IoT Freelance',
   description:
-    'Professional embedded systems development. From PCB to cloud, from prototypes to production. PCB-to-Cloud solutions.',
-  image: 'https://embeddedpartner.fr/Embedded_Partner_PCB_To_Cloud_solutions.png',
+    "De la création au débogage, je prends en charge vos systèmes embarqués pour que vos produits tiennent leurs promesses.",
 };
 ---
 
-<link rel="stylesheet" href="/css/animations.css" />
-
 <Layout metadata={metadata}>
-  <div>
-    <section id="home" class="min-h-screen flex items-center justify-center">
-      <Hero
-        title="<span class='text-[rgb(224,233,234)] font-bold'>Get <span class='text-[#00adb5] font-bold'>reliable</span> IoT products</span>"
-        subtitle="<span class='text-[rgb(224,233,234)] font-bold'>Firmware expert | I build, improve and fix embedded systems</span>"
-        actions={[{ variant: 'primary', text: 'Contact', href: getPermalink('/contact/') }]}
-      />
-    </section>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style is:global>
+  :root {
+    --bg: #0d1118;
+    --bg2: #121820;
+    --bg3: #171f2c;
+    --card: #161d28;
+    --card2: #1b2333;
+    --teal: #00c8c8;
+    --teal-dim: #00a0a0;
+    --teal-glow: rgba(0,200,200,0.12);
+    --teal-border: rgba(0,200,200,0.25);
+    --green: #22c55e;
+    --green-dark: #16a34a;
+    --white: #f0f4f8;
+    --muted: #a0b8cf;
+    --muted2: #728fa8;
+    --border: rgba(255,255,255,0.07);
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Poppins', sans-serif; background: var(--bg); color: var(--white); overflow-x: hidden; }
+  h1,h2,h3,h4,h5 { font-family: 'Poppins', sans-serif; }
+  a { color: var(--teal); }
+  a:hover { color: var(--teal-dim); }
 
-    <section id="sectors" class="min-h-screen flex items-center justify-center">
-      <div class="w-full max-w-7xl mx-auto px-4">
-        <div class="demo-carousel">
-          <DemoCarousel client:load />
-        </div>
-      </div>
-    </section>
+  /* ─── TOP BAR (logo only, pas de menu) ─── */
+  .topbar {
+    position: absolute; top: 0; left: 0; right: 0; z-index: 20;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 22px 48px;
+  }
+  .brand { font-family: 'Poppins', sans-serif; font-weight: 600; font-size: 18px; color: var(--white); text-decoration: none; letter-spacing: -0.3px; }
+  .brand span { color: var(--teal); }
+  .topbar-badge { display: flex; align-items: center; gap: 8px; font-size: 13px; color: rgba(240,244,248,0.85); }
+  .topbar-badge .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--green); box-shadow: 0 0 0 4px rgba(34,197,94,0.18); animation: pulse 2s infinite; }
+  .topbar-cta {
+    padding: 10px 20px; border-radius: 9px;
+    background: linear-gradient(180deg, #00c8c8, #00a0a0); color: #fff;
+    font-size: 14px; font-weight: 600; text-decoration: none;
+    box-shadow: 0 4px 16px rgba(0,200,200,0.3); transition: all 0.2s;
+  }
+  .topbar-cta:hover { transform: translateY(-1px); box-shadow: 0 8px 24px rgba(0,200,200,0.42); color: #fff; }
+  @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.55} }
 
-    <section id="testimonials" class="py-14">
-      <div class="text-center max-w-3xl mx-auto mb-16 px-4">
-        <div class="bg-[#eeeeee] backdrop-blur-sm rounded-2xl px-8 py-4 shadow-lg">
-          <h3 class="text-gray-800 text-3xl font-semibold sm:text-4xl mb-3">What they say</h3>
-          <p class="text-xl text-gray-600">Trusted by engineers and founders</p>
-          <p class="text-sm text-gray-400 mt-2">Verified reviews from Malt</p>
-        </div>
-      </div>
-      <Testimonials
-        testimonials={[
-          {
-            testimonial:
-              "Noëlie adopte une démarche itérative efficace, qui nous a permis d'avancer dans les bonnes directions tout au long du projet. Sa capacité à prioriser et à proposer des alternatives pertinentes nous a permis de continuer à progresser. Les livrables fournis sont de grande qualité : bien documentés, clairement expliqués et parfaitement conformes à nos attentes. Je recommande Noëlie sans réserve.",
-            name: 'Karim Hcini',
-            job: 'CEO, PomeLabs',
-          },
-          {
-            testimonial:
-              "J'ai recruté et j'étais la manager de Noëlie pendant plusieurs années. Elle s'est bien intégrée à l'équipe et a rapidement pris des responsabilités au-delà de son périmètre de manière autonome. Elle était très efficace et fournissait des développements de qualité. Elle a su aussi d'immerger dans un code complexe et volumineux rapidement et faire des correctifs / ajouts de qualité.",
-            name: 'Marion Lok',
-            job: 'Chef de projet, SEFI',
-          },
-          {
-            testimonial:
-              "J'ai eu l'occasion de travailler avec Noëlie pendant deux ans chez SEFI, et j'ai pu apprécier sa fiabilité. Rigoureuse et méthodique, elle a su délivrer un code de qualité, fiable et maintenable. Elle se distingue également par un excellent relationnel, marqué par une attitude collaborative et un vrai sens du collectif, dans un esprit « low ego ».",
-            name: 'Jean-Stanislas Russocki',
-            job: 'Embedded Software Engineer, Airbus Group',
-          },
-        ]}
-      />
-    </section>
+  /* ─── URGENCY STRIP ─── */
+  .urgency-strip {
+    position: absolute; top: 0; left: 0; right: 0; z-index: 30;
+    background: rgba(9,13,19,0.55); backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--border);
+    color: rgba(240,244,248,0.9); text-align: center;
+    font-size: 12.5px; font-weight: 500; letter-spacing: 0.2px;
+    padding: 9px 20px;
+    display: flex; align-items: center; justify-content: center; gap: 9px; flex-wrap: wrap;
+  }
+  .urgency-strip strong { font-weight: 700; color: #4ade80; }
+  .urgency-strip svg { flex-shrink: 0; color: var(--green); }
 
-    <div class="flex justify-center py-6">
-      <a
-        href="/contact/"
-        class="inline-flex items-center px-8 py-4 font-semibold rounded-full bg-[#00adb5] text-white hover:bg-[#009aa1] transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-[0_0_30px_rgba(0,173,181,0.5)]"
-      >
-        Start Your Project Now
-        <svg class="ml-2 w-5 h-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-          ><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"
-          ></path></svg
-        >
-      </a>
-    </div>
+  /* ─── HERO ─── */
+  #hero {
+    height: 100vh; min-height: 640px;
+    display: flex; align-items: center;
+    position: relative; overflow: hidden;
+  }
+  .hero-media { position: absolute; inset: 0; z-index: 0; overflow: hidden; }
+  .hero-media img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .hero-media-placeholder {
+    position: absolute; inset: 0;
+    background: linear-gradient(135deg, #0d1825 0%, #0a1420 100%);
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    gap: 14px; color: #3a5060; font-family: monospace; font-size: 13px; text-align: center; line-height: 1.6;
+  }
+  .hero-media-placeholder::before {
+    content: ''; position: absolute; inset: 0;
+    background-image: repeating-linear-gradient(45deg, transparent, transparent 20px, rgba(0,200,200,0.03) 20px, rgba(0,200,200,0.03) 21px);
+  }
+  .hero-media-placeholder svg, .hero-media-placeholder span { position: relative; z-index: 1; }
+  .hero-media-placeholder svg { opacity: 0.35; }
+  .hero-scrim {
+    position: absolute; inset: 0; z-index: 1;
+    background: linear-gradient(90deg, rgba(13,17,24,0.92) 0%, rgba(13,17,24,0.78) 34%, rgba(13,17,24,0.4) 62%, rgba(13,17,24,0.15) 100%);
+  }
+  .hero-content {
+    position: relative; z-index: 2; box-sizing: border-box;
+    display: flex; flex-direction: column;
+    padding: 100px 48px 90px 80px; max-width: 620px; margin-left: 0;
+  }
+  .hero-badge {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 6px 14px; border-radius: 100px;
+    background: rgba(0,200,200,0.1); border: 1px solid var(--teal-border);
+    font-size: 13px; color: var(--teal); margin-bottom: 26px; font-weight: 500;
+  }
+  .hero-badge::before { content: ''; width: 7px; height: 7px; background: var(--teal); border-radius: 50%; animation: pulse 2s infinite; }
+  .hero-h1 {
+    font-size: clamp(40px, 4.6vw, 62px);
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500; line-height: 1.18; letter-spacing: -1px;
+    color: #fff; text-shadow: 0 2px 40px rgba(0,0,0,0.8); margin-bottom: 0;
+  }
+  .hero-h1 .pill {
+    display: inline; background: none; border: none; border-radius: 0;
+    padding: 0; color: var(--teal); position: static;
+  }
+  .hero-marquee { margin-top: 18px; max-width: 460px; -webkit-mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent); mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent); overflow: hidden; padding: 4px 0; }
+  .hero-marquee-track { display: flex; gap: 14px; width: max-content; animation: marquee 30s linear infinite; padding-left: 8px; }
+  #reviews .hero-marquee-track { animation-duration: 40s; }
+  .hero-marquee:hover .hero-marquee-track { animation-play-state: paused; }
+  .hero-marquee .review-card { flex: 0 0 340px; }
+  @keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+  .hero-review-chip { flex: 0 0 260px; background: rgba(255,255,255,0.06); backdrop-filter: blur(6px); border: 1px solid rgba(255,255,255,0.12); border-radius: 12px; padding: 10px 14px; overflow: hidden; }
+  .hero-review-chip p { font-size: 12.5px; color: rgba(240,244,248,0.85); line-height: 1.4; font-style: italic; margin-bottom: 6px; }
+  .hero-review-chip strong { display: block; font-size: 12px; font-weight: 700; color: #fff; }
+  .hero-review-chip span { font-size: 11px; color: rgba(240,244,248,0.55); }
+  .hero-sub {
+    font-size: 17px; color: rgba(240,244,248,0.72);
+    line-height: 1.5; margin: 16px 0 22px; font-weight: 400; max-width: 440px;
+    text-shadow: 0 1px 10px rgba(0,0,0,0.6);
+  }
+  .hero-actions { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; }
+  .btn-primary {
+    padding: 15px 30px; background: linear-gradient(180deg, #00c8c8, #00a0a0); color: #fff;
+    border-radius: 10px; font-weight: 700; font-size: 16px;
+    text-decoration: none; font-family: 'Poppins', sans-serif;
+    transition: all 0.2s; box-shadow: 0 6px 22px rgba(0,200,200,0.35);
+    display: inline-flex; align-items: center; gap: 8px; border: none; cursor: pointer;
+  }
+  .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 10px 32px rgba(0,200,200,0.45); color: #fff; }
+  .btn-ghost {
+    padding: 15px 28px; background: transparent; color: var(--white);
+    border: 1px solid rgba(255,255,255,0.22); border-radius: 10px;
+    font-weight: 600; font-size: 15px; text-decoration: none;
+    font-family: 'Poppins', sans-serif; transition: all 0.2s;
+    display: inline-flex; align-items: center; gap: 8px;
+  }
+  .btn-ghost:hover { background: rgba(255,255,255,0.06); border-color: rgba(255,255,255,0.35); color: var(--white); }
+  .hero-trust { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; margin-top: 22px; }
+  .hero-avatars { display: flex; }
+  .hero-avatars .av {
+    width: 40px; height: 40px; border-radius: 50%;
+    border: 2px solid #0b0f16; margin-left: -12px;
+    background: rgba(0,200,200,0.16); color: var(--teal);
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Poppins', sans-serif; font-weight: 700; font-size: 14px;
+    overflow: hidden;
+  }
+  .hero-avatars .av:first-child { margin-left: 0; }
+  .hero-avatars .av img { width: 100%; height: 100%; object-fit: cover; }
+  .hero-trust-text { display: flex; flex-direction: column; gap: 1px; }
+  .hero-trust-stars { color: var(--teal); font-size: 14px; letter-spacing: 2px; }
+  .hero-trust-text span { font-size: 13px; color: rgba(240,244,248,0.82); }
+  .hero-trust-text span strong { color: var(--white); font-weight: 600; }
+  .scroll-cue {
+    position: absolute; bottom: 26px; left: 50%; transform: translateX(-50%); z-index: 2;
+    display: flex; flex-direction: column; align-items: center; gap: 12px;
+    text-decoration: none; color: rgba(240,244,248,0.85);
+  }
+  .scroll-cue span { font-size: 15px; font-weight: 500; letter-spacing: 0.3px; line-height: 1.3; }
+  .scroll-cue .scroll-circle {
+    width: 64px; height: 64px; border-radius: 50%; flex-shrink: 0;
+    border: 2px solid var(--teal-border); background: rgba(0,200,200,0.1);
+    display: flex; align-items: center; justify-content: center; color: var(--teal);
+    animation: scrollBounce 2s ease-in-out infinite;
+  }
+  .scroll-cue .scroll-circle svg { width: 26px; height: 26px; }
+  @keyframes scrollBounce { 0%,100%{transform:translateY(0)} 50%{transform:translateY(6px)} }
+  .section-cue { display: flex; flex-direction: column; align-items: center; gap: 10px; text-decoration: none; color: var(--muted); margin: 56px auto 0; width: fit-content; }
+  .section-cue span { font-size: 13px; font-weight: 500; }
+  .section-cue .cue-circle { width: 44px; height: 44px; border-radius: 50%; border: 1.5px solid var(--teal-border); background: var(--teal-glow); display: flex; align-items: center; justify-content: center; color: var(--teal); animation: scrollBounce 2s ease-in-out infinite; }
+  .section-cue .cue-circle svg { width: 18px; height: 18px; }
 
-    <!-- What I Do Section -->
-    <section id="services" class="py-14 bg-white flex items-center justify-center">
-      <div class="max-w-screen-xl mx-auto px-4 md:px-8 w-full">
-        <div class="text-center max-w-3xl mx-auto mb-16">
-          <div class="bg-[#eeeeee] backdrop-blur-sm rounded-2xl px-8 py-4 shadow-lg">
-            <h3 class="text-gray-800 text-3xl font-semibold sm:text-4xl mb-3">
-              Firmware expert, +7 years of experience
-            </h3>
-            <p class="text-xl text-gray-600">I build, improve and fix your IoT products</p>
-          </div>
-        </div>
-        <div class="relative mt-12">
-          <ul class="grid gap-8 sm:grid-cols-1 lg:grid-cols-3">
-            <!-- Creation -->
-            <li class="bg-white space-y-3 p-6 border rounded-xl shadow-md">
-              <div class="text-[#00adb5] pb-3">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke-width="1.5"
-                  stroke="currentColor"
-                  class="w-10 h-10"
-                >
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15"></path>
-                </svg>
-              </div>
-              <h4 class="text-xl text-gray-800 font-semibold">Creation</h4>
-              <p class="text-gray-600">Building your product from scratch, from specs to working prototype.</p>
-            </li>
+  /* ─── SECTION COMMON ─── */
+  section { padding: 84px 48px; }
+  section:not(#hero) { min-height: 100vh; display: flex; align-items: center; }
+  .max-w { max-width: 1120px; margin: 0 auto; width: 100%; }
+  .section-label {
+    display: inline-flex; align-items: center; gap: 8px;
+    font-size: 12px; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase;
+    color: var(--teal); margin-bottom: 16px;
+  }
+  .section-label::before { content: ''; display: block; width: 20px; height: 1.5px; background: var(--teal); }
+  .section-title { font-size: clamp(28px, 3.5vw, 44px); font-weight: 700; letter-spacing: -0.8px; line-height: 1.15; margin-bottom: 16px; }
+  .section-title em { color: var(--teal); font-style: normal; }
+  .section-sub { font-size: 17px; color: var(--muted); max-width: 560px; line-height: 1.65; }
+  .section-header { margin-bottom: 44px; }
+  .split { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: center; }
+  .split-media { position: relative; border-radius: 20px; overflow: hidden; aspect-ratio: 4/5; background: linear-gradient(135deg, #0d1825 0%, #0a1420 100%); }
+  .split-media::before { content: ''; position: absolute; inset: 0; background-image: repeating-linear-gradient(45deg, transparent, transparent 20px, rgba(0,200,200,0.03) 20px, rgba(0,200,200,0.03) 21px); }
+  .split-media-inner { position: relative; z-index: 1; height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 14px; color: #3a5060; font-family: monospace; font-size: 13px; text-align: center; line-height: 1.6; padding: 24px; }
+  .split-media-inner svg { opacity: 0.35; }
+  #solution .split-media { order: -1; }
 
-            <!-- Feature Development -->
-            <li class="bg-white space-y-3 p-6 border rounded-xl shadow-md">
-              <div class="text-[#00adb5] pb-3">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke-width="1.5"
-                  stroke="currentColor"
-                  class="w-10 h-10"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z"></path>
-                </svg>
-              </div>
-              <h4 class="text-xl text-gray-800 font-semibold">Feature Development</h4>
-              <p class="text-gray-600">Enhancing and extending your existing products with new capabilities.</p>
-            </li>
+  /* ─── PROBLÈME / AGITATION ─── */
+  #problem { background: var(--bg2); }
+  .problem-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-top: 8px; }
+  .split-text .problem-grid { grid-template-columns: 1fr; }
+  .problem-card {
+    background: var(--card); border: 1px solid var(--border); border-radius: 16px;
+    padding: 28px; transition: border-color 0.2s;
+  }
+  .problem-card:hover { border-color: var(--teal-border); }
+  .problem-icon {
+    width: 44px; height: 44px; border-radius: 12px;
+    background: rgba(239,68,68,0.1); border: 1px solid rgba(239,68,68,0.25);
+    display: flex; align-items: center; justify-content: center; color: #ef4444; margin-bottom: 18px;
+  }
+  .problem-card h3 { font-size: 18px; font-weight: 700; margin-bottom: 8px; }
+  .problem-card p { font-size: 14px; color: var(--muted); line-height: 1.65; }
 
-            <!-- Problem Solving -->
-            <li class="bg-white space-y-3 p-6 border rounded-xl shadow-md">
-              <div class="text-[#00adb5] pb-3">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke-width="1.5"
-                  stroke="currentColor"
-                  class="w-10 h-10"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    d="M11.42 15.17l-5.84-3.37a.75.75 0 01-.27-1.02l3.37-5.84a.75.75 0 011.02-.27l5.84 3.37a.75.75 0 01.27 1.02l-3.37 5.84a.75.75 0 01-1.02.27zM7.5 12H4.875c-.621 0-1.125.504-1.125 1.125v4.875c0 .621.504 1.125 1.125 1.125h4.875c.621 0 1.125-.504 1.125-1.125V16.5M16.5 7.5h2.625c.621 0 1.125.504 1.125 1.125v4.875c0 .621-.504 1.125-1.125 1.125H16.5"
-                  ></path>
-                </svg>
-              </div>
-              <h4 class="text-xl text-gray-800 font-semibold">Problem Solving</h4>
-              <p class="text-gray-600">Debugging, optimization, improving reliability of your systems.</p>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </section>
-
-    <div class="flex justify-center py-6">
-      <a
-        href="/contact/"
-        class="inline-flex items-center px-8 py-4 font-semibold rounded-full bg-[#00adb5] text-white hover:bg-[#009aa1] transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-[0_0_30px_rgba(0,173,181,0.5)]"
-      >
-        Start Your Project Now
-        <svg class="ml-2 w-5 h-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-          ><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"
-          ></path></svg
-        >
-      </a>
-    </div>
-
-    <!-- Projects Section -->
-    <section id="projects" class="py-14 bg-white flex items-center justify-center">
-      <div class="max-w-screen-xl mx-auto px-4 md:px-8 w-full">
-        <div class="text-center max-w-3xl mx-auto mb-16">
-          <div class="bg-[#eeeeee] backdrop-blur-sm rounded-2xl px-8 py-4 shadow-lg">
-            <h3 class="text-gray-800 text-3xl font-semibold sm:text-4xl mb-3">Projects</h3>
-            <p class="text-xl text-gray-600">A few examples of what I've worked on</p>
-          </div>
-        </div>
-        <div class="grid gap-8 lg:grid-cols-3">
-          <!-- OTA -->
-          <div
-            class="p-6 border rounded-xl shadow-md flex flex-col"
-            style="background: rgba(255,255,255,0.95); backdrop-filter: blur(8px);"
-          >
-            <div class="flex items-center gap-3 mb-4">
-              <span class="text-xs font-semibold px-3 py-1 rounded-full bg-[#00adb5]/10 text-[#00adb5]">EdTech</span>
-              <span class="text-xs font-semibold px-3 py-1 rounded-full bg-gray-100 text-gray-600">Startup</span>
-            </div>
-            <h4 class="text-xl text-gray-800 font-semibold mb-2">From Manual Updates to One-Click OTA</h4>
-            <p class="text-gray-600 flex-grow">
-              Electronics education platform. Built the full OTA pipeline: firmware side, web app integration, and board
-              communication. Update all modules from their website, no manual intervention.
-            </p>
-            <div class="mt-4 pt-4 border-t border-gray-100 text-sm text-gray-400">Solo freelance</div>
-          </div>
-
-          <!-- Yocto -->
-          <div
-            class="p-6 border rounded-xl shadow-md flex flex-col"
-            style="background: rgba(255,255,255,0.95); backdrop-filter: blur(8px);"
-          >
-            <div class="flex items-center gap-3 mb-4">
-              <span class="text-xs font-semibold px-3 py-1 rounded-full bg-[#00adb5]/10 text-[#00adb5]">GreenTech</span>
-              <span class="text-xs font-semibold px-3 py-1 rounded-full bg-gray-100 text-gray-600"
-                >Startup / SMB (~70 people)</span
-              >
-            </div>
-            <h4 class="text-xl text-gray-800 font-semibold mb-2">When Your Chip Runs Out</h4>
-            <p class="text-gray-600 flex-grow">
-              Eco-friendly digital boiler system. Adapted the Yocto platform to a new range of boards to keep the
-              product shipping despite component shortages.
-            </p>
-            <div class="mt-4 pt-4 border-t border-gray-100 text-sm text-gray-400">Team of 4</div>
-          </div>
-
-          <!-- Fire Detection -->
-          <div
-            class="p-6 border rounded-xl shadow-md flex flex-col"
-            style="background: rgba(255,255,255,0.95); backdrop-filter: blur(8px);"
-          >
-            <div class="flex items-center gap-3 mb-4">
-              <span class="text-xs font-semibold px-3 py-1 rounded-full bg-[#00adb5]/10 text-[#00adb5]">Safety</span>
-              <span class="text-xs font-semibold px-3 py-1 rounded-full bg-gray-100 text-gray-600"
-                >SMB (~100 people)</span
-              >
-            </div>
-            <h4 class="text-xl text-gray-800 font-semibold mb-2">Bringing Order to a Complex System</h4>
-            <p class="text-gray-600 flex-grow">
-              Large-scale fire detection system. Debugging and optimization of a complex embedded architecture.
-            </p>
-            <div class="mt-4 pt-4 border-t border-gray-100 text-sm text-gray-400">Tech lead, team of 5</div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <div class="flex justify-center py-6">
-      <a
-        href="/contact/"
-        class="inline-flex items-center px-8 py-4 font-semibold rounded-full bg-[#00adb5] text-white hover:bg-[#009aa1] transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-[0_0_30px_rgba(0,173,181,0.5)]"
-      >
-        Start Your Project Now
-        <svg class="ml-2 w-5 h-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-          ><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"
-          ></path></svg
-        >
-      </a>
-    </div>
-
-    <!-- My Toolbox Section -->
-    <section id="toolbox" class="py-14">
-      <div class="max-w-screen-xl mx-auto px-4 md:px-8 w-full">
-        <div class="text-center max-w-3xl mx-auto mb-16">
-          <div class="bg-[#eeeeee] backdrop-blur-sm rounded-2xl px-8 py-4 shadow-lg">
-            <h3 class="text-gray-800 text-3xl font-semibold sm:text-4xl mb-3">My Toolbox</h3>
-            <p class="text-xl text-gray-600">Technologies and tools I work with</p>
-          </div>
-        </div>
-        <div class="toolbox-carousel">
-          <ToolboxCarousel client:load />
-        </div>
-      </div>
-    </section>
-
-    <div class="flex justify-center py-6">
-      <a
-        href="/contact/"
-        class="inline-flex items-center px-8 py-4 font-semibold rounded-full bg-[#00adb5] text-white hover:bg-[#009aa1] transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-[0_0_30px_rgba(0,173,181,0.5)]"
-      >
-        Start Your Project Now
-        <svg class="ml-2 w-5 h-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-          ><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"
-          ></path></svg
-        >
-      </a>
-    </div>
-
-    <!-- Timeline Section -->
-    <section id="timeline" class="py-16 bg-white">
-      <div class="container mx-auto px-4">
-        <div class="text-center max-w-3xl mx-auto mb-16">
-          <div class="bg-[#eeeeee] backdrop-blur-sm rounded-2xl px-8 py-4 shadow-lg">
-            <h2 class="timeline-title text-4xl md:text-5xl font-bold text-[#222831] mb-3 font-heading">
-              <span class="text-[#00adb5]">How ?</span>
-            </h2>
-            <p class="timeline-subtitle text-xl text-[#393e46]">
-              From initial concept to final delivery, here's how I will help you to bring your vision to life.
-            </p>
-          </div>
-        </div>
-
-        <div class="timeline-container">
-          <div class="timeline">
-            <div class="timeline-item">
-              <div class="timeline-marker"></div>
-              <div class="timeline-content">
-                <h3>We connect</h3>
-                <p>Share your idea</p>
-              </div>
-            </div>
-            <div class="timeline-item">
-              <div class="timeline-marker"></div>
-              <div class="timeline-content">
-                <h3>We align</h3>
-                <p>Together we define the scope and goals</p>
-              </div>
-            </div>
-            <div class="timeline-item">
-              <div class="timeline-marker"></div>
-              <div class="timeline-content">
-                <h3>You get your plan</h3>
-                <p>Roadmap with an estimated budget for each step</p>
-              </div>
-            </div>
-            <div class="timeline-item">
-              <div class="timeline-marker"></div>
-              <div class="timeline-content">
-                <h3>We build</h3>
-                <p>Weekly updates, you will see your idea come to life</p>
-              </div>
-            </div>
-            <div class="timeline-item">
-              <div class="timeline-marker"></div>
-              <div class="timeline-content">
-                <h3>We refine</h3>
-                <p>Continuous feedback integration, customizing your idea to your needs</p>
-              </div>
-            </div>
-            <div class="timeline-item">
-              <div class="timeline-marker"></div>
-              <div class="timeline-content">
-                <h3>You launch</h3>
-                <p>Your solution is ready!</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Call to Action Section -->
-    <section class="cta py-16 bg-gradient-to-r from-[#00adb5] to-[#009aa1]">
-      <div class="container mx-auto px-4 text-center">
-        <div class="max-w-3xl mx-auto">
-          <div class="bg-[#eeeeee] backdrop-blur-sm rounded-2xl px-8 py-1 shadow-lg">
-            <h2 class="cta-title text-4xl md:text-5xl font-bold text-[#222831] mb-3 font-heading">Ready ?</h2>
-            <p class="cta-subtitle text-xl text-[#393e46] mb-4">
-              Let's work together to bring your embedded vision to life. <br />
-              Get in touch and let's discuss your project. <br />
-              I will respond within 1-2 business days.
-            </p>
-          </div>
-          <a
-            href="/contact/"
-            class="cta-button btn-primary inline-flex items-center px-8 py-4 font-semibold rounded-full transition-all duration-300 transform hover:scale-105 mt-6"
-          >
-            Start Your Project Now
-            <svg class="ml-2 w-5 h-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
-            </svg>
-          </a>
-        </div>
-      </div>
-    </section>
-
-    <!-- About Me Section -->
-    <section id="about-preview" class="px-6 sm:px-10 py-16 flex items-center justify-center scroll-mt-60">
-      <!-- Contenu -->
-      <div class="max-w-7xl mx-auto w-full">
-        <div class="grid lg:grid-cols-2 gap-6 lg:gap-16 items-center">
-          <!-- Photo à gauche -->
-          <div class="flex justify-center lg:justify-center animate-fade-in-up">
-            <div class="relative mt-6 sm:mt-0">
-              <div
-                class="w-48 h-48 sm:w-64 sm:h-64 lg:w-96 lg:h-96 rounded-2xl overflow-hidden shadow-2xl border-2 border-[#00adb5] hover:shadow-[0_20px_40px_rgba(0,173,181,0.4)] transition-all duration-500 hover:-translate-y-2"
-              >
-                <img
-                  src="/profile.webp"
-                  alt="Professional headshot - Embedded systems engineer"
-                  class="w-full h-full object-cover"
-                />
-              </div>
-            </div>
-          </div>
-
-          <!-- Contenu à droite -->
-          <div
-            class="bg-white/95 backdrop-blur-md p-4 sm:p-6 lg:p-8 rounded-2xl shadow-2xl border border-gray-200 text-center lg:text-center animate-fade-in-up mb-8 sm:mb-0"
-            style="animation-delay: 0.2s;"
-          >
-            <h2 class="text-xl sm:text-2xl lg:text-4xl font-bold text-black mb-4 lg:mb-6">Hello world !</h2>
-            <p class="text-sm sm:text-base lg:text-lg text-gray-700 leading-relaxed">
-              I'm Noëlie Jestin, building embedded systems since 2017 from safety-critical fire detection systems to
-              green-tech products.<br /> I'm a french freelancer living in Paris, France.
-              <br />I also work remotely from anywhere in the world.<br />
-              <br />I founded <strong>Embedded Partner</strong> to focus on what matters most to me:
-              <strong>renewable energy and sustainable IoT.</strong><br />Feel free to reach out if you'd like to
-              collaborate.
-            </p>
-
-            <!-- Links (icons) -->
-            <div class="mt-6 flex justify-center gap-4">
-              <a
-                href="/contact/"
-                class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white text-[#00adb5] border border-[#00adb5]/30 shadow hover:shadow-md hover:text-[#009aa1] transition"
-                aria-label="Contact form"
-              >
-                <!-- Mail icon -->
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5">
-                  <path
-                    d="M1.5 6.75A2.25 2.25 0 0 1 3.75 4.5h16.5A2.25 2.25 0 0 1 22.5 6.75v10.5A2.25 2.25 0 0 1 20.25 19.5H3.75A2.25 2.25 0 0 1 1.5 17.25V6.75Zm2.25-.75a.75.75 0 0 0-.75.75v.267l8.388 5.032a.75.75 0 0 0 .774 0L21 7.017V6.75a.75.75 0 0 0-.75-.75H3.75Zm16.5 3.138-7.65 4.592a2.25 2.25 0 0 1-2.3 0L2.65 9.138v8.112c0 .414.336.75.75.75h16.5c.414 0 .75-.336.75-.75V9.138Z"
-                  ></path>
-                </svg>
-              </a>
-              <a
-                href="https://www.linkedin.com/in/%F0%9F%91%89no%C3%ABlie-jestin%F0%9F%91%88-019076130/"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white text-[#00adb5] border border-[#00adb5]/30 shadow hover:shadow-md hover:text-[#009aa1] transition"
-                aria-label="LinkedIn"
-              >
-                <!-- LinkedIn icon -->
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5">
-                  <path
-                    d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5zM.5 8.5h4V23h-4V8.5zm7 0h3.8v1.98h.05c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.78 2.65 4.78 6.1V23h-3.98v-6.45c0-1.54-.03-3.52-2.15-3.52-2.16 0-2.49 1.68-2.49 3.41V23H7.5V8.5z"
-                  ></path>
-                </svg>
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-  </div>
-</Layout>
-
-<style>
-  /* Testimonials cards */
-  #testimonials :global(.flex.flex-col) {
-    background-color: rgba(255, 255, 255, 0.95);
-    backdrop-filter: blur(8px);
+  /* ─── SOLUTION / CAS D'USAGE ─── */
+  #solution { background: var(--bg); }
+  .uc-panels { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .split-text .uc-panels { grid-template-columns: 1fr; }
+  .uc-card { background: var(--card); border: 1px solid var(--border); border-radius: 14px; padding: 24px; transition: border-color 0.2s; }
+  .uc-card:hover { border-color: var(--teal-border); }
+  .uc-badge {
+    display: inline-flex; align-items: center; gap: 5px;
+    font-size: 11px; font-weight: 600; color: var(--muted2);
+    background: rgba(255,255,255,0.04); border: 1px solid var(--border);
+    border-radius: 100px; padding: 3px 10px; margin-bottom: 12px; letter-spacing: 0.3px;
+  }
+  .uc-card h3 { font-size: 17px; font-weight: 700; margin-bottom: 8px; letter-spacing: -0.2px; }
+  .uc-card p { font-size: 14px; color: var(--muted); line-height: 1.65; }
+  .uc-card .uc-result {
+    margin-top: 16px; padding: 10px 14px; border-radius: 8px;
+    background: rgba(34,197,94,0.1); border: 1px solid rgba(34,197,94,0.25);
+    font-size: 12px; color: #4ade80; font-weight: 500;
   }
 
-  #testimonials :global(h2),
-  #testimonials :global(p),
-  #testimonials :global(.text-muted) {
-    color: #222831 !important;
+  /* ─── PREUVE / PROJETS ─── */
+  #proof { background: var(--bg2); }
+  .projects-list { display: flex; flex-direction: column; gap: 18px; }
+  .split-text .project-row { grid-template-columns: 1fr; gap: 10px; }
+  .split-text .project-meta { text-align: left; }
+  .proof-carousel { display: flex; flex-direction: column; gap: 12px; height: 100%; }
+  .proof-carousel image-slot { flex: 1; }
+  .proof-carousel-label { font-size: 12px; color: var(--muted2); text-align: center; }
+  .project-row {
+    background: var(--card); border: 1px solid var(--border); border-radius: 16px;
+    padding: 30px 34px; display: grid; grid-template-columns: auto 1fr auto; gap: 32px; align-items: center;
+    transition: all 0.2s;
+  }
+  .project-row:hover { border-color: var(--teal-border); transform: translateX(4px); }
+  .project-badge { font-size: 11px; font-weight: 600; letter-spacing: 1.2px; text-transform: uppercase; color: var(--muted2); white-space: nowrap; }
+  .project-row h3 { font-size: 19px; font-weight: 700; margin-bottom: 6px; letter-spacing: -0.3px; }
+  .project-row p { font-size: 14px; color: var(--muted); line-height: 1.6; }
+  .project-meta { text-align: right; white-space: nowrap; }
+  .project-meta span { display: block; font-size: 12px; color: var(--muted2); }
+  .project-meta strong { display: block; font-size: 13px; color: var(--teal); font-weight: 600; margin-top: 4px; }
+
+  /* ─── TÉMOIGNAGES ─── */
+  #reviews { background: var(--bg); }
+  .reviews-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+  .review-card { background: var(--card); border: 1px solid var(--border); border-radius: 16px; padding: 28px; transition: border-color 0.2s; }
+  .review-card:hover { border-color: var(--teal-border); }
+  .review-stars { display: flex; gap: 3px; margin-bottom: 14px; color: var(--teal); font-size: 14px; }
+  .review-card blockquote { font-size: 14px; color: rgba(240,244,248,0.85); line-height: 1.7; font-style: italic; margin-bottom: 20px; }
+  .review-author { display: flex; align-items: center; gap: 12px; }
+  .review-avatar {
+    width: 44px; height: 44px; border-radius: 50%;
+    background: var(--teal-glow); border: 1px solid var(--teal-border);
+    display: flex; align-items: center; justify-content: center; overflow: hidden;
+    font-size: 15px; font-weight: 700; color: var(--teal); font-family: 'Poppins', sans-serif;
+  }
+  .review-avatar img { width: 100%; height: 100%; object-fit: cover; }
+  .review-author strong { font-size: 14px; font-weight: 600; display: block; }
+  .review-author span { font-size: 12px; color: var(--muted); }
+  .review-source {
+    display: inline-flex; align-items: center; gap: 6px;
+    font-size: 11px; color: var(--muted2); margin-top: 14px;
+    padding: 4px 10px; border-radius: 6px; border: 1px solid var(--border);
   }
 
-  /* Fond du site */
-  body {
-    background-color: #eeeeee !important;
+  /* ─── FAQ / OBJECTIONS ─── */
+  #faq { background: var(--bg); }
+  .faq-list { display: flex; flex-direction: column; max-width: 800px; margin: 0 auto; }
+  .faq-item { border-bottom: 1px solid var(--border); }
+  .faq-q {
+    width: 100%; display: flex; justify-content: space-between; align-items: center;
+    padding: 20px 0; background: none; border: none; cursor: pointer;
+    font-size: 16px; font-weight: 600; color: var(--white);
+    font-family: 'Poppins', sans-serif; text-align: left; gap: 16px; transition: color 0.2s;
   }
+  .faq-q:hover { color: var(--teal); }
+  .faq-q svg { flex-shrink: 0; transition: transform 0.3s; color: var(--muted); }
+  .faq-q.open svg { transform: rotate(180deg); color: var(--teal); }
+  .faq-q.open { color: var(--teal); }
+  .faq-a { max-height: 0; overflow: hidden; transition: max-height 0.35s ease, padding 0.2s; }
+  .faq-a.open { max-height: 260px; padding-bottom: 20px; }
+  .faq-a.open.faq-a-long { max-height: 600px; }
+  .faq-a p { font-size: 15px; color: var(--muted); line-height: 1.75; }
 
-  [data-scroll-container] {
-    background-color: #eeeeee !important;
-  }
+  /* ─── FOOTER ─── */
+  footer { background: #090d13; border-top: 1px solid var(--border); padding: 40px 48px 32px; text-align: center; }
+  .footer-inner { max-width: 1120px; margin: 0 auto; }
+  .footer-inner .brand { font-size: 16px; }
+  .footer-inner span { font-size: 12px; color: var(--muted2); }
+  .footer-links { display: flex; gap: 18px; justify-content: center; }
+  .footer-links a { font-size: 12px; color: var(--muted); text-decoration: none; }
+  .footer-links a:hover { color: var(--white); }
 
-  /* Full-page sections */
-  [data-scroll-section] {
-    min-height: 100vh !important;
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-    position: relative !important;
-    padding: 2rem 0;
-  }
-
-  /* Couleurs des titres */
-  h1,
-  h2,
-  h3 {
-    color: #222831 !important;
-  }
-
-  /* Couleurs des textes de détails */
-  p,
-  li {
-    color: #393e46 !important;
-  }
-
-  /* Couleurs des highlights */
-  .highlight-primary,
-  .highlight-secondary,
-  .highlight-accent,
-  .highlight {
-    color: #00adb5 !important;
-  }
-
-  /* Style pour le lien actif dans la navigation */
-  .aw-link-active {
-    color: #00adb5 !important;
-    font-weight: 600;
-  }
-
-  /* S'assurer que le header reste visible */
-  [data-aw-sticky-header] {
-    position: fixed !important;
-    top: 0 !important;
-    left: 0 !important;
-    right: 0 !important;
-    z-index: 1000 !important;
-    background: rgba(255, 255, 255, 0.95) !important;
-    backdrop-filter: blur(10px) !important;
-    -webkit-backdrop-filter: blur(10px) !important;
-  }
-
-  /* Force le header à être blanc tout le temps */
-  header,
-  header.sticky,
-  header.relative,
-  header.dark,
-  header[data-aw-sticky-header] {
-    background-color: white !important;
-    backdrop-filter: blur(10px) !important;
-    -webkit-backdrop-filter: blur(10px) !important;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.1) !important;
-  }
-
-  /* S'assurer que le texte reste lisible */
-  header nav a,
-  header nav button {
-    color: #222831 !important;
-  }
-
-  header nav a:hover,
-  header nav button:hover {
-    color: #00adb5 !important;
-  }
-
-  /* Style pour le lien actif */
-  header nav a.aw-link-active {
-    color: #00adb5 !important;
-    font-weight: 600;
-  }
-
-  /* S'assurer que le header est visible au chargement */
-  header {
-    opacity: 1 !important;
-    visibility: visible !important;
-  }
-
-  /* Optimisation pour mobile */
-  @media (max-width: 768px) {
-    [data-scroll-section] {
-      padding: 1rem 0;
-    }
-
-    [data-scroll-container] {
-      padding-top: 60px !important;
-    }
-  }
-
-  /* Timeline Styles */
-  .timeline-title {
-    opacity: 0;
-    transform: translateY(30px);
-    transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
-  }
-
-  .timeline-title.visible {
-    opacity: 1;
-    transform: translateY(0);
-  }
-
-  .timeline-subtitle {
-    opacity: 0;
-    transform: translateY(20px);
-    transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
-    transition-delay: 0.2s;
-  }
-
-  .timeline-subtitle.visible {
-    opacity: 1;
-    transform: translateY(0);
-  }
-
-  /* Fond blanc pour la section timeline */
-  .timeline .bg-\[\#eeeeee\] {
-    background: #eeeeee;
-    backdrop-filter: blur(8px);
-    border: 1px solid rgba(238, 238, 238, 0.2);
-  }
-
-  .timeline-container {
-    max-width: 800px;
-    margin: 0 auto;
-    position: relative;
-  }
-
-  .timeline {
-    position: relative;
-    padding: 2rem 0;
-  }
-
-  .timeline::before {
-    content: '';
-    position: absolute;
-    left: 50%;
-    top: 0;
-    bottom: 0;
-    width: 4px;
-    background: linear-gradient(to bottom, #00adb5, #009aa1);
-    transform: translateX(-50%);
-    border-radius: 2px;
-  }
-
-  .timeline-item {
-    position: relative;
-    margin: 2rem 0;
-    opacity: 0;
-    transform: translateY(50px);
-    transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
-  }
-
-  .timeline-item.visible {
-    opacity: 1;
-    transform: translateY(0);
-  }
-
-  .timeline-item:nth-child(1) {
-    transition-delay: 0.1s;
-  }
-  .timeline-item:nth-child(2) {
-    transition-delay: 0.2s;
-  }
-  .timeline-item:nth-child(3) {
-    transition-delay: 0.3s;
-  }
-  .timeline-item:nth-child(4) {
-    transition-delay: 0.4s;
-  }
-  .timeline-item:nth-child(5) {
-    transition-delay: 0.5s;
-  }
-  .timeline-item:nth-child(6) {
-    transition-delay: 0.6s;
-  }
-
-  .timeline-item:nth-child(odd) .timeline-content {
-    margin-left: 0;
-    margin-right: 50%;
-    padding-right: 2rem;
-    text-align: right;
-  }
-
-  .timeline-item:nth-child(even) .timeline-content {
-    margin-left: 50%;
-    margin-right: 0;
-    padding-left: 2rem;
-    text-align: left;
-  }
-
-  .timeline-marker {
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    width: 20px;
-    height: 20px;
-    background: #00adb5;
-    border: 4px solid white;
-    border-radius: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 2;
-    box-shadow: 0 0 0 4px #00adb5;
-  }
-
-  .timeline-content {
-    background: #eeeeee;
-    padding: 1.5rem;
-    border-radius: 12px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    position: relative;
-  }
-
-  .timeline-content::before {
-    content: '';
-    position: absolute;
-    top: 50%;
-    width: 0;
-    height: 0;
-    border: 12px solid transparent;
-  }
-
-  .timeline-item:nth-child(odd) .timeline-content::before {
-    right: -24px;
-    border-left-color: #eeeeee;
-    transform: translateY(-50%);
-  }
-
-  .timeline-item:nth-child(even) .timeline-content::before {
-    left: -24px;
-    border-right-color: #eeeeee;
-    transform: translateY(-50%);
-  }
-
-  .timeline-content h3 {
-    color: #222831;
-    font-size: 1.25rem;
-    font-weight: 600;
-    margin-bottom: 0.5rem;
-  }
-
-  .timeline-content p {
-    color: #393e46;
-    margin: 0;
-    line-height: 1.6;
-  }
-
-  @media (max-width: 768px) {
-    .timeline::before {
-      left: 20px;
-    }
-
-    .timeline-item:nth-child(odd) .timeline-content,
-    .timeline-item:nth-child(even) .timeline-content {
-      margin-left: 60px;
-      margin-right: 0;
-      padding-left: 1.5rem;
-      padding-right: 1.5rem;
-      text-align: left;
-    }
-
-    .timeline-item:nth-child(odd) .timeline-content::before,
-    .timeline-item:nth-child(even) .timeline-content::before {
-      left: -24px;
-      right: auto;
-      border-right-color: #eeeeee;
-      border-left-color: transparent;
-    }
-
-    .timeline-marker {
-      left: 20px;
-    }
-  }
-
-  /* CTA Section Animations */
-  .cta-title {
-    opacity: 0;
-    transform: translateY(30px);
-    transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
-  }
-
-  .cta-title.visible {
-    opacity: 1;
-    transform: translateY(0);
-  }
-
-  .cta-subtitle {
-    opacity: 0;
-    transform: translateY(20px);
-    transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
-    transition-delay: 0.2s;
-  }
-
-  .cta-subtitle.visible {
-    opacity: 1;
-    transform: translateY(0);
-  }
-
-  /* Fond semi-transparent pour la section CTA */
-  .cta .bg-\[\#eeeeee\] {
-    background: #eeeeee;
-    backdrop-filter: blur(8px);
-    border: 1px solid rgba(238, 238, 238, 0.2);
-  }
-
-  .cta-button {
-    opacity: 0;
-    transform: translateY(20px);
-    transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
-    transition-delay: 0.4s;
-  }
-
-  .cta-button.visible {
-    opacity: 1;
-    transform: translateY(0);
-  }
-
-  /* Styles spécifiques pour le bouton CTA - même effet que Contact */
-  .cta-button.btn-primary {
-    background-color: #00adb5 !important;
-    border-color: #00adb5 !important;
-    box-shadow: 0 0 20px rgba(0, 173, 181, 0.5) !important;
-    color: white !important;
-  }
-
-  .cta-button.btn-primary:hover {
-    background-color: #009aa1 !important;
-    border-color: #009aa1 !important;
-    box-shadow: 0 0 30px rgba(0, 173, 181, 0.7) !important;
-    color: white !important;
+  @media (max-width: 900px) {
+    section:not(#hero) { min-height: 0; display: block; }
+    section { padding: 64px 22px; }
+    .topbar { padding: 18px 22px; }
+    #hero { display: block; height: auto; min-height: 0; padding-bottom: 70px; }
+    .hero-media { position: absolute; inset: 0; }
+    .hero-content { padding: 130px 22px 90px; margin-left: 0; }
+    .hero-scrim { background: linear-gradient(0deg, rgba(8,11,17,0.9) 0%, rgba(8,11,17,0.65) 55%, rgba(8,11,17,0.55) 100%); }
+    .hero-media img { object-position: 68% 45%; }
+    .scroll-cue { position: relative; bottom: auto; left: auto; right: auto; transform: none; margin: 0 auto; }
+    .problem-grid, .reviews-grid { grid-template-columns: 1fr; }
+    .problem-grid { gap: 20px; }
+    .problem-card { padding: 20px 18px; flex-direction: column; align-items: flex-start; gap: 12px; }
+    .problem-icon { margin-bottom: 0; flex-shrink: 0; width: 36px; height: 36px; }
+    .problem-card h3 { font-size: 15px; margin-bottom: 2px; }
+    .problem-card p { font-size: 13px; }
+    .reviews-grid { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch; gap: 14px; margin: 0 -22px; padding: 0 22px 8px; }
+    .reviews-grid .review-card { flex: 0 0 88%; scroll-snap-align: start; }
+    .split { grid-template-columns: 1fr; }
+    #solution .split-media { order: 0; }
+    .uc-panels { grid-template-columns: 1fr; }
+    .project-row { grid-template-columns: 1fr; gap: 14px; }
+    .project-meta { text-align: left; }
+    .topbar-badge { display: none; }
   }
 </style>
 
-<script>
-  // Fonction pour initialiser les animations
-  function initTimelineAnimations() {
-    const timelineItems = document.querySelectorAll('.timeline-item');
-    const timelineTitle = document.querySelector('.timeline-title');
-    const timelineSubtitle = document.querySelector('.timeline-subtitle');
-    const ctaTitle = document.querySelector('.cta-title');
-    const ctaSubtitle = document.querySelector('.cta-subtitle');
-    const ctaButton = document.querySelector('.cta-button');
+<!-- ─── TOP BAR ─── -->
+<div class="topbar">
+  <a href="#hero" class="brand">Embedded<span>Partner</span></a>
+</div>
 
-    // Vérifier si les éléments sont déjà animés
-    const isAlreadyAnimated = (element: Element) => {
-      return element.classList.contains('visible');
-    };
+<!-- ─── HERO ─── -->
+<section id="hero">
+  <div class="hero-media">
+    <Image
+      src={heroImage}
+      alt=""
+      width={1600}
+      quality={70}
+      format="webp"
+      loading="eager"
+      fetchpriority="high"
+      style="width:100%;height:100%;object-fit:cover;display:block"
+    />
+    <div class="hero-scrim"></div>
+  </div>
 
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting && !isAlreadyAnimated(entry.target)) {
-            // Animation du titre et sous-titre timeline
-            if (entry.target.classList.contains('timeline-title')) {
-              setTimeout(() => {
-                entry.target.classList.add('visible');
-              }, 200);
-            } else if (entry.target.classList.contains('timeline-subtitle')) {
-              setTimeout(() => {
-                entry.target.classList.add('visible');
-              }, 400);
-            }
-            // Animation des éléments CTA
-            else if (entry.target.classList.contains('cta-title')) {
-              setTimeout(() => {
-                entry.target.classList.add('visible');
-              }, 200);
-            } else if (entry.target.classList.contains('cta-subtitle')) {
-              setTimeout(() => {
-                entry.target.classList.add('visible');
-              }, 400);
-            } else if (entry.target.classList.contains('cta-button')) {
-              setTimeout(() => {
-                entry.target.classList.add('visible');
-              }, 600);
-            }
-            // Animation des éléments de timeline
-            else {
-              setTimeout(() => {
-                entry.target.classList.add('visible');
-              }, 100);
-            }
-            observer.unobserve(entry.target);
-          }
-        });
-      },
-      {
-        threshold: 0.15,
-        rootMargin: '0px 0px -50px 0px',
-      }
-    );
+  <div class="hero-content">
+    <h1 class="hero-h1">
+      Je <span class="pill">fiabilise</span><br>
+      et fais <span class="pill">évoluer</span><br>
+      vos produits IoT
+    </h1>
+    <p class="hero-sub">
+      De la création au débogage, je prends en charge vos systèmes embarqués pour que vos produits tiennent leurs promesses.
+    </p>
+    <div class="hero-actions">
+      <a href="/reservation/" class="btn-primary">
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        Votre plan offert
+      </a>
+    </div>
+    <div class="hero-marquee">
+      <div class="hero-marquee-track">
+        <div class="hero-review-chip"><p>« STid a fait appel à Noëlie pour une mission dont nous avons été pleinement satisfaits. »</p><strong>Joffray Henné</strong><span>Expert en traçabilité RFID</span></div>
+        <div class="hero-review-chip"><p>« Livrables de grande qualité, bien documentés. »</p><strong>Karim Hcini</strong><span>CEO, PomeLabs</span></div>
+        <div class="hero-review-chip"><p>« Très efficace, avec des développements de qualité. »</p><strong>Marion Lok</strong><span>Chef de projet, SEFI</span></div>
+        <div class="hero-review-chip"><p>« J'ai beaucoup apprécié son professionnalisme. »</p><strong>Serge Noel</strong><span>DevSecOps</span></div>
+        <div class="hero-review-chip"><p>« Code fiable et maintenable, excellent relationnel. »</p><strong>Jean-Stanislas Russocki</strong><span>Embedded SW Engineer, Airbus</span></div>
+        <div class="hero-review-chip"><p>« STid a fait appel à Noëlie pour une mission dont nous avons été pleinement satisfaits. »</p><strong>Joffray Henné</strong><span>Expert en traçabilité RFID</span></div>
+        <div class="hero-review-chip"><p>« Livrables de grande qualité, bien documentés. »</p><strong>Karim Hcini</strong><span>CEO, PomeLabs</span></div>
+        <div class="hero-review-chip"><p>« Très efficace, avec des développements de qualité. »</p><strong>Marion Lok</strong><span>Chef de projet, SEFI</span></div>
+        <div class="hero-review-chip"><p>« J'ai beaucoup apprécié son professionnalisme. »</p><strong>Serge Noel</strong><span>DevSecOps</span></div>
+        <div class="hero-review-chip"><p>« Code fiable et maintenable, excellent relationnel. »</p><strong>Jean-Stanislas Russocki</strong><span>Embedded SW Engineer, Airbus</span></div>
+      </div>
+    </div>
+  </div>
+  <a href="#problem" class="scroll-cue" aria-label="Défiler vers le bas">
+    <div class="scroll-circle">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><line x1="12" y1="5" x2="12" y2="19"/><polyline points="6 13 12 19 18 13"/></svg>
+    </div>
+    <span>Ça vous parle ?</span>
+  </a>
+</section>
 
-    // Observer seulement les éléments non encore animés
-    if (timelineTitle && !isAlreadyAnimated(timelineTitle)) {
-      observer.observe(timelineTitle);
-    }
-    if (timelineSubtitle && !isAlreadyAnimated(timelineSubtitle)) {
-      observer.observe(timelineSubtitle);
-    }
-    if (ctaTitle && !isAlreadyAnimated(ctaTitle)) {
-      observer.observe(ctaTitle);
-    }
-    if (ctaSubtitle && !isAlreadyAnimated(ctaSubtitle)) {
-      observer.observe(ctaSubtitle);
-    }
-    if (ctaButton && !isAlreadyAnimated(ctaButton)) {
-      observer.observe(ctaButton);
-    }
+<!-- ─── PROBLÈME (Agitation) ─── -->
+<section id="problem">
+  <div class="max-w">
+    <div class="split-text">
+    <div class="section-header">
+      <div class="section-label">Les problèmes</div>
+      <h2 class="section-title">Votre firmware vous <em>ralentit</em> ?</h2>
+      <p class="section-sub">C'est une roadmap qui dérape, des bugs qui reviennent, une mise sur le marché qui recule.</p>
+    </div>
+    <div class="problem-grid">
+      <div class="problem-card">
+        <div class="problem-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
+        <h3>Fonctionnalité clé à développer</h3>
+        <p>Personne en interne n'a la disponibilité ou l'expertise</p>
+      </div>
+      <div class="problem-card">
+        <div class="problem-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg></div>
+        <h3>Bugs complexes</h3>
+        <p>Production instable, retours utilisateurs</p>
+      </div>
+      <div class="problem-card">
+        <div class="problem-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><line x1="3.27" y1="6.96" x2="12" y2="12.01"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg></div>
+        <h3>Rupture de stock</h3>
+        <p>Production bloquée car composant non disponible.</p>
+      </div>
+    </div>
+    </div>
+    <a href="/reservation/" class="btn-primary" style="margin:44px auto 0;width:fit-content;display:flex">
+      <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      Votre plan offert
+    </a>
+    <a href="#solution" class="section-cue"><div class="cue-circle"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><polyline points="6 9 12 15 18 9"/></svg></div><span>Les solutions pour votre produit</span></a>
+  </div>
+</section>
 
-    timelineItems.forEach((item) => {
-      if (!isAlreadyAnimated(item)) {
-        observer.observe(item);
-      }
-    });
-  }
+<!-- ─── SOLUTION (Cas d'usage) ─── -->
+<section id="solution">
+  <div class="max-w">
+    <div class="split-text">
+    <div class="section-header">
+      <div class="section-label">Les solutions</div>
+      <h2 class="section-title">Comment je peux<br><em>concrètement</em> vous aider ?</h2>
+      <p class="section-sub">Un résultat mesurable à chaque itération, démo et retours réguliers. Avançons ensemble !</p>
+    </div>
+    <div class="uc-panels">
+      <div class="uc-card">
+        <h3>Développer une fonctionnalité</h3>
+        <p>Du firmware bas niveau jusqu'à l'intégration web.</p>
+        <div class="uc-result">✓ Votre produit évolue</div>
+      </div>
+      <div class="uc-card">
+        <h3>Débogage</h3>
+        <p>J'isole et corrige les bugs difficiles, causes racines documentées.</p>
+        <div class="uc-result">✓ Votre produit est stabilisé</div>
+      </div>
+      <div class="uc-card">
+        <h3>Gérer la pénurie</h3>
+        <p>Portage sur le nouveau composant (MCU, Capteurs..) en gardant la compatibilité avec les précédentes configurations.</p>
+        <div class="uc-result">✓ Production flexible face aux pénuries</div>
+      </div>
+    </div>
+    </div>
+    <a href="/reservation/" class="btn-primary" style="margin:44px auto 0;width:fit-content;display:flex">
+      <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      Votre plan offert
+    </a>
+    <a href="#proof" class="section-cue"><div class="cue-circle"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><polyline points="6 9 12 15 18 9"/></svg></div><span>Voir des exemples concrets</span></a>
+  </div>
+</section>
 
-  // Initialiser au chargement de la page
-  document.addEventListener('DOMContentLoaded', initTimelineAnimations);
+<!-- ─── PREUVE (Projets) ─── -->
+<section id="proof">
+  <div class="max-w">
+    <div class="split-text">
+    <div class="section-header">
+      <div class="section-label">Exemples de cas que j'ai déjà traités</div>
+      <h2 class="section-title">Quels <span style="color:var(--teal);">résultats</span> ai-je<br>déjà obtenus ?</h2>
+    </div>
+    <div class="projects-list">
+      <div class="project-row">
+        <div class="project-badge">EdTech<br>(PomeLabs)</div>
+        <div>
+          <h3>De la mise à jour manuelle à l'OTA en 1 clic</h3>
+          <p>Construction complète du pipeline OTA : firmware, intégration web app et communication cartes.</p>
+        </div>
+        <div class="project-meta"><span>Rôle</span><strong>Solo freelance</strong></div>
+      </div>
+      <div class="project-row">
+        <div class="project-badge">Système de détection incendie<br>(Réseau DEF)</div>
+        <div>
+          <h3>Remettre de l'ordre dans un système complexe</h3>
+          <p>Débogage et optimisation d'une architecture embarquée critique</p>
+        </div>
+        <div class="project-meta"><span>Rôle</span><strong>Tech lead, équipe 5</strong></div>
+      </div>
+      <div class="project-row">
+        <div class="project-badge">GreenTech<br>(Qarnot)</div>
+        <div>
+          <h3>Rendre la production flexible</h3>
+          <p>Adaptation Yocto à une nouvelle gamme de cartes pour maintenir la production en cas de pénurie.</p>
+        </div>
+        <div class="project-meta"><span>Rôle</span><strong>Ingénieur logiciel embarqué, Équipe de 4</strong></div>
+      </div>
+    </div>
+    <a href="/reservation/" class="btn-primary" style="margin:44px auto 0;width:fit-content;display:flex">
+      <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      Votre plan offert
+    </a>
+    <a href="#reviews" class="section-cue" style="margin-top:24px"><div class="cue-circle"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><polyline points="6 9 12 15 18 9"/></svg></div><span>Voir ce qu'ils en disent</span></a>
+  </div>
+</section>
 
-  // Réinitialiser après les changements de page (pour Astro View Transitions)
-  document.addEventListener('astro:page-load', initTimelineAnimations);
+<!-- ─── TÉMOIGNAGES (avec photos) ─── -->
+<section id="reviews">
+  <div class="max-w">
+    <div class="section-header" style="text-align:center">
+      <div class="section-label" style="justify-content:center">Témoignages</div>
+      <h2 class="section-title">Ce qu'ils <span style="color:var(--teal);">en disent</span></h2>
+      <p class="section-sub" style="margin:0 auto">Avis vérifiés d'ingénieurs et de fondateurs ayant travaillé avec moi.</p>
+    </div>
+    <div class="hero-marquee" style="max-width:100%;margin-top:0">
+      <div class="hero-marquee-track" id="reviews-track">
+        <div class="review-card">
+                <blockquote>« STid a fait appel à Noëlie pour une mission dont nous avons été pleinement satisfaits. Nous avons apprécié ses compétences et son professionnalisme. »</blockquote>
+        <div class="review-author">
+          <div><strong>Joffray Henné</strong><span>Expert en traçabilité RFID</span></div>
+        </div>
+        <div class="review-source">
+          <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12l2 2 4-4m6 2a9 9 0 1 1-18 0 9 9 0 0 1 18 0z"/></svg>
+          Vérifié sur LinkedIn
+        </div>
+      </div>
+      <div class="review-card">
+                <blockquote>« Noëlie adopte une démarche itérative efficace, qui nous a permis d'avancer dans les bonnes directions. Les livrables sont de grande qualité : bien documentés, clairement expliqués et parfaitement conformes à nos attentes. Je recommande sans réserve. »</blockquote>
+        <div class="review-author">
+          <div><strong>Karim Hcini</strong><span>CEO, PomeLabs</span></div>
+        </div>
+        <div class="review-source">
+          <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12l2 2 4-4m6 2a9 9 0 1 1-18 0 9 9 0 0 1 18 0z"/></svg>
+          Vérifié sur Malt
+        </div>
+      </div>
+      <div class="review-card">
+                <blockquote>« J'ai recruté et managé Noëlie pendant plusieurs années. Elle s'est bien intégrée à l'équipe et a rapidement pris des responsabilités au-delà de son périmètre de manière autonome. Très efficace, avec des développements de qualité. »</blockquote>
+        <div class="review-author">
+          <div><strong>Marion Lok</strong><span>Chef de projet, SEFI</span></div>
+        </div>
+        <div class="review-source">
+          <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12l2 2 4-4m6 2a9 9 0 1 1-18 0 9 9 0 0 1 18 0z"/></svg>
+          Vérifié sur Malt
+        </div>
+      </div>
+      <div class="review-card">
+                <blockquote>« J'ai eu la chance de travailler avec Noëlie sur un projet en commun pour un de nos clients. J'ai beaucoup apprécié son professionnalisme. »</blockquote>
+        <div class="review-author">
+          <div><strong>Serge Noel</strong><span>DevSecOps</span></div>
+        </div>
+        <div class="review-source">
+          <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12l2 2 4-4m6 2a9 9 0 1 1-18 0 9 9 0 0 1 18 0z"/></svg>
+          Vérifié sur LinkedIn
+        </div>
+      </div>
+      <div class="review-card">
+                <blockquote>« J'ai travaillé avec Noëlie pendant deux ans chez SEFI. Rigoureuse et méthodique, elle a su délivrer un code fiable et maintenable. Elle se distingue par un excellent relationnel et un vrai sens du collectif, dans un esprit low ego. »</blockquote>
+        <div class="review-author">
+          <div><strong>Jean-Stanislas Russocki</strong><span>Embedded SW Engineer, Airbus</span></div>
+        </div>
+        <div class="review-source">
+          <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12l2 2 4-4m6 2a9 9 0 1 1-18 0 9 9 0 0 1 18 0z"/></svg>
+          Vérifié sur Malt
+        </div>
+      </div>
+        <div class="review-card">
+                <blockquote>« STid a fait appel à Noëlie pour une mission dont nous avons été pleinement satisfaits. Nous avons apprécié ses compétences et son professionnalisme. »</blockquote>
+        <div class="review-author">
+          <div><strong>Joffray Henné</strong><span>Expert en traçabilité RFID</span></div>
+        </div>
+        <div class="review-source">
+          <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12l2 2 4-4m6 2a9 9 0 1 1-18 0 9 9 0 0 1 18 0z"/></svg>
+          Vérifié sur LinkedIn
+        </div>
+      </div>
+      <div class="review-card">
+                <blockquote>« Noëlie adopte une démarche itérative efficace, qui nous a permis d'avancer dans les bonnes directions. Les livrables sont de grande qualité : bien documentés, clairement expliqués et parfaitement conformes à nos attentes. Je recommande sans réserve. »</blockquote>
+        <div class="review-author">
+          <div><strong>Karim Hcini</strong><span>CEO, PomeLabs</span></div>
+        </div>
+        <div class="review-source">
+          <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12l2 2 4-4m6 2a9 9 0 1 1-18 0 9 9 0 0 1 18 0z"/></svg>
+          Vérifié sur Malt
+        </div>
+      </div>
+      <div class="review-card">
+                <blockquote>« J'ai recruté et managé Noëlie pendant plusieurs années. Elle s'est bien intégrée à l'équipe et a rapidement pris des responsabilités au-delà de son périmètre de manière autonome. Très efficace, avec des développements de qualité. »</blockquote>
+        <div class="review-author">
+          <div><strong>Marion Lok</strong><span>Chef de projet, SEFI</span></div>
+        </div>
+        <div class="review-source">
+          <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12l2 2 4-4m6 2a9 9 0 1 1-18 0 9 9 0 0 1 18 0z"/></svg>
+          Vérifié sur Malt
+        </div>
+      </div>
+      <div class="review-card">
+                <blockquote>« J'ai eu la chance de travailler avec Noëlie sur un projet en commun pour un de nos clients. J'ai beaucoup apprécié son professionnalisme. »</blockquote>
+        <div class="review-author">
+          <div><strong>Serge Noel</strong><span>DevSecOps</span></div>
+        </div>
+        <div class="review-source">
+          <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12l2 2 4-4m6 2a9 9 0 1 1-18 0 9 9 0 0 1 18 0z"/></svg>
+          Vérifié sur LinkedIn
+        </div>
+      </div>
+      <div class="review-card">
+                <blockquote>« J'ai travaillé avec Noëlie pendant deux ans chez SEFI. Rigoureuse et méthodique, elle a su délivrer un code fiable et maintenable. Elle se distingue par un excellent relationnel et un vrai sens du collectif, dans un esprit low ego. »</blockquote>
+        <div class="review-author">
+          <div><strong>Jean-Stanislas Russocki</strong><span>Embedded SW Engineer, Airbus</span></div>
+        </div>
+        <div class="review-source">
+          <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12l2 2 4-4m6 2a9 9 0 1 1-18 0 9 9 0 0 1 18 0z"/></svg>
+          Vérifié sur Malt
+        </div>
+      </div>
+      </div>
+    </div>
+    <a href="/reservation/" class="btn-primary" style="margin:44px auto 0;width:fit-content;display:flex">
+      <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      Votre plan offert
+    </a>
+    <a href="#faq" class="section-cue"><div class="cue-circle"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><polyline points="6 9 12 15 18 9"/></svg></div><span>Vous avez des questions ?</span></a>
+  </div>
+</section>
+
+<!-- ─── FAQ (Objections) ─── -->
+<section id="faq">
+  <div class="max-w">
+    <div class="section-header" style="text-align:center">
+      <div class="section-label" style="justify-content:center">FAQ</div>
+      <h2 class="section-title">Vous avez des <span style="color:var(--teal);">questions</span> ?</h2>
+    </div>
+    <div class="faq-list">
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">Combien ça coûte ?<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg></button>
+        <div class="faq-a"><p>TJM ou forfait selon le périmètre. Dans tous les cas le budget global sera indiqué dans le plan fourni après le 1er appel. J'y propose 3 options tarifaires au choix, du plus "minimum vital" au "bonus".</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">Combien de temps de suivi avons-nous besoin ?<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg></button>
+        <div class="faq-a faq-a-long"><p><strong>Début de projet — 1h à 1h30 :</strong><br>Un appel de cadrage en visio, puis environ 30 minutes pour la lecture du plan (max 10 slides) que je vous envoie et votre retour. Le reste varie selon votre process interne : lecture de votre devis, de mes documents d'entreprise, ou d'autres documents propres à vos process.</p>
+        <p><strong>En cours de projet — 1h par semaine :</strong><br>Je recommande une session visio de 30 minutes à 1h par semaine, au jour qui vous arrange. De mon côté, j'envoie un court mail de mise à jour chaque semaine et/ou en cas d'imprévu. Le suivi peut aussi se faire entièrement par mail, avec une démo en vidéo.</p>
+        <p><strong>Fin de projet — 1h :</strong><br>Une session dédiée 1H pour passation et le bilan global de ce qui a été fait.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">Sur quel fabricant de carte / MCU travaillez-vous ?<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg></button>
+        <div class="faq-a"><p>Je m'adapte : j'ai travaillé sur beaucoup de cartes différentes.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">Quelle durée minimale pour une mission ?<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg></button>
+        <div class="faq-a"><p>Des interventions ciblées de quelques jours jusqu'à 3 à 6 mois par périmètre maximum. J'assure également le transfert d'informations à vos équipes pour que vous repreniez la main en confiance.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">Est-ce que vous vous déplacez sur site ?<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg></button>
+        <div class="faq-a"><p>Je travaille principalement en télétravail, mais selon le besoin de la mission, des interventions ponctuelles sur place peuvent être possibles.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">Signez-vous des NDA ?<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg></button>
+        <div class="faq-a"><p>Absolument. La confidentialité est une priorité : je signe systématiquement un accord de confidentialité si vous le souhaitez.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">Comment gérez-vous le NDA et la publication sur les réseaux ?<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg></button>
+        <div class="faq-a"><p>Je montre systématiquement en amont et avec votre accord ce que je publie à propos de cas clients sur les réseaux.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">Avez-vous des secteurs de prédilection ?<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg></button>
+        <div class="faq-a"><p>Oui, tout ce qui touche aux biens communs : agriculture, villes connectées, etc.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">Est-ce que vous êtes assuré professionnellement ?<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg></button>
+        <div class="faq-a"><p>Oui, chez Axa. Justificatif à disposition sur demande.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">Quel est votre numéro de SIRET ?<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg></button>
+        <div class="faq-a"><p>SIRET : [à compléter]. Papiers de déclaration à jour sur demande, également au démarrage de mission.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">Comment on sait quel matériel vous envoyer ?<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg></button>
+        <div class="faq-a"><p>Je fournis une liste dans le plan initial et j'informe rapidement en cas d'imprévu nécessitant du matériel supplémentaire.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">Quel matériel avez-vous déjà dans votre propre labo ?<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg></button>
+        <div class="faq-a faq-a-long"><p>Oscilloscope Rigol, multimètre, breadboard (et beaucoup trop de câbles Dupont !). Station de soudure et ses ressources. Debug : sondes ST et Tigard, avec du matériel de debug supplémentaire acquis si besoin pour votre produit. Quelques cartes de développement. Embouts et adaptateurs divers.<br><br>Note : mon labo est sans cesse en évolution.</p></div>
+      </div>
+
+    <a href="/reservation/" class="btn-primary" style="margin:56px auto 0;width:fit-content;display:flex">
+      <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      Votre plan offert
+    </a>
+  </div>
+</section>
+
+<!-- ─── FOOTER ─── -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-links">
+      <a href="/terms/">Conditions générales</a>
+      <a href="/privacy/">Confidentialité</a>
+    </div>
+    <span>Copyright © 2026 - Embedded<span style="color:var(--teal);">Partner</span></span>
+  </div>
+</footer>
+
+<script is:inline>
+function toggleFaq(btn) {
+  const item = btn.closest('.faq-item');
+  const answer = item.querySelector('.faq-a');
+  const isOpen = btn.classList.contains('open');
+  document.querySelectorAll('.faq-q.open').forEach(q => {
+    q.classList.remove('open');
+    q.closest('.faq-item').querySelector('.faq-a').classList.remove('open');
+  });
+  if (!isOpen) { btn.classList.add('open'); answer.classList.add('open'); }
+}
 </script>
+</Layout>
