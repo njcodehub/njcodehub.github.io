@@ -43,15 +43,8 @@ const metadata = {
     <div class="badge">Étape suivante</div>
     <h1>Réservez votre appel <em>gratuit</em> de 30 minutes</h1>
     <p class="sub">Choisissez le créneau qui vous arrange. On analyse votre situation ensemble, sans engagement.</p>
-    <!-- ▼ Remplacer YOUR_CALENDLY_LINK par votre lien Calendly (ex: https://calendly.com/votrenom/30min) -->
-    <button class="book-btn" onclick="Calendly.initPopupWidget({url:'https://calendly.com/YOUR_CALENDLY_LINK'});return false;">
-      <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
-      Choisir mon créneau
-    </button>
-    <div class="reassurance">
-      <div><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12l2 2 4-4m6 2a9 9 0 1 1-18 0 9 9 0 0 1 18 0z"/></svg>Zéro engagement</div>
-      <div><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12l2 2 4-4m6 2a9 9 0 1 1-18 0 9 9 0 0 1 18 0z"/></svg>NDA signé avant tout échange</div>
-    </div>
+    <!-- Calendly Widget Embedded -->
+    <div class="calendly-inline-widget" data-url="https://calendly.com/noelie-jestin-embeddedpartner/30min" style="min-width:320px;height:630px;"></div>
   </div>
 </main>
 <footer>© 2026 Embedded Partner — Noëlie Jestin · Paris &amp; remote</footer>
