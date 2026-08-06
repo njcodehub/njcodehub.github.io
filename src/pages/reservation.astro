@@ -24,14 +24,15 @@ const metadata = {
   .booking-card{max-width:560px;text-align:center}
   .badge{display:inline-flex;align-items:center;gap:8px;padding:6px 14px;border-radius:100px;background:rgba(0,200,200,0.1);border:1px solid var(--teal-border);font-size:13px;color:var(--teal);margin-bottom:22px;font-weight:500}
   .badge::before{content:'';width:7px;height:7px;background:var(--teal);border-radius:50%}
-  h1{font-size:clamp(28px,3.6vw,42px);font-weight:700;letter-spacing:-0.8px;line-height:1.15;margin-bottom:16px}
+  h1{font-size:clamp(28px,3.6vw,42px);font-weight:700;letter-spacing:-0.8px;line-height:1.15;margin-bottom:24px}
   h1 em{color:var(--teal);font-style:normal}
-  .sub{font-size:16px;color:var(--muted);line-height:1.65;max-width:440px;margin:0 auto 36px}
+  .sub{font-size:16px;color:var(--muted);line-height:1.65;max-width:440px;margin:0 auto 48px}
   .book-btn{display:inline-flex;align-items:center;gap:10px;padding:17px 34px;background:linear-gradient(180deg,#00c8c8,#00a0a0);color:#fff;border:none;border-radius:10px;font-weight:700;font-size:16px;font-family:'Poppins',sans-serif;cursor:pointer;box-shadow:0 6px 22px rgba(0,200,200,0.35);transition:all 0.2s}
   .book-btn:hover{transform:translateY(-2px);box-shadow:0 10px 32px rgba(0,200,200,0.45);color:#fff}
   .reassurance{margin-top:28px;display:flex;flex-direction:column;gap:10px;align-items:flex-start;max-width:360px;margin-left:auto;margin-right:auto}
   .reassurance div{display:flex;align-items:center;gap:10px;font-size:13px;color:rgba(240,244,248,0.72)}
   .reassurance svg{color:var(--green);flex-shrink:0}
+  .highlight{color:var(--teal);font-weight:600}
   footer{padding:24px 48px;text-align:center;font-size:12px;color:var(--muted2)}
   @media (max-width:600px){.topbar{padding:18px 22px}}
 </style>
@@ -42,7 +43,7 @@ const metadata = {
   <div class="booking-card">
     <div class="badge">Étape suivante</div>
     <h1>Réservez votre appel <em>gratuit</em> de 30 minutes</h1>
-    <p class="sub">Choisissez le créneau qui vous arrange. On analyse votre situation ensemble, sans engagement.</p>
+    <p class="sub">Choisissez le créneau qui vous arrange. On analyse votre situation ensemble, sans engagement.<br><br>48h maximum après l'appel, vous avez votre plan sur mesure avec 3 options tarifaires au choix : <span class="highlight">Mini</span>, <span class="highlight">Équilibrée</span> ou <span class="highlight">Max</span>.</p>
     <!-- Calendly Widget Embedded -->
     <div class="calendly-inline-widget" data-url="https://calendly.com/noelie-jestin-embeddedpartner/30min" style="min-width:320px;height:630px;"></div>
   </div>
