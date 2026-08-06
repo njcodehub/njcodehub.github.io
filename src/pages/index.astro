@@ -2,7 +2,7 @@
 import Layout from '~/layouts/Layout.astro';
 
 const metadata = {
-  title: 'Embedded Partner — Firmware IoT Freelance',
+  title: 'Embedded Partner',
   description:
     "De la création au débogage, je prends en charge vos systèmes embarqués pour que vos produits tiennent leurs promesses.",
 };
@@ -177,7 +177,7 @@ const metadata = {
   .scroll-cue .scroll-circle svg { width: 26px; height: 26px; }
   @keyframes scrollBounce { 0%,100%{transform:translateY(0)} 50%{transform:translateY(6px)} }
   .section-cue { display: flex; flex-direction: column; align-items: center; gap: 10px; text-decoration: none; color: var(--muted); margin: 56px auto 0; width: fit-content; }
-  .section-cue span { font-size: 13px; font-weight: 500; }
+  .section-cue span { font-size: 19px; font-weight: 500; }
   .section-cue .cue-circle { width: 44px; height: 44px; border-radius: 50%; border: 1.5px solid var(--teal-border); background: var(--teal-glow); display: flex; align-items: center; justify-content: center; color: var(--teal); animation: scrollBounce 2s ease-in-out infinite; }
   .section-cue .cue-circle svg { width: 18px; height: 18px; }
 
@@ -279,7 +279,7 @@ const metadata = {
   .review-author span { font-size: 12px; color: var(--muted); }
   .review-source {
     display: inline-flex; align-items: center; gap: 6px;
-    font-size: 11px; color: var(--muted2); margin-top: 14px;
+    font-size: 11px; color: var(--teal); margin-top: 14px;
     padding: 4px 10px; border-radius: 6px; border: 1px solid var(--border);
   }
 
@@ -401,12 +401,12 @@ const metadata = {
       <div class="problem-card">
         <div class="problem-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
         <h3>Fonctionnalité clé à développer</h3>
-        <p>Personne en interne n'a la disponibilité ou l'expertise</p>
+        <p>Personne en interne n'a la disponibilité ou l'expertise.</p>
       </div>
       <div class="problem-card">
         <div class="problem-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg></div>
         <h3>Bugs complexes</h3>
-        <p>Production instable, retours utilisateurs</p>
+        <p>Production instable, retours utilisateurs.</p>
       </div>
       <div class="problem-card">
         <div class="problem-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><line x1="3.27" y1="6.96" x2="12" y2="12.01"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg></div>
@@ -445,7 +445,7 @@ const metadata = {
       </div>
       <div class="uc-card">
         <h3>Gérer la pénurie</h3>
-        <p>Portage sur le nouveau composant (MCU, Capteurs..) en gardant la compatibilité avec les précédentes configurations.</p>
+        <p>Portage sur le nouveau composant (MCU, Capteurs...) en gardant la compatibilité avec les précédentes configurations.</p>
         <div class="uc-result">✓ Production flexible face aux pénuries</div>
       </div>
     </div>
@@ -497,6 +497,7 @@ const metadata = {
       Votre plan offert
     </a>
     <a href="#reviews" class="section-cue" style="margin-top:24px"><div class="cue-circle"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><polyline points="6 9 12 15 18 9"/></svg></div><span>Voir ce qu'ils en disent</span></a>
+    </div>
   </div>
 </section>
 
@@ -633,42 +634,12 @@ const metadata = {
         <div class="faq-a"><p>TJM ou forfait selon le périmètre. Dans tous les cas le budget global sera indiqué dans le plan fourni après le 1er appel. J'y propose 3 options tarifaires au choix, du plus "minimum vital" au "bonus".</p></div>
       </div>
       <div class="faq-item">
-        <button class="faq-q" onclick="toggleFaq(this)">Combien de temps de suivi avons-nous besoin ?<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg></button>
-        <div class="faq-a faq-a-long"><p><strong>Début de projet — 1h à 1h30 :</strong><br>Un appel de cadrage en visio, puis environ 30 minutes pour la lecture du plan (max 10 slides) que je vous envoie et votre retour. Le reste varie selon votre process interne : lecture de votre devis, de mes documents d'entreprise, ou d'autres documents propres à vos process.</p>
-        <p><strong>En cours de projet — 1h par semaine :</strong><br>Je recommande une session visio de 30 minutes à 1h par semaine, au jour qui vous arrange. De mon côté, j'envoie un court mail de mise à jour chaque semaine et/ou en cas d'imprévu. Le suivi peut aussi se faire entièrement par mail, avec une démo en vidéo.</p>
-        <p><strong>Fin de projet — 1h :</strong><br>Une session dédiée 1H pour passation et le bilan global de ce qui a été fait.</p></div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-q" onclick="toggleFaq(this)">Sur quel fabricant de carte / MCU travaillez-vous ?<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg></button>
-        <div class="faq-a"><p>Je m'adapte : j'ai travaillé sur beaucoup de cartes différentes.</p></div>
-      </div>
-      <div class="faq-item">
         <button class="faq-q" onclick="toggleFaq(this)">Quelle durée minimale pour une mission ?<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg></button>
         <div class="faq-a"><p>Des interventions ciblées de quelques jours jusqu'à 3 à 6 mois par périmètre maximum. J'assure également le transfert d'informations à vos équipes pour que vous repreniez la main en confiance.</p></div>
       </div>
       <div class="faq-item">
         <button class="faq-q" onclick="toggleFaq(this)">Est-ce que vous vous déplacez sur site ?<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg></button>
-        <div class="faq-a"><p>Je travaille principalement en télétravail, mais selon le besoin de la mission, des interventions ponctuelles sur place peuvent être possibles.</p></div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-q" onclick="toggleFaq(this)">Signez-vous des NDA ?<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg></button>
-        <div class="faq-a"><p>Absolument. La confidentialité est une priorité : je signe systématiquement un accord de confidentialité si vous le souhaitez.</p></div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-q" onclick="toggleFaq(this)">Comment gérez-vous le NDA et la publication sur les réseaux ?<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg></button>
-        <div class="faq-a"><p>Je montre systématiquement en amont et avec votre accord ce que je publie à propos de cas clients sur les réseaux.</p></div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-q" onclick="toggleFaq(this)">Avez-vous des secteurs de prédilection ?<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg></button>
-        <div class="faq-a"><p>Oui, tout ce qui touche aux biens communs : agriculture, villes connectées, etc.</p></div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-q" onclick="toggleFaq(this)">Est-ce que vous êtes assuré professionnellement ?<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg></button>
-        <div class="faq-a"><p>Oui, chez Axa. Justificatif à disposition sur demande.</p></div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-q" onclick="toggleFaq(this)">Quel est votre numéro de SIRET ?<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg></button>
-        <div class="faq-a"><p>SIRET : [à compléter]. Papiers de déclaration à jour sur demande, également au démarrage de mission.</p></div>
+        <div class="faq-a"><p>Je travaille principalement en télétravail mais selon le besoin de la mission, des interventions ponctuelles sur place peuvent être possibles.</p></div>
       </div>
       <div class="faq-item">
         <button class="faq-q" onclick="toggleFaq(this)">Comment on sait quel matériel vous envoyer ?<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg></button>
@@ -677,6 +648,36 @@ const metadata = {
       <div class="faq-item">
         <button class="faq-q" onclick="toggleFaq(this)">Quel matériel avez-vous déjà dans votre propre labo ?<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg></button>
         <div class="faq-a faq-a-long"><p>Oscilloscope Rigol, multimètre, breadboard (et beaucoup trop de câbles Dupont !). Station de soudure et ses ressources. Debug : sondes ST et Tigard, avec du matériel de debug supplémentaire acquis si besoin pour votre produit. Quelques cartes de développement. Embouts et adaptateurs divers.<br><br>Note : mon labo est sans cesse en évolution.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">Combien de temps de suivi avons-nous besoin ?<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg></button>
+        <div class="faq-a faq-a-long"><p><strong>Début de projet — 1h à 1h30 :</strong><br>Appel de cadrage en visio + votre lecture du plan reçu (max 10 slides) + signatures papiers divers.</p>
+        <p><strong>En cours de projet — 1h par semaine :</strong><br>Session visio de 30 minutes à 1h par semaine, au jour qui vous arrange. De mon côté, j'envoie un court mail de mise à jour chaque semaine et/ou en cas d'imprévu. Le suivi peut aussi se faire entièrement par mail, avec une démo en vidéo.</p>
+        <p><strong>Fin de projet — 1h :</strong><br>Une session dédiée 1H pour passation et le bilan global de ce qui a été fait.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">Sur quel fabricant de carte / MCU travaillez-vous ?<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg></button>
+        <div class="faq-a"><p>Je m'adapte : j'ai travaillé sur beaucoup de cartes différentes.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">Signez-vous des NDA ?<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg></button>
+        <div class="faq-a"><p>La confidentialité est une priorité : je signe systématiquement un accord de confidentialité si vous le souhaitez.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">Comment gérez-vous le NDA et la publication sur les réseaux ?<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg></button>
+        <div class="faq-a"><p>Je montre systématiquement en amont ce que je vais publier à propos de cas clients sur les réseaux.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">Avez-vous des secteurs de prédilection ?<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg></button>
+        <div class="faq-a"><p>Oui, tout ce qui touche aux biens communs : agriculture, villes connectées, qualité de vie.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">Est-ce que vous êtes assuré professionnellement ?<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg></button>
+        <div class="faq-a"><p>Oui, chez Axa. Justificatif à disposition sur demande.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">Quel est votre numéro de SIRET ?<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg></button>
+        <div class="faq-a"><p>SIRET : 941 321 457 00017. Micro Entreprise, NOELIE JESTIN EI. Papiers de conformité à jour sur demande.</p></div>
       </div>
 
     <a href="/reservation/" class="btn-primary" style="margin:56px auto 0;width:fit-content;display:flex">
