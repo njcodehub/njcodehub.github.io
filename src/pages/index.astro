@@ -1,7 +1,5 @@
 ---
-import { Image } from 'astro:assets';
 import Layout from '~/layouts/Layout.astro';
-import heroImage from '~/assets/images/hero-embedded-partner.jpg';
 
 const metadata = {
   title: 'Embedded Partner — Firmware IoT Freelance',
@@ -348,16 +346,7 @@ const metadata = {
 <!-- ─── HERO ─── -->
 <section id="hero">
   <div class="hero-media">
-    <Image
-      src={heroImage}
-      alt=""
-      width={1600}
-      quality={70}
-      format="webp"
-      loading="eager"
-      fetchpriority="high"
-      style="width:100%;height:100%;object-fit:cover;display:block"
-    />
+    <img src="/images/hero-embedded-partner.jpg" alt="" loading="eager" fetchpriority="high" style="width:100%;height:100%;object-fit:cover;display:block" />
     <div class="hero-scrim"></div>
   </div>
 
