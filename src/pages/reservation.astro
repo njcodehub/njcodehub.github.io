@@ -161,10 +161,31 @@ const metadata = {
       font-weight: 600;
     }
     footer {
-      padding: 24px 48px;
+      background: #090d13;
+      border-top: 1px solid var(--border);
+      padding: 40px 48px 32px;
       text-align: center;
+    }
+    .footer-inner {
+      max-width: 1120px;
+      margin: 0 auto;
+    }
+    .footer-inner span {
       font-size: 12px;
       color: var(--muted2);
+    }
+    .footer-links {
+      display: flex;
+      gap: 18px;
+      justify-content: center;
+    }
+    .footer-links a {
+      font-size: 12px;
+      color: var(--muted);
+      text-decoration: none;
+    }
+    .footer-links a:hover {
+      color: var(--white);
     }
     @media (max-width: 600px) {
       .topbar {
@@ -182,8 +203,8 @@ const metadata = {
       <p class="sub">
         Choisissez le créneau qui vous arrange. On analyse votre situation ensemble, sans engagement.<br /><br />48h
         maximum après l'appel, vous avez votre plan sur mesure avec 3 options tarifaires au choix : <span
-          class="highlight">Mini</span
-        >, <span class="highlight">Équilibrée</span> ou <span class="highlight">Max</span>.
+          class="highlight">Vitale</span
+        >, <span class="highlight">Équilibrée</span> ou <span class="highlight">Bonus</span>.
       </p>
       <!-- Calendly Widget Embedded -->
       <div
@@ -194,5 +215,13 @@ const metadata = {
       </div>
     </div>
   </main>
-  <footer>© 2026 Embedded Partner — Noëlie Jestin · Paris &amp; remote</footer>
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-links">
+        <a href="/terms/">Conditions générales</a>
+        <a href="/privacy/">Confidentialité</a>
+      </div>
+      <span>Copyright © 2026 - Embedded<span style="color:var(--teal);">Partner</span></span>
+    </div>
+  </footer>
 </Layout>
