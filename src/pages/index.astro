@@ -647,6 +647,55 @@ const metadata = {
         radial-gradient(120% 80% at 50% 0%, rgba(0, 200, 200, 0.06), transparent 60%),
         linear-gradient(to bottom, rgba(18, 24, 32, 0.2), rgba(18, 24, 32, 0.45));
     }
+
+    /* ─── FONDS ILLUSTRÉS DES AUTRES SECTIONS (même traitement que #problem) ─── */
+    #solution,
+    #proof,
+    #reviews,
+    #faq {
+      position: relative;
+      overflow: hidden;
+      isolation: isolate;
+    }
+    #solution {
+      --section-img: url('/images/solutions.jpg');
+    }
+    #proof {
+      --section-img: url('/images/results.jpg');
+    }
+    #reviews {
+      --section-img: url('/images/avis.jpg');
+    }
+    #faq {
+      --section-img: url('/images/faq.jpg');
+    }
+    #solution::before,
+    #proof::before,
+    #reviews::before,
+    #faq::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      z-index: -2;
+      background: var(--section-img) center center / 135% auto no-repeat;
+      opacity: 0.32;
+      filter: grayscale(1) contrast(1.1) brightness(0.9);
+      mask-image: linear-gradient(to bottom, transparent 0%, #000 10%, #000 88%, transparent 100%);
+      -webkit-mask-image: linear-gradient(to bottom, transparent 0%, #000 10%, #000 88%, transparent 100%);
+    }
+    #solution::after,
+    #proof::after,
+    #reviews::after,
+    #faq::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      z-index: -1;
+      background:
+        radial-gradient(120% 80% at 50% 0%, rgba(0, 200, 200, 0.06), transparent 60%),
+        linear-gradient(to bottom, rgba(18, 24, 32, 0.2), rgba(18, 24, 32, 0.45));
+    }
+
     .problem-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -1240,8 +1289,15 @@ const metadata = {
           </div>
           <div class="problem-card">
             <div class="problem-icon">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
-                stroke-linejoin="round" stroke-linecap="round"
+              <svg
+                width="22"
+                height="22"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.8"
+                stroke-linejoin="round"
+                stroke-linecap="round"
                 ><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"
                 ></path><line x1="12" y1="9" x2="12" y2="13"></line><line x1="12" y1="17" x2="12.01" y2="17"
                 ></line></svg
