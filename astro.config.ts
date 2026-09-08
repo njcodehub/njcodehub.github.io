@@ -25,6 +25,11 @@ export default defineConfig({
   output: 'static',
   site: 'https://embeddedpartner.fr',
 
+  build: {
+    // Inline all bundled CSS to remove render-blocking stylesheet requests
+    inlineStylesheets: 'always',
+  },
+
   integrations: [
     tailwind({
       applyBaseStyles: false,
