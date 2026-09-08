@@ -1211,264 +1211,156 @@ const metadata = {
   </div>
 
   <main id="main">
-  <!-- ─── HERO ─── -->
-  <section id="hero">
-    <div class="hero-media">
-      <picture>
-        <source
-          type="image/avif"
-          srcset="/images/hero-1280.avif 1280w, /images/hero-1920.avif 1920w"
-          sizes="100vw"
-        />
-        <source
-          type="image/webp"
-          srcset="/images/hero-1280.webp 1280w, /images/hero-1920.webp 1920w"
-          sizes="100vw"
-        />
-        <img
-          src="/images/hero-1920.jpg"
-          alt=""
-          width="4080"
-          height="1981"
-          loading="eager"
-          fetchpriority="high"
-          style="width:100%;height:100%;object-fit:cover;display:block"
-        />
-      </picture>
-      <div class="hero-scrim"></div>
-    </div>
+    <!-- ─── HERO ─── -->
+    <section id="hero">
+      <div class="hero-media">
+        <picture>
+          <source type="image/avif" srcset="/images/hero-1280.avif 1280w, /images/hero-1920.avif 1920w" sizes="100vw" />
+          <source type="image/webp" srcset="/images/hero-1280.webp 1280w, /images/hero-1920.webp 1920w" sizes="100vw" />
+          <img
+            src="/images/hero-1920.jpg"
+            alt=""
+            width="4080"
+            height="1981"
+            loading="eager"
+            fetchpriority="high"
+            style="width:100%;height:100%;object-fit:cover;display:block"
+          />
+        </picture>
+        <div class="hero-scrim"></div>
+      </div>
 
-    <div class="hero-content">
-      <h1 class="hero-h1">
-        Je <span class="pill">fiabilise</span><br />
-        et fais <span class="pill">évoluer</span><br />
-        vos produits IoT
-      </h1>
-      <p class="hero-sub">
-        De la création au débogage, je prends en charge vos systèmes embarqués pour que vos produits tiennent leurs
-        promesses.
-      </p>
-      <div class="hero-actions">
-        <a href="/reservation/" class="btn-primary">
-          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"
-            ><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg
-          >
-          Votre plan offert
-        </a>
-      </div>
-      <div class="hero-marquee">
-        <div class="hero-marquee-track">
-          <div class="hero-review-chip">
-            <p>« STid a fait appel à Noëlie pour une mission dont nous avons été pleinement satisfaits. »</p><strong
-              >Joffray Henné</strong
-            ><span>Expert en traçabilité RFID</span>
-          </div>
-          <div class="hero-review-chip">
-            <p>« Livrables de grande qualité, bien documentés. »</p><strong>Karim Hcini</strong><span
-              >CEO, PomeLabs</span
+      <div class="hero-content">
+        <h1 class="hero-h1">
+          Je <span class="pill">fiabilise</span><br />
+          et fais <span class="pill">évoluer</span><br />
+          vos produits IoT
+        </h1>
+        <p class="hero-sub">
+          De la création au débogage, je prends en charge vos systèmes embarqués pour que vos produits tiennent leurs
+          promesses.
+        </p>
+        <div class="hero-actions">
+          <a href="/reservation/" class="btn-primary">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"
+              ><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg
             >
-          </div>
-          <div class="hero-review-chip">
-            <p>« Très efficace, avec des développements de qualité. »</p><strong>Marion Lok</strong><span
-              >Chef de projet, SEFI</span
-            >
-          </div>
-          <div class="hero-review-chip">
-            <p>« J'ai beaucoup apprécié son professionnalisme. »</p><strong>Serge Noel</strong><span>DevSecOps</span>
-          </div>
-          <div class="hero-review-chip">
-            <p>« Code fiable et maintenable, excellent relationnel. »</p><strong>Jean-Stanislas Russocki</strong><span
-              >Embedded SW Engineer, Airbus</span
-            >
-          </div>
-          <div class="hero-review-chip">
-            <p>« STid a fait appel à Noëlie pour une mission dont nous avons été pleinement satisfaits. »</p><strong
-              >Joffray Henné</strong
-            ><span>Expert en traçabilité RFID</span>
-          </div>
-          <div class="hero-review-chip">
-            <p>« Livrables de grande qualité, bien documentés. »</p><strong>Karim Hcini</strong><span
-              >CEO, PomeLabs</span
-            >
-          </div>
-          <div class="hero-review-chip">
-            <p>« Très efficace, avec des développements de qualité. »</p><strong>Marion Lok</strong><span
-              >Chef de projet, SEFI</span
-            >
-          </div>
-          <div class="hero-review-chip">
-            <p>« J'ai beaucoup apprécié son professionnalisme. »</p><strong>Serge Noel</strong><span>DevSecOps</span>
-          </div>
-          <div class="hero-review-chip">
-            <p>« Code fiable et maintenable, excellent relationnel. »</p><strong>Jean-Stanislas Russocki</strong><span
-              >Embedded SW Engineer, Airbus</span
-            >
+            Votre plan offert
+          </a>
+        </div>
+        <div class="hero-marquee">
+          <div class="hero-marquee-track">
+            <div class="hero-review-chip">
+              <p>« STid a fait appel à Noëlie pour une mission dont nous avons été pleinement satisfaits. »</p><strong
+                >Joffray Henné</strong
+              ><span>Expert en traçabilité RFID</span>
+            </div>
+            <div class="hero-review-chip">
+              <p>« Livrables de grande qualité, bien documentés. »</p><strong>Karim Hcini</strong><span
+                >CEO, PomeLabs</span
+              >
+            </div>
+            <div class="hero-review-chip">
+              <p>« Très efficace, avec des développements de qualité. »</p><strong>Marion Lok</strong><span
+                >Chef de projet, SEFI</span
+              >
+            </div>
+            <div class="hero-review-chip">
+              <p>« J'ai beaucoup apprécié son professionnalisme. »</p><strong>Serge Noel</strong><span>DevSecOps</span>
+            </div>
+            <div class="hero-review-chip">
+              <p>« Code fiable et maintenable, excellent relationnel. »</p><strong>Jean-Stanislas Russocki</strong><span
+                >Embedded SW Engineer, Airbus</span
+              >
+            </div>
+            <div class="hero-review-chip">
+              <p>« STid a fait appel à Noëlie pour une mission dont nous avons été pleinement satisfaits. »</p><strong
+                >Joffray Henné</strong
+              ><span>Expert en traçabilité RFID</span>
+            </div>
+            <div class="hero-review-chip">
+              <p>« Livrables de grande qualité, bien documentés. »</p><strong>Karim Hcini</strong><span
+                >CEO, PomeLabs</span
+              >
+            </div>
+            <div class="hero-review-chip">
+              <p>« Très efficace, avec des développements de qualité. »</p><strong>Marion Lok</strong><span
+                >Chef de projet, SEFI</span
+              >
+            </div>
+            <div class="hero-review-chip">
+              <p>« J'ai beaucoup apprécié son professionnalisme. »</p><strong>Serge Noel</strong><span>DevSecOps</span>
+            </div>
+            <div class="hero-review-chip">
+              <p>« Code fiable et maintenable, excellent relationnel. »</p><strong>Jean-Stanislas Russocki</strong><span
+                >Embedded SW Engineer, Airbus</span
+              >
+            </div>
           </div>
         </div>
       </div>
-    </div>
-    <a href="#problem" class="scroll-cue" aria-label="Défiler vers le bas">
-      <div class="scroll-circle">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"
-          ><line x1="12" y1="5" x2="12" y2="19"></line><polyline points="6 13 12 19 18 13"></polyline></svg
-        >
-      </div>
-      <span>Ça vous parle ?</span>
-    </a>
-  </section>
-
-  <!-- ─── PROBLÈME (Agitation) ─── -->
-  <section id="problem">
-    <div class="max-w">
-      <div class="split-text">
-        <div class="section-header">
-          <div class="section-label">Les problèmes</div>
-          <h2 class="section-title">Votre firmware vous <em>ralentit</em> ?</h2>
-          <p class="section-sub">
-            C'est une roadmap qui dérape, des bugs qui reviennent, une mise sur le marché qui recule.
-          </p>
-        </div>
-        <div class="problem-grid">
-          <div class="problem-card">
-            <div class="problem-icon">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
-                ><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg
-              >
-            </div>
-            <h3>Fonctionnalité clé à développer</h3>
-            <p>Personne en interne n'a la disponibilité ou l'expertise.</p>
-          </div>
-          <div class="problem-card">
-            <div class="problem-icon">
-              <svg
-                width="22"
-                height="22"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="1.8"
-                stroke-linejoin="round"
-                stroke-linecap="round"
-                ><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"
-                ></path><line x1="12" y1="9" x2="12" y2="13"></line><line x1="12" y1="17" x2="12.01" y2="17"
-                ></line></svg
-              >
-            </div>
-            <h3>Bugs complexes</h3>
-            <p>Production instable, retours utilisateurs.</p>
-          </div>
-          <div class="problem-card">
-            <div class="problem-icon">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
-                ><path
-                  d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"
-                ></path><line x1="3.27" y1="6.96" x2="12" y2="12.01"></line><line x1="12" y1="22.08" x2="12" y2="12"
-                ></line></svg
-              >
-            </div>
-            <h3>Rupture de stock, évolutions difficiles</h3>
-            <p>Production bloquée car composant non disponible, évolutions systèmes difficiles.</p>
-          </div>
-        </div>
-      </div>
-      <a href="/reservation/" class="btn-primary" style="margin:44px auto 0;width:fit-content;display:flex">
-        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"
-          ><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg
-        >
-        Votre plan offert
-      </a>
-      <a href="#solution" class="section-cue"
-        ><div class="cue-circle">
+      <a href="#problem" class="scroll-cue" aria-label="Défiler vers le bas">
+        <div class="scroll-circle">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"
-            ><polyline points="6 9 12 15 18 9"></polyline></svg
+            ><line x1="12" y1="5" x2="12" y2="19"></line><polyline points="6 13 12 19 18 13"></polyline></svg
           >
-        </div><span>Les solutions pour votre produit</span></a
-      >
-    </div>
-  </section>
-
-  <!-- ─── SOLUTION (Cas d'usage) ─── -->
-  <section id="solution">
-    <div class="max-w">
-      <div class="split-text">
-        <div class="section-header">
-          <div class="section-label">Les solutions</div>
-          <h2 class="section-title">Comment je peux<br /><em>concrètement</em> vous aider ?</h2>
-          <p class="section-sub">
-            Un résultat mesurable à chaque itération, démo et retours réguliers. Avançons ensemble !
-          </p>
         </div>
-        <div class="uc-panels">
-          <div class="uc-card">
-            <h3>Développer une fonctionnalité</h3>
-            <p>Du firmware bas niveau jusqu'à l'intégration web.</p>
-            <div class="uc-result">✓ Votre produit évolue</div>
-          </div>
-          <div class="uc-card">
-            <h3>Débogage</h3>
-            <p>J'isole et corrige les bugs difficiles, causes racines documentées.</p>
-            <div class="uc-result">✓ Votre produit est stabilisé</div>
-          </div>
-          <div class="uc-card">
-            <h3>Gérer la pénurie et évolutions</h3>
-            <p>
-              Portage sur le nouveau composant (MCU, Capteurs...) en gardant la compatibilité avec les précédentes
-              configurations.
+        <span>Ça vous parle ?</span>
+      </a>
+    </section>
+
+    <!-- ─── PROBLÈME (Agitation) ─── -->
+    <section id="problem">
+      <div class="max-w">
+        <div class="split-text">
+          <div class="section-header">
+            <div class="section-label">Les problèmes</div>
+            <h2 class="section-title">Votre firmware vous <em>ralentit</em> ?</h2>
+            <p class="section-sub">
+              C'est une roadmap qui dérape, des bugs qui reviennent, une mise sur le marché qui recule.
             </p>
-            <div class="uc-result">✓ Production flexible face aux pénuries / évolutions systèmes</div>
           </div>
-        </div>
-      </div>
-      <a href="/reservation/" class="btn-primary" style="margin:44px auto 0;width:fit-content;display:flex">
-        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"
-          ><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg
-        >
-        Votre plan offert
-      </a>
-      <a href="#proof" class="section-cue"
-        ><div class="cue-circle">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"
-            ><polyline points="6 9 12 15 18 9"></polyline></svg
-          >
-        </div><span>Voir des exemples concrets</span></a
-      >
-    </div>
-  </section>
-
-  <!-- ─── PREUVE (Projets) ─── -->
-  <section id="proof">
-    <div class="max-w">
-      <div class="split-text">
-        <div class="section-header">
-          <div class="section-label">Exemples de cas que j'ai déjà traités</div>
-          <h2 class="section-title">
-            Quels <span style="color:var(--teal);">résultats</span> ai-je<br />déjà obtenus ?
-          </h2>
-        </div>
-        <div class="projects-list">
-          <div class="project-row">
-            <div class="project-badge">EdTech<br />(PomeLabs)</div>
-            <div>
-              <h3>De la mise à jour manuelle à l'OTA en 1 clic</h3>
-              <p>Construction complète du pipeline OTA : firmware, intégration web app et communication cartes.</p>
+          <div class="problem-grid">
+            <div class="problem-card">
+              <div class="problem-icon">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+                  ><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg
+                >
+              </div>
+              <h3>Fonctionnalité clé à développer</h3>
+              <p>Personne en interne n'a la disponibilité ou l'expertise.</p>
             </div>
-            <div class="project-meta"><span>Rôle</span><strong>Solo freelance</strong></div>
-          </div>
-          <div class="project-row">
-            <div class="project-badge">Système de détection incendie<br />(Réseau DEF)</div>
-            <div>
-              <h3>Remettre de l'ordre dans un système complexe</h3>
-              <p>Débogage et optimisation d'une architecture embarquée critique</p>
+            <div class="problem-card">
+              <div class="problem-icon">
+                <svg
+                  width="22"
+                  height="22"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.8"
+                  stroke-linejoin="round"
+                  stroke-linecap="round"
+                  ><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"
+                  ></path><line x1="12" y1="9" x2="12" y2="13"></line><line x1="12" y1="17" x2="12.01" y2="17"
+                  ></line></svg
+                >
+              </div>
+              <h3>Bugs complexes</h3>
+              <p>Production instable, retours utilisateurs.</p>
             </div>
-            <div class="project-meta"><span>Rôle</span><strong>Tech lead, équipe 5</strong></div>
-          </div>
-          <div class="project-row">
-            <div class="project-badge">GreenTech<br />(Qarnot)</div>
-            <div>
-              <h3>Rendre la production flexible</h3>
-              <p>Adaptation Yocto à une nouvelle gamme de cartes pour maintenir la production en cas de pénurie.</p>
+            <div class="problem-card">
+              <div class="problem-icon">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+                  ><path
+                    d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"
+                  ></path><line x1="3.27" y1="6.96" x2="12" y2="12.01"></line><line x1="12" y1="22.08" x2="12" y2="12"
+                  ></line></svg
+                >
+              </div>
+              <h3>Rupture de stock, évolutions difficiles</h3>
+              <p>Production bloquée car composant non disponible, évolutions systèmes difficiles.</p>
             </div>
-            <div class="project-meta"><span>Rôle</span><strong>Ingénieur logiciel embarqué, Équipe de 4</strong></div>
           </div>
         </div>
         <a href="/reservation/" class="btn-primary" style="margin:44px auto 0;width:fit-content;display:flex">
@@ -1477,480 +1369,581 @@ const metadata = {
           >
           Votre plan offert
         </a>
-        <a href="#reviews" class="section-cue" style="margin-top:24px"
+        <a href="#solution" class="section-cue"
           ><div class="cue-circle">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"
               ><polyline points="6 9 12 15 18 9"></polyline></svg
             >
-          </div><span>Voir ce qu'ils en disent</span></a
+          </div><span>Les solutions pour votre produit</span></a
         >
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- ─── TÉMOIGNAGES (avec photos) ─── -->
-  <section id="reviews">
-    <div class="max-w">
-      <div class="section-header" style="text-align:center">
-        <div class="section-label" style="justify-content:center">Témoignages</div>
-        <h2 class="section-title">Ce qu'ils <span style="color:var(--teal);">en disent</span></h2>
-        <p class="section-sub" style="margin:0 auto">
-          Avis vérifiés d'ingénieurs et de fondateurs ayant travaillé avec moi.
-        </p>
-      </div>
-      <div class="hero-marquee" style="max-width:100%;margin-top:0">
-        <div class="hero-marquee-track" id="reviews-track">
-          <div class="review-card">
-            <blockquote>
-              « STid a fait appel à Noëlie pour une mission dont nous avons été pleinement satisfaits. Nous avons
-              apprécié ses compétences et son professionnalisme. »
-            </blockquote>
-            <div class="review-author">
-              <div><strong>Joffray Henné</strong><span>Expert en traçabilité RFID</span></div>
-            </div>
-            <div class="review-source">
-              <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                ><path d="M9 12l2 2 4-4m6 2a9 9 0 1 1-18 0 9 9 0 0 1 18 0z"></path></svg
-              >
-              Vérifié sur LinkedIn
-            </div>
-          </div>
-          <div class="review-card">
-            <blockquote>
-              « Noëlie adopte une démarche itérative efficace, qui nous a permis d'avancer dans les bonnes directions.
-              Les livrables sont de grande qualité : bien documentés, clairement expliqués et parfaitement conformes à
-              nos attentes. Je recommande sans réserve. »
-            </blockquote>
-            <div class="review-author">
-              <div><strong>Karim Hcini</strong><span>CEO, PomeLabs</span></div>
-            </div>
-            <div class="review-source">
-              <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                ><path d="M9 12l2 2 4-4m6 2a9 9 0 1 1-18 0 9 9 0 0 1 18 0z"></path></svg
-              >
-              Vérifié sur Malt
-            </div>
-          </div>
-          <div class="review-card">
-            <blockquote>
-              « J'ai recruté et managé Noëlie pendant plusieurs années. Elle s'est bien intégrée à l'équipe et a
-              rapidement pris des responsabilités au-delà de son périmètre de manière autonome. Très efficace, avec des
-              développements de qualité. »
-            </blockquote>
-            <div class="review-author">
-              <div><strong>Marion Lok</strong><span>Chef de projet, SEFI</span></div>
-            </div>
-            <div class="review-source">
-              <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                ><path d="M9 12l2 2 4-4m6 2a9 9 0 1 1-18 0 9 9 0 0 1 18 0z"></path></svg
-              >
-              Vérifié sur Malt
-            </div>
-          </div>
-          <div class="review-card">
-            <blockquote>
-              « J'ai eu la chance de travailler avec Noëlie sur un projet en commun pour un de nos clients. J'ai
-              beaucoup apprécié son professionnalisme. »
-            </blockquote>
-            <div class="review-author">
-              <div><strong>Serge Noel</strong><span>DevSecOps</span></div>
-            </div>
-            <div class="review-source">
-              <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                ><path d="M9 12l2 2 4-4m6 2a9 9 0 1 1-18 0 9 9 0 0 1 18 0z"></path></svg
-              >
-              Vérifié sur LinkedIn
-            </div>
-          </div>
-          <div class="review-card">
-            <blockquote>
-              « J'ai travaillé avec Noëlie pendant deux ans chez SEFI. Rigoureuse et méthodique, elle a su délivrer un
-              code fiable et maintenable. Elle se distingue par un excellent relationnel et un vrai sens du collectif,
-              dans un esprit low ego. »
-            </blockquote>
-            <div class="review-author">
-              <div><strong>Jean-Stanislas Russocki</strong><span>Embedded SW Engineer, Airbus</span></div>
-            </div>
-            <div class="review-source">
-              <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                ><path d="M9 12l2 2 4-4m6 2a9 9 0 1 1-18 0 9 9 0 0 1 18 0z"></path></svg
-              >
-              Vérifié sur Malt
-            </div>
-          </div>
-          <div class="review-card">
-            <blockquote>
-              « STid a fait appel à Noëlie pour une mission dont nous avons été pleinement satisfaits. Nous avons
-              apprécié ses compétences et son professionnalisme. »
-            </blockquote>
-            <div class="review-author">
-              <div><strong>Joffray Henné</strong><span>Expert en traçabilité RFID</span></div>
-            </div>
-            <div class="review-source">
-              <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                ><path d="M9 12l2 2 4-4m6 2a9 9 0 1 1-18 0 9 9 0 0 1 18 0z"></path></svg
-              >
-              Vérifié sur LinkedIn
-            </div>
-          </div>
-          <div class="review-card">
-            <blockquote>
-              « Noëlie adopte une démarche itérative efficace, qui nous a permis d'avancer dans les bonnes directions.
-              Les livrables sont de grande qualité : bien documentés, clairement expliqués et parfaitement conformes à
-              nos attentes. Je recommande sans réserve. »
-            </blockquote>
-            <div class="review-author">
-              <div><strong>Karim Hcini</strong><span>CEO, PomeLabs</span></div>
-            </div>
-            <div class="review-source">
-              <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                ><path d="M9 12l2 2 4-4m6 2a9 9 0 1 1-18 0 9 9 0 0 1 18 0z"></path></svg
-              >
-              Vérifié sur Malt
-            </div>
-          </div>
-          <div class="review-card">
-            <blockquote>
-              « J'ai recruté et managé Noëlie pendant plusieurs années. Elle s'est bien intégrée à l'équipe et a
-              rapidement pris des responsabilités au-delà de son périmètre de manière autonome. Très efficace, avec des
-              développements de qualité. »
-            </blockquote>
-            <div class="review-author">
-              <div><strong>Marion Lok</strong><span>Chef de projet, SEFI</span></div>
-            </div>
-            <div class="review-source">
-              <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                ><path d="M9 12l2 2 4-4m6 2a9 9 0 1 1-18 0 9 9 0 0 1 18 0z"></path></svg
-              >
-              Vérifié sur Malt
-            </div>
-          </div>
-          <div class="review-card">
-            <blockquote>
-              « J'ai eu la chance de travailler avec Noëlie sur un projet en commun pour un de nos clients. J'ai
-              beaucoup apprécié son professionnalisme. »
-            </blockquote>
-            <div class="review-author">
-              <div><strong>Serge Noel</strong><span>DevSecOps</span></div>
-            </div>
-            <div class="review-source">
-              <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                ><path d="M9 12l2 2 4-4m6 2a9 9 0 1 1-18 0 9 9 0 0 1 18 0z"></path></svg
-              >
-              Vérifié sur LinkedIn
-            </div>
-          </div>
-          <div class="review-card">
-            <blockquote>
-              « J'ai travaillé avec Noëlie pendant deux ans chez SEFI. Rigoureuse et méthodique, elle a su délivrer un
-              code fiable et maintenable. Elle se distingue par un excellent relationnel et un vrai sens du collectif,
-              dans un esprit low ego. »
-            </blockquote>
-            <div class="review-author">
-              <div><strong>Jean-Stanislas Russocki</strong><span>Embedded SW Engineer, Airbus</span></div>
-            </div>
-            <div class="review-source">
-              <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                ><path d="M9 12l2 2 4-4m6 2a9 9 0 1 1-18 0 9 9 0 0 1 18 0z"></path></svg
-              >
-              Vérifié sur Malt
-            </div>
-          </div>
-        </div>
-      </div>
-      <a href="/reservation/" class="btn-primary" style="margin:44px auto 0;width:fit-content;display:flex">
-        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"
-          ><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg
-        >
-        Votre plan offert
-      </a>
-      <a href="#faq" class="section-cue"
-        ><div class="cue-circle">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"
-            ><polyline points="6 9 12 15 18 9"></polyline></svg
-          >
-        </div><span>Vous avez des questions ?</span></a
-      >
-    </div>
-  </section>
-
-  <!-- ─── FAQ (Objections) ─── -->
-  <div class="page-end">
-    <section id="faq">
+    <!-- ─── SOLUTION (Cas d'usage) ─── -->
+    <section id="solution">
       <div class="max-w">
-        <div class="section-header" style="text-align:center">
-          <div class="section-label" style="justify-content:center">FAQ</div>
-          <h2 class="section-title">Vous avez des <span style="color:var(--teal);">questions</span> ?</h2>
-        </div>
-        <div class="faq-list">
-          <div class="faq-item">
-            <button class="faq-q" onclick="toggleFaq(this)"
-              >Combien ça coûte ?<svg
-                width="16"
-                height="16"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg
-              ></button
-            >
-            <div class="faq-a">
-              <p>
-                Taux journalier ou forfait selon le périmètre. Dans tous les cas le budget global sera indiqué dans le
-                plan fourni après le 1er appel. J'y propose 3 options tarifaires au choix, du plus "minimum vital" au
-                "bonus".
-              </p>
+        <div class="split-text">
+          <div class="section-header">
+            <div class="section-label">Les solutions</div>
+            <h2 class="section-title">Comment je peux<br /><em>concrètement</em> vous aider ?</h2>
+            <p class="section-sub">
+              Un résultat mesurable à chaque itération, démo et retours réguliers. Avançons ensemble !
+            </p>
+          </div>
+          <div class="uc-panels">
+            <div class="uc-card">
+              <h3>Développer une fonctionnalité</h3>
+              <p>Du firmware bas niveau jusqu'à l'intégration web.</p>
+              <div class="uc-result">✓ Votre produit évolue</div>
             </div>
-          </div>
-          <div class="faq-item">
-            <button class="faq-q" onclick="toggleFaq(this)"
-              >Quelle durée minimale pour une mission ?<svg
-                width="16"
-                height="16"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg
-              ></button
-            >
-            <div class="faq-a">
-              <p>
-                Des interventions ciblées de quelques jours jusqu'à 3 à 6 mois par périmètre maximum. J'assure également
-                le transfert d'informations à vos équipes pour que vous repreniez la main en confiance.
-              </p>
+            <div class="uc-card">
+              <h3>Débogage</h3>
+              <p>J'isole et corrige les bugs difficiles, causes racines documentées.</p>
+              <div class="uc-result">✓ Votre produit est stabilisé</div>
             </div>
-          </div>
-          <div class="faq-item">
-            <button class="faq-q" onclick="toggleFaq(this)"
-              >Est-ce que vous vous déplacez sur site ?<svg
-                width="16"
-                height="16"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg
-              ></button
-            >
-            <div class="faq-a">
+            <div class="uc-card">
+              <h3>Gérer la pénurie et évolutions</h3>
               <p>
-                Je travaille principalement en télétravail mais selon le besoin de la mission, des interventions
-                ponctuelles sur place peuvent être possibles.
+                Portage sur le nouveau composant (MCU, Capteurs...) en gardant la compatibilité avec les précédentes
+                configurations.
               </p>
-            </div>
-          </div>
-          <div class="faq-item">
-            <button class="faq-q" onclick="toggleFaq(this)"
-              >Comment on sait quel matériel vous envoyer ?<svg
-                width="16"
-                height="16"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg
-              ></button
-            >
-            <div class="faq-a">
-              <p>
-                Je fournis une liste dans le plan initial et j'informe rapidement en cas d'imprévu nécessitant du
-                matériel supplémentaire.
-              </p>
-            </div>
-          </div>
-          <div class="faq-item">
-            <button class="faq-q" onclick="toggleFaq(this)"
-              >Quel matériel avez-vous déjà dans votre propre labo ?<svg
-                width="16"
-                height="16"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg
-              ></button
-            >
-            <div class="faq-a faq-a-long">
-              <p>
-                Oscilloscope Rigol, multimètre, breadboard (et beaucoup trop de câbles Dupont !). Station de soudure et
-                ses ressources. Debug : sondes ST et Tigard, avec du matériel de debug supplémentaire acquis si besoin
-                pour votre produit. Quelques cartes de développement. Embouts et adaptateurs divers.<br /><br />Note :
-                mon labo est sans cesse en évolution.
-              </p>
-            </div>
-          </div>
-          <div class="faq-item">
-            <button class="faq-q" onclick="toggleFaq(this)"
-              >Combien de temps de suivi avons-nous besoin ?<svg
-                width="16"
-                height="16"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg
-              ></button
-            >
-            <div class="faq-a faq-a-long">
-              <p>
-                <strong>Début de projet — 1h à 1h30 :</strong><br />Appel de cadrage en visio + votre lecture du plan
-                reçu (max 10 slides) + signatures papiers divers.
-              </p>
-              <p>
-                <strong>En cours de projet — 30' à 1h par semaine :</strong><br />Chaque semaine : visio de 30 minutes à
-                1h par semaine et/ou courts messages de mise à jour dans le canal de votre choix.
-              </p>
-              <p>
-                <strong>Si besoin : Fin de projet — 1h :</strong><br />Si le périmètre est assez conséquent, une session
-                dédiée 1H pour le bilan global de ce qui a été fait et vos dernières questions.
-              </p>
-            </div>
-          </div>
-          <div class="faq-item">
-            <button class="faq-q" onclick="toggleFaq(this)"
-              >Faut-il avoir des connaissances en IoT pour vous contacter avec une idée ?<svg
-                width="16"
-                height="16"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg
-              ></button
-            >
-            <div class="faq-a">
-              <p>Non, pas besoin. Je m'adapte à tous les niveaux techniques dans ma communication.</p>
-            </div>
-          </div>
-          <div class="faq-item">
-            <button class="faq-q" onclick="toggleFaq(this)"
-              >Sur quel fabricant de carte / MCU travaillez-vous ?<svg
-                width="16"
-                height="16"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg
-              ></button
-            >
-            <div class="faq-a"><p>Je m'adapte : j'ai travaillé sur beaucoup de cartes différentes.</p></div>
-          </div>
-          <div class="faq-item">
-            <button class="faq-q" onclick="toggleFaq(this)"
-              >Travaillez-vous avec l'IA ?<svg
-                width="16"
-                height="16"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg
-              ></button
-            >
-            <div class="faq-a">
-              <p>
-                Oui, pour optimiser ma productivité. Sur demande, je peux utiliser uniquement des IA locales pour
-                préserver vos données.
-              </p>
-            </div>
-          </div>
-          <div class="faq-item">
-            <button class="faq-q" onclick="toggleFaq(this)"
-              >Signez-vous des NDA ?<svg
-                width="16"
-                height="16"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg
-              ></button
-            >
-            <div class="faq-a">
-              <p>
-                La confidentialité est une priorité : je signe systématiquement après relecture un accord de
-                confidentialité si vous le souhaitez.
-              </p>
-            </div>
-          </div>
-          <div class="faq-item">
-            <button class="faq-q" onclick="toggleFaq(this)"
-              >Comment gérez-vous niveau confidentialité la publication de cas client sur les réseaux ?<svg
-                width="16"
-                height="16"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg
-              ></button
-            >
-            <div class="faq-a">
-              <p>
-                Pour validation, je montre systématiquement en amont ce que je vais publier à propos de cas clients sur
-                les réseaux.
-              </p>
-            </div>
-          </div>
-          <div class="faq-item">
-            <button class="faq-q" onclick="toggleFaq(this)"
-              >Avez-vous des secteurs de prédilection ?<svg
-                width="16"
-                height="16"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg
-              ></button
-            >
-            <div class="faq-a">
-              <p>Oui, tout ce qui touche aux biens communs : agriculture, villes connectées, qualité de vie.</p>
-            </div>
-          </div>
-          <div class="faq-item">
-            <button class="faq-q" onclick="toggleFaq(this)"
-              >Est-ce que vous êtes assuré professionnellement ?<svg
-                width="16"
-                height="16"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg
-              ></button
-            >
-            <div class="faq-a"><p>Oui, chez Axa. Justificatif à disposition sur demande.</p></div>
-          </div>
-          <div class="faq-item">
-            <button class="faq-q" onclick="toggleFaq(this)"
-              >Quel est votre numéro de SIRET ?<svg
-                width="16"
-                height="16"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg
-              ></button
-            >
-            <div class="faq-a">
-              <p>
-                SIRET : 941 321 457 00017. Micro Entreprise, NOELIE JESTIN EI. Papiers de conformité à jour sur demande.
-              </p>
+              <div class="uc-result">✓ Production flexible face aux pénuries / évolutions systèmes</div>
             </div>
           </div>
         </div>
-
-        <a href="/reservation/" class="btn-primary" style="margin:56px auto 0;width:fit-content;display:flex">
+        <a href="/reservation/" class="btn-primary" style="margin:44px auto 0;width:fit-content;display:flex">
           <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"
             ><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg
           >
           Votre plan offert
         </a>
+        <a href="#proof" class="section-cue"
+          ><div class="cue-circle">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"
+              ><polyline points="6 9 12 15 18 9"></polyline></svg
+            >
+          </div><span>Voir des exemples concrets</span></a
+        >
       </div>
     </section>
 
-    <!-- ─── FOOTER ─── -->
-    <footer>
-      <div class="footer-inner">
-        <div class="footer-links">
-          <a href="/terms/">Conditions générales</a>
-          <a href="/privacy/">Confidentialité</a>
+    <!-- ─── PREUVE (Projets) ─── -->
+    <section id="proof">
+      <div class="max-w">
+        <div class="split-text">
+          <div class="section-header">
+            <div class="section-label">Exemples de cas que j'ai déjà traités</div>
+            <h2 class="section-title">
+              Quels <span style="color:var(--teal);">résultats</span> ai-je<br />déjà obtenus ?
+            </h2>
+          </div>
+          <div class="projects-list">
+            <div class="project-row">
+              <div class="project-badge">EdTech<br />(PomeLabs)</div>
+              <div>
+                <h3>De la mise à jour manuelle à l'OTA en 1 clic</h3>
+                <p>Construction complète du pipeline OTA : firmware, intégration web app et communication cartes.</p>
+              </div>
+              <div class="project-meta"><span>Rôle</span><strong>Solo freelance</strong></div>
+            </div>
+            <div class="project-row">
+              <div class="project-badge">Système de détection incendie<br />(Réseau DEF)</div>
+              <div>
+                <h3>Remettre de l'ordre dans un système complexe</h3>
+                <p>Débogage et optimisation d'une architecture embarquée critique</p>
+              </div>
+              <div class="project-meta"><span>Rôle</span><strong>Tech lead, équipe 5</strong></div>
+            </div>
+            <div class="project-row">
+              <div class="project-badge">GreenTech<br />(Qarnot)</div>
+              <div>
+                <h3>Rendre la production flexible</h3>
+                <p>Adaptation Yocto à une nouvelle gamme de cartes pour maintenir la production en cas de pénurie.</p>
+              </div>
+              <div class="project-meta"><span>Rôle</span><strong>Ingénieur logiciel embarqué, Équipe de 4</strong></div>
+            </div>
+          </div>
+          <a href="/reservation/" class="btn-primary" style="margin:44px auto 0;width:fit-content;display:flex">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"
+              ><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg
+            >
+            Votre plan offert
+          </a>
+          <a href="#reviews" class="section-cue" style="margin-top:24px"
+            ><div class="cue-circle">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"
+                ><polyline points="6 9 12 15 18 9"></polyline></svg
+              >
+            </div><span>Voir ce qu'ils en disent</span></a
+          >
         </div>
-        <span>Copyright © 2026 - Embedded<span style="color:var(--teal);">Partner</span></span>
       </div>
-    </footer>
-  </div>
+    </section>
+
+    <!-- ─── TÉMOIGNAGES (avec photos) ─── -->
+    <section id="reviews">
+      <div class="max-w">
+        <div class="section-header" style="text-align:center">
+          <div class="section-label" style="justify-content:center">Témoignages</div>
+          <h2 class="section-title">Ce qu'ils <span style="color:var(--teal);">en disent</span></h2>
+          <p class="section-sub" style="margin:0 auto">
+            Avis vérifiés d'ingénieurs et de fondateurs ayant travaillé avec moi.
+          </p>
+        </div>
+        <div class="hero-marquee" style="max-width:100%;margin-top:0">
+          <div class="hero-marquee-track" id="reviews-track">
+            <div class="review-card">
+              <blockquote>
+                « STid a fait appel à Noëlie pour une mission dont nous avons été pleinement satisfaits. Nous avons
+                apprécié ses compétences et son professionnalisme. »
+              </blockquote>
+              <div class="review-author">
+                <div><strong>Joffray Henné</strong><span>Expert en traçabilité RFID</span></div>
+              </div>
+              <div class="review-source">
+                <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                  ><path d="M9 12l2 2 4-4m6 2a9 9 0 1 1-18 0 9 9 0 0 1 18 0z"></path></svg
+                >
+                Vérifié sur LinkedIn
+              </div>
+            </div>
+            <div class="review-card">
+              <blockquote>
+                « Noëlie adopte une démarche itérative efficace, qui nous a permis d'avancer dans les bonnes directions.
+                Les livrables sont de grande qualité : bien documentés, clairement expliqués et parfaitement conformes à
+                nos attentes. Je recommande sans réserve. »
+              </blockquote>
+              <div class="review-author">
+                <div><strong>Karim Hcini</strong><span>CEO, PomeLabs</span></div>
+              </div>
+              <div class="review-source">
+                <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                  ><path d="M9 12l2 2 4-4m6 2a9 9 0 1 1-18 0 9 9 0 0 1 18 0z"></path></svg
+                >
+                Vérifié sur Malt
+              </div>
+            </div>
+            <div class="review-card">
+              <blockquote>
+                « J'ai recruté et managé Noëlie pendant plusieurs années. Elle s'est bien intégrée à l'équipe et a
+                rapidement pris des responsabilités au-delà de son périmètre de manière autonome. Très efficace, avec
+                des développements de qualité. »
+              </blockquote>
+              <div class="review-author">
+                <div><strong>Marion Lok</strong><span>Chef de projet, SEFI</span></div>
+              </div>
+              <div class="review-source">
+                <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                  ><path d="M9 12l2 2 4-4m6 2a9 9 0 1 1-18 0 9 9 0 0 1 18 0z"></path></svg
+                >
+                Vérifié sur Malt
+              </div>
+            </div>
+            <div class="review-card">
+              <blockquote>
+                « J'ai eu la chance de travailler avec Noëlie sur un projet en commun pour un de nos clients. J'ai
+                beaucoup apprécié son professionnalisme. »
+              </blockquote>
+              <div class="review-author">
+                <div><strong>Serge Noel</strong><span>DevSecOps</span></div>
+              </div>
+              <div class="review-source">
+                <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                  ><path d="M9 12l2 2 4-4m6 2a9 9 0 1 1-18 0 9 9 0 0 1 18 0z"></path></svg
+                >
+                Vérifié sur LinkedIn
+              </div>
+            </div>
+            <div class="review-card">
+              <blockquote>
+                « J'ai travaillé avec Noëlie pendant deux ans chez SEFI. Rigoureuse et méthodique, elle a su délivrer un
+                code fiable et maintenable. Elle se distingue par un excellent relationnel et un vrai sens du collectif,
+                dans un esprit low ego. »
+              </blockquote>
+              <div class="review-author">
+                <div><strong>Jean-Stanislas Russocki</strong><span>Embedded SW Engineer, Airbus</span></div>
+              </div>
+              <div class="review-source">
+                <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                  ><path d="M9 12l2 2 4-4m6 2a9 9 0 1 1-18 0 9 9 0 0 1 18 0z"></path></svg
+                >
+                Vérifié sur Malt
+              </div>
+            </div>
+            <div class="review-card">
+              <blockquote>
+                « STid a fait appel à Noëlie pour une mission dont nous avons été pleinement satisfaits. Nous avons
+                apprécié ses compétences et son professionnalisme. »
+              </blockquote>
+              <div class="review-author">
+                <div><strong>Joffray Henné</strong><span>Expert en traçabilité RFID</span></div>
+              </div>
+              <div class="review-source">
+                <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                  ><path d="M9 12l2 2 4-4m6 2a9 9 0 1 1-18 0 9 9 0 0 1 18 0z"></path></svg
+                >
+                Vérifié sur LinkedIn
+              </div>
+            </div>
+            <div class="review-card">
+              <blockquote>
+                « Noëlie adopte une démarche itérative efficace, qui nous a permis d'avancer dans les bonnes directions.
+                Les livrables sont de grande qualité : bien documentés, clairement expliqués et parfaitement conformes à
+                nos attentes. Je recommande sans réserve. »
+              </blockquote>
+              <div class="review-author">
+                <div><strong>Karim Hcini</strong><span>CEO, PomeLabs</span></div>
+              </div>
+              <div class="review-source">
+                <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                  ><path d="M9 12l2 2 4-4m6 2a9 9 0 1 1-18 0 9 9 0 0 1 18 0z"></path></svg
+                >
+                Vérifié sur Malt
+              </div>
+            </div>
+            <div class="review-card">
+              <blockquote>
+                « J'ai recruté et managé Noëlie pendant plusieurs années. Elle s'est bien intégrée à l'équipe et a
+                rapidement pris des responsabilités au-delà de son périmètre de manière autonome. Très efficace, avec
+                des développements de qualité. »
+              </blockquote>
+              <div class="review-author">
+                <div><strong>Marion Lok</strong><span>Chef de projet, SEFI</span></div>
+              </div>
+              <div class="review-source">
+                <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                  ><path d="M9 12l2 2 4-4m6 2a9 9 0 1 1-18 0 9 9 0 0 1 18 0z"></path></svg
+                >
+                Vérifié sur Malt
+              </div>
+            </div>
+            <div class="review-card">
+              <blockquote>
+                « J'ai eu la chance de travailler avec Noëlie sur un projet en commun pour un de nos clients. J'ai
+                beaucoup apprécié son professionnalisme. »
+              </blockquote>
+              <div class="review-author">
+                <div><strong>Serge Noel</strong><span>DevSecOps</span></div>
+              </div>
+              <div class="review-source">
+                <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                  ><path d="M9 12l2 2 4-4m6 2a9 9 0 1 1-18 0 9 9 0 0 1 18 0z"></path></svg
+                >
+                Vérifié sur LinkedIn
+              </div>
+            </div>
+            <div class="review-card">
+              <blockquote>
+                « J'ai travaillé avec Noëlie pendant deux ans chez SEFI. Rigoureuse et méthodique, elle a su délivrer un
+                code fiable et maintenable. Elle se distingue par un excellent relationnel et un vrai sens du collectif,
+                dans un esprit low ego. »
+              </blockquote>
+              <div class="review-author">
+                <div><strong>Jean-Stanislas Russocki</strong><span>Embedded SW Engineer, Airbus</span></div>
+              </div>
+              <div class="review-source">
+                <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                  ><path d="M9 12l2 2 4-4m6 2a9 9 0 1 1-18 0 9 9 0 0 1 18 0z"></path></svg
+                >
+                Vérifié sur Malt
+              </div>
+            </div>
+          </div>
+        </div>
+        <a href="/reservation/" class="btn-primary" style="margin:44px auto 0;width:fit-content;display:flex">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"
+            ><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg
+          >
+          Votre plan offert
+        </a>
+        <a href="#faq" class="section-cue"
+          ><div class="cue-circle">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"
+              ><polyline points="6 9 12 15 18 9"></polyline></svg
+            >
+          </div><span>Vous avez des questions ?</span></a
+        >
+      </div>
+    </section>
+
+    <!-- ─── FAQ (Objections) ─── -->
+    <div class="page-end">
+      <section id="faq">
+        <div class="max-w">
+          <div class="section-header" style="text-align:center">
+            <div class="section-label" style="justify-content:center">FAQ</div>
+            <h2 class="section-title">Vous avez des <span style="color:var(--teal);">questions</span> ?</h2>
+          </div>
+          <div class="faq-list">
+            <div class="faq-item">
+              <button class="faq-q" onclick="toggleFaq(this)"
+                >Combien ça coûte ?<svg
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg
+                ></button
+              >
+              <div class="faq-a">
+                <p>
+                  Taux journalier ou forfait selon le périmètre. Dans tous les cas le budget global sera indiqué dans le
+                  plan fourni après le 1er appel. J'y propose 3 options tarifaires au choix, du plus "minimum vital" au
+                  "bonus".
+                </p>
+              </div>
+            </div>
+            <div class="faq-item">
+              <button class="faq-q" onclick="toggleFaq(this)"
+                >Quelle durée minimale pour une mission ?<svg
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg
+                ></button
+              >
+              <div class="faq-a">
+                <p>
+                  Des interventions ciblées de quelques jours jusqu'à 3 à 6 mois par périmètre maximum. J'assure
+                  également le transfert d'informations à vos équipes pour que vous repreniez la main en confiance.
+                </p>
+              </div>
+            </div>
+            <div class="faq-item">
+              <button class="faq-q" onclick="toggleFaq(this)"
+                >Est-ce que vous vous déplacez sur site ?<svg
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg
+                ></button
+              >
+              <div class="faq-a">
+                <p>
+                  Je travaille principalement en télétravail mais selon le besoin de la mission, des interventions
+                  ponctuelles sur place peuvent être possibles.
+                </p>
+              </div>
+            </div>
+            <div class="faq-item">
+              <button class="faq-q" onclick="toggleFaq(this)"
+                >Comment on sait quel matériel vous envoyer ?<svg
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg
+                ></button
+              >
+              <div class="faq-a">
+                <p>
+                  Je fournis une liste dans le plan initial et j'informe rapidement en cas d'imprévu nécessitant du
+                  matériel supplémentaire.
+                </p>
+              </div>
+            </div>
+            <div class="faq-item">
+              <button class="faq-q" onclick="toggleFaq(this)"
+                >Quel matériel avez-vous déjà dans votre propre labo ?<svg
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg
+                ></button
+              >
+              <div class="faq-a faq-a-long">
+                <p>
+                  Oscilloscope Rigol, multimètre, breadboard (et beaucoup trop de câbles Dupont !). Station de soudure
+                  et ses ressources. Debug : sondes ST et Tigard, avec du matériel de debug supplémentaire acquis si
+                  besoin pour votre produit. Quelques cartes de développement. Embouts et adaptateurs divers.<br /><br
+                  />Note : mon labo est sans cesse en évolution.
+                </p>
+              </div>
+            </div>
+            <div class="faq-item">
+              <button class="faq-q" onclick="toggleFaq(this)"
+                >Combien de temps de suivi avons-nous besoin ?<svg
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg
+                ></button
+              >
+              <div class="faq-a faq-a-long">
+                <p>
+                  <strong>Début de projet — 1h à 1h30 :</strong><br />Appel de cadrage en visio + votre lecture du plan
+                  reçu (max 10 slides) + signatures papiers divers.
+                </p>
+                <p>
+                  <strong>En cours de projet — 30' à 1h par semaine :</strong><br />Chaque semaine : visio de 30 minutes
+                  à 1h par semaine et/ou courts messages de mise à jour dans le canal de votre choix.
+                </p>
+                <p>
+                  <strong>Si besoin : Fin de projet — 1h :</strong><br />Si le périmètre est assez conséquent, une
+                  session dédiée 1H pour le bilan global de ce qui a été fait et vos dernières questions.
+                </p>
+              </div>
+            </div>
+            <div class="faq-item">
+              <button class="faq-q" onclick="toggleFaq(this)"
+                >Faut-il avoir des connaissances en IoT pour vous contacter avec une idée ?<svg
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg
+                ></button
+              >
+              <div class="faq-a">
+                <p>Non, pas besoin. Je m'adapte à tous les niveaux techniques dans ma communication.</p>
+              </div>
+            </div>
+            <div class="faq-item">
+              <button class="faq-q" onclick="toggleFaq(this)"
+                >Sur quel fabricant de carte / MCU travaillez-vous ?<svg
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg
+                ></button
+              >
+              <div class="faq-a"><p>Je m'adapte : j'ai travaillé sur beaucoup de cartes différentes.</p></div>
+            </div>
+            <div class="faq-item">
+              <button class="faq-q" onclick="toggleFaq(this)"
+                >Travaillez-vous avec l'IA ?<svg
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg
+                ></button
+              >
+              <div class="faq-a">
+                <p>
+                  Oui, pour optimiser ma productivité. Sur demande, je peux utiliser uniquement des IA locales pour
+                  préserver vos données.
+                </p>
+              </div>
+            </div>
+            <div class="faq-item">
+              <button class="faq-q" onclick="toggleFaq(this)"
+                >Signez-vous des NDA ?<svg
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg
+                ></button
+              >
+              <div class="faq-a">
+                <p>
+                  La confidentialité est une priorité : je signe systématiquement après relecture un accord de
+                  confidentialité si vous le souhaitez.
+                </p>
+              </div>
+            </div>
+            <div class="faq-item">
+              <button class="faq-q" onclick="toggleFaq(this)"
+                >Comment gérez-vous niveau confidentialité la publication de cas client sur les réseaux ?<svg
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg
+                ></button
+              >
+              <div class="faq-a">
+                <p>
+                  Pour validation, je montre systématiquement en amont ce que je vais publier à propos de cas clients
+                  sur les réseaux.
+                </p>
+              </div>
+            </div>
+            <div class="faq-item">
+              <button class="faq-q" onclick="toggleFaq(this)"
+                >Avez-vous des secteurs de prédilection ?<svg
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg
+                ></button
+              >
+              <div class="faq-a">
+                <p>Oui, tout ce qui touche aux biens communs : agriculture, villes connectées, qualité de vie.</p>
+              </div>
+            </div>
+            <div class="faq-item">
+              <button class="faq-q" onclick="toggleFaq(this)"
+                >Est-ce que vous êtes assuré professionnellement ?<svg
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg
+                ></button
+              >
+              <div class="faq-a"><p>Oui, chez Axa. Justificatif à disposition sur demande.</p></div>
+            </div>
+            <div class="faq-item">
+              <button class="faq-q" onclick="toggleFaq(this)"
+                >Quel est votre numéro de SIRET ?<svg
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg
+                ></button
+              >
+              <div class="faq-a">
+                <p>
+                  SIRET : 941 321 457 00017. Micro Entreprise, NOELIE JESTIN EI. Papiers de conformité à jour sur
+                  demande.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <a href="/reservation/" class="btn-primary" style="margin:56px auto 0;width:fit-content;display:flex">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"
+              ><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg
+            >
+            Votre plan offert
+          </a>
+        </div>
+      </section>
+
+      <!-- ─── FOOTER ─── -->
+      <footer>
+        <div class="footer-inner">
+          <div class="footer-links">
+            <a href="/terms/">Conditions générales</a>
+            <a href="/privacy/">Confidentialité</a>
+          </div>
+          <span>Copyright © 2026 - Embedded<span style="color:var(--teal);">Partner</span></span>
+        </div>
+      </footer>
+    </div>
   </main>
 
   <script is:inline>
