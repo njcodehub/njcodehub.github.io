@@ -10,10 +10,19 @@ const metadata = {
 
 <Layout metadata={metadata}>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
     href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
     rel="stylesheet"
+    media="print"
+    onload="this.media='all'"
   />
+  <noscript>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </noscript>
   <style is:global>
     :root {
       --bg: #0d1118;
@@ -1082,6 +1091,17 @@ const metadata = {
       section {
         padding: 64px 22px;
       }
+      /* Sur mobile, l'image "135% auto" ne couvrait qu'une bande au centre
+         (d'où les zones sombres au-dessus/en-dessous) : on passe en cover. */
+      #problem::before {
+        background-size: cover;
+      }
+      #solution,
+      #proof,
+      #reviews,
+      .page-end {
+        --section-size: cover;
+      }
       .topbar {
         padding: 18px 22px;
       }
@@ -1191,13 +1211,27 @@ const metadata = {
   <!-- ─── HERO ─── -->
   <section id="hero">
     <div class="hero-media">
-      <img
-        src="/images/hero-embedded-partner.jpg"
-        alt=""
-        loading="eager"
-        fetchpriority="high"
-        style="width:100%;height:100%;object-fit:cover;display:block"
-      />
+      <picture>
+        <source
+          type="image/avif"
+          srcset="/images/hero-1280.avif 1280w, /images/hero-1920.avif 1920w"
+          sizes="100vw"
+        />
+        <source
+          type="image/webp"
+          srcset="/images/hero-1280.webp 1280w, /images/hero-1920.webp 1920w"
+          sizes="100vw"
+        />
+        <img
+          src="/images/hero-1920.jpg"
+          alt=""
+          width="4080"
+          height="1981"
+          loading="eager"
+          fetchpriority="high"
+          style="width:100%;height:100%;object-fit:cover;display:block"
+        />
+      </picture>
       <div class="hero-scrim"></div>
     </div>
 
