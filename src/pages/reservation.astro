@@ -68,6 +68,34 @@ const metadata = {
     .brand span {
       color: var(--teal);
     }
+    .page-end {
+      position: relative;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      isolation: isolate;
+      overflow: hidden;
+    }
+    .page-end::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      z-index: -2;
+      background: url('/images/contact.jpg') center bottom / cover no-repeat;
+      opacity: 0.34;
+      filter: grayscale(1) sepia(1) hue-rotate(175deg) saturate(1.5) brightness(0.92) contrast(1.05);
+      mask-image: linear-gradient(to bottom, transparent 0%, #000 10%, #000 100%);
+      -webkit-mask-image: linear-gradient(to bottom, transparent 0%, #000 10%, #000 100%);
+    }
+    .page-end::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      z-index: -1;
+      background:
+        radial-gradient(120% 80% at 50% 0%, rgba(0, 200, 200, 0.1), transparent 60%),
+        linear-gradient(to bottom, rgba(12, 22, 44, 0.55), rgba(12, 22, 44, 0.74));
+    }
     main {
       flex: 1;
       display: flex;
@@ -164,8 +192,10 @@ const metadata = {
       font-weight: 600;
     }
     footer {
-      background: #090d13;
-      border-top: 1px solid var(--border);
+      position: relative;
+      z-index: 1;
+      background: transparent;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
       padding: 40px 48px 32px;
       text-align: center;
     }
@@ -199,6 +229,7 @@ const metadata = {
   <div class="topbar">
     <a href="/" class="brand">Embedded<span>Partner</span></a>
   </div>
+  <div class="page-end">
   <main>
     <div class="booking-card">
       <h1>Réservez votre appel <em>gratuit</em> de 30 minutes</h1>
@@ -226,4 +257,5 @@ const metadata = {
       <span>Copyright © 2026 - Embedded<span style="color:var(--teal);">Partner</span></span>
     </div>
   </footer>
+  </div>
 </Layout>
