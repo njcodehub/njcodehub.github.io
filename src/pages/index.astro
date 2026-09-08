@@ -1053,8 +1053,10 @@ const metadata = {
 
     /* ─── FOOTER ─── */
     footer {
-      background: #090d13;
-      border-top: 1px solid var(--border);
+      position: relative;
+      z-index: 1;
+      background: transparent;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
       padding: 40px 48px 32px;
       text-align: center;
     }
@@ -1937,19 +1939,19 @@ const metadata = {
         </a>
       </div>
     </section>
+
+    <!-- ─── FOOTER ─── -->
+    <footer>
+      <div class="footer-inner">
+        <div class="footer-links">
+          <a href="/terms/">Conditions générales</a>
+          <a href="/privacy/">Confidentialité</a>
+        </div>
+        <span>Copyright © 2026 - Embedded<span style="color:var(--teal);">Partner</span></span>
+      </div>
+    </footer>
   </div>
   </main>
-
-  <!-- ─── FOOTER ─── -->
-  <footer>
-    <div class="footer-inner">
-      <div class="footer-links">
-        <a href="/terms/">Conditions générales</a>
-        <a href="/privacy/">Confidentialité</a>
-      </div>
-      <span>Copyright © 2026 - Embedded<span style="color:var(--teal);">Partner</span></span>
-    </div>
-  </footer>
 
   <script is:inline>
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
